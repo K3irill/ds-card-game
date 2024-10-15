@@ -3,3 +3,151 @@
 @import 'mixins';
 @import 'animations';
 @import 'fonts';
+
+#app {
+	min-height: 100%;
+	position: relative;
+}
+.__container {
+	max-width: 1206px;
+	margin: 0 auto;
+	// padding: 0 0;
+}
+//----for-ui-components:
+.link-category {
+	border-radius: 20px;
+	background-color: transparent;
+	padding: 8px 18px;
+	border: 1.2px solid $btn-border;
+	font-size: 15px;
+	font-weight: 500;
+	text-wrap: nowrap;
+}
+.link-category--design {
+	&:hover,
+	&:active {
+		background-color: $label-design;
+	}
+}
+.link-category--programming {
+	&:hover,
+	&:active {
+		background-color: $label-programming;
+	}
+}
+.link-category--gaming {
+	&:hover,
+	&:active {
+		background-color: $label-gaming;
+	}
+}
+.link-category--marketing {
+	&:hover,
+	&:active {
+		background-color: $label-marketing;
+	}
+}
+.link-category--software {
+	&:hover,
+	&:active {
+		background-color: $label-software;
+	}
+}
+.link-category--career {
+	&:hover,
+	&:active {
+		background-color: $label-career;
+	}
+}
+
+//<-----HEADER----->
+.header {
+	position: absolute;
+	top: 0;
+	font-family: $font-secondary;
+	padding: 17.5px 0px;
+	position: relative;
+	&__container {
+		@include flex-horizontal-center;
+		justify-content: space-between;
+		@media (max-width: 1279px) {
+			& {
+				padding: 0px 34px;
+			}
+		}
+		@media (max-width: 767px) {
+			& {
+				padding: 0px 8px;
+			}
+		}
+	}
+	&__logo-block {
+		height: 40px;
+		&:hover {
+			path {
+				fill: #da3369;
+			}
+		}
+		& svg:first-child {
+			margin-right: 5px;
+		}
+	}
+	&__navigation {
+		@include flex-horizontal-center;
+		justify-content: center;
+		white-space: nowrap;
+		@media (max-width: 1279px) {
+			& {
+				justify-content: flex-start;
+				top: 81px;
+				position: absolute;
+				width: 90%;
+				overflow-x: auto;
+				scrollbar-width: none;
+			}
+		}
+	}
+	&__nav-list {
+		display: flex;
+		flex-wrap: nowrap;
+		padding: 0;
+		width: -webkit-max-content;
+		width: -moz-max-content;
+		width: max-content;
+	}
+	&__nav-item {
+		flex-shrink: 0;
+
+		margin-right: 10px;
+	}
+	&__search-block {
+		display: flex;
+		& > button {
+			background-color: transparent;
+			border: none;
+		}
+		& > button:first-child {
+			margin-right: 26px;
+		}
+	}
+	&__link-ebac {
+		display: flex;
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 1.5px;
+			width: 0;
+			background-color: $label-gaming;
+			@include transition(width);
+		}
+		&:hover::after {
+			width: 100%;
+		}
+		& span {
+			margin-right: 9px;
+		}
+	}
+}
