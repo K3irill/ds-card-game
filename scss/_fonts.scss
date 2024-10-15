@@ -1,0 +1,54 @@
+//Nunito
+
+@font-face {
+	font-family: 'Nunito';
+	src: url('../assets/fonts/Nunito/Nunito-VariableFont_wght.ttf')
+		format('truetype');
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito';
+	src: url('../assets/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf')
+		format('truetype');
+	font-weight: 100 900;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nunito';
+	src: url('../assets/fonts/static/Nunito-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito';
+	src: url('../assets/fonts/static/Nunito-BlackItalic.ttf') format('truetype');
+	font-weight: 900;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nunito';
+	src: url('../assets/fonts/static/Nunito-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nunito';
+	src: url('../assets/fonts/static/Nunito-BoldItalic.ttf') format('truetype');
+	font-weight: 700;
+	font-style: italic;
+}
+//Archivo_Black
+
+@font-face {
+	font-family: 'Archivo Black';
+	src: url('../assets/fonts/Archivo_Black/ArchivoBlack-Regular.ttf')
+		format('truetype');
+	font-weight: 100 900;
+	font-style: normal;
+}
