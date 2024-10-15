@@ -37,7 +37,6 @@ body {
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	font-size: 15px;
-	color: $primary;
 	background-color: $bg-primary;
 }
 
@@ -87,5 +86,17 @@ span,
 p,
 a {
 	font-family: $font-secondary;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+span,
+p,
+a {
+	color: $primary;
 }
 /*  */
