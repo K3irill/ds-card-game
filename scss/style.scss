@@ -17,7 +17,7 @@
 .link-category {
 	border-radius: 20px;
 	background-color: transparent;
-	padding: 8px 18px;
+	padding: 8px 17px;
 	border: 1.2px solid $btn-border;
 	font-size: 15px;
 	font-weight: 500;
@@ -77,12 +77,18 @@
 		}
 		@media (max-width: 767px) {
 			& {
-				padding: 0px 8px;
+				padding: 4px 10px 0 10px;
 			}
 		}
 	}
 	&__logo-block {
 		height: 40px;
+		width: 120px;
+		& a {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+		}
 		&:hover {
 			path {
 				fill: #da3369;
@@ -90,6 +96,14 @@
 		}
 		& svg:first-child {
 			margin-right: 5px;
+		}
+		@media (max-width: 767px) {
+			& svg {
+				transform: scale(1.2);
+				&:first-child {
+					margin-right: 15px;
+				}
+			}
 		}
 	}
 	&__navigation {
@@ -101,7 +115,8 @@
 				justify-content: flex-start;
 				top: 81px;
 				position: absolute;
-				width: 90%;
+				width: 97%;
+				height: 40px;
 				overflow-x: auto;
 				scrollbar-width: none;
 			}
@@ -133,6 +148,7 @@
 	&__link-ebac {
 		display: flex;
 		position: relative;
+		font-weight: 500;
 		&::after {
 			content: '';
 			position: absolute;
