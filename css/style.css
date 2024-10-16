@@ -429,4 +429,118 @@ a {
 }
 .header__link-ebac span {
   margin-right: 9px;
+}
+
+.article-preview__container {
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+}
+.article-preview__image-wrapper {
+  position: relative;
+  height: 560px;
+}
+.article-preview__image-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+.article-preview__img {
+  -webkit-clip-path: url(#article-preview-mask);
+          clip-path: url(#article-preview-mask);
+  min-width: 480px;
+  max-height: 560px;
+}
+.article-preview__sticker {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 180px;
+  max-height: 180px;
+}
+.article-preview__content {
+  margin-left: 40px;
+}
+.article-preview__category {
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 18px;
+}
+.article-preview__category span {
+  border-radius: 20px;
+  color: #1b1f21;
+  padding: 8px 18px;
+}
+.article-preview__category,
+.article-preview__category ul {
+  display: flex;
+  align-items: center;
+}
+.article-preview__category ul {
+  margin-left: 16px;
+}
+.article-preview__category ul li:not(:last-child) {
+  margin-right: 10px;
+}
+.article-preview__category--gaming {
+  color: #bedb39;
+}
+.article-preview__category--gaming span {
+  background-color: #bedb39;
+}
+.article-preview__title {
+  font-size: 36px;
+  line-height: 116.6666666667%;
+  max-width: 580px;
+}
+.article-preview__description, .article-preview__info {
+  font-family: "Nunito", sans-serif;
+}
+.article-preview__description {
+  margin: 16px 0;
+  font-size: 18px;
+  color: #757778;
+  max-width: 460px;
+}
+.article-preview__info {
+  color: #aeaeae;
+  margin-bottom: 56px;
+}
+.article-preview__info > span:first-child {
+  margin: 0 24px 0 20px;
+}
+.article-preview__reading-time, .article-preview__date {
+  position: relative;
+}
+.article-preview__reading-time::before, .article-preview__date::before {
+  position: absolute;
+  left: -20px;
+}
+.article-preview__date::before {
+  content: url();
+}
+.article-preview__reading-time::before {
+  content: url();
+}
+.article-preview__button {
+  background-color: #bedb39;
+  border: 1px solid black;
+  border-radius: 40px;
+  padding: 15px 55px;
+  display: inline-block;
+  font-size: 18px;
+  border: 3px solid transparent;
+  position: relative;
+}
+.article-preview__button::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.article-preview--gaming {
+  margin-top: 80px;
 }/*# sourceMappingURL=style.css.map */
