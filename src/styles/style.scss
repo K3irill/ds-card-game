@@ -7,11 +7,27 @@
 @import 'article-preview/article-preview';
 @import 'ui/ui';
 #app {
-	min-height: 100%;
 	position: relative;
 }
 .__container {
 	max-width: 1206px;
 	margin: 0 auto;
 	// padding: 0 0;
+}
+.blocks {
+	position: relative;
+}
+.ibg {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+	width: 100%;
+	height: fit-content;
+	@media (max-width: 1279px) {
+		& {
+			top: 50px;
+		}
+	}
 }

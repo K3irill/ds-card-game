@@ -28,7 +28,8 @@ aside {
 }
 
 html,
-body {
+body,
+#app {
 	height: 100%;
 	width: 100%;
 	font-size: 100%;
@@ -84,7 +85,8 @@ h6 {
 li,
 span,
 p,
-a {
+a,
+button {
 	font-family: $font-secondary;
 }
 h1,

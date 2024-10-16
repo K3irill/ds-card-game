@@ -1,8 +1,3 @@
-@import '../reset';
-@import '../variables';
-@import '../mixins';
-@import '../animations';
-@import '../fonts';
 //----for-ui-components:
 .link-category {
 	border-radius: 20px;
@@ -52,5 +47,30 @@
 		&:active {
 			background-color: $label-career;
 		}
+	}
+	//
+	&--design-li {
+		background-color: $label-design;
+		border: none;
+	}
+	&--programming-li {
+		background-color: $label-programming;
+		border: none;
+	}
+	&--gaming-li {
+		background-color: $label-gaming;
+		border: none;
+	}
+	&--marketing-li {
+		background-color: $label-marketing;
+		border: none;
+	}
+	&--software-li {
+		background-color: $label-software;
+		border: none;
+	}
+	&--career-li {
+		background-color: $label-career;
+		border: none;
 	}
 }

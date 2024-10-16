@@ -1,15 +1,11 @@
-@import '../reset';
-@import '../variables';
-@import '../mixins';
-@import '../animations';
-@import '../fonts';
 //<-----HEADER----->
 .header {
-	position: absolute;
+	position: relative;
 	top: 0;
 	font-family: $font-secondary;
 	padding: 17.5px 0px;
-	position: relative;
+	z-index: 999;
+
 	&__container {
 		@include flex-horizontal-center;
 		justify-content: space-between;
@@ -62,7 +58,7 @@
 				justify-content: flex-start;
 				top: 81px;
 				position: absolute;
-				width: 97%;
+				width: 95%;
 				height: 40px;
 				overflow-x: auto;
 				scrollbar-width: none;
