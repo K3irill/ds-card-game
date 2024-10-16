@@ -1,0 +1,17 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+@import 'animations';
+@import 'fonts';
+@import 'header/header';
+@import 'article-preview/article-preview';
+@import 'ui/ui';
+#app {
+	min-height: 100%;
+	position: relative;
+}
+.__container {
+	max-width: 1206px;
+	margin: 0 auto;
+	// padding: 0 0;
+}

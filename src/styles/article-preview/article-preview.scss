@@ -1,0 +1,126 @@
+@import '../reset';
+@import '../variables';
+@import '../mixins';
+@import '../animations';
+@import '../fonts';
+// ---- Article-preview
+.article-preview {
+	&__container {
+		@include flex-horizontal-center;
+		margin-top: 100px;
+	}
+	&__image-wrapper {
+		position: relative;
+		height: 560px;
+		& img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	&__img {
+		clip-path: url(#article-preview-mask);
+		min-width: 480px;
+		max-height: 560px;
+	}
+	&__sticker {
+		position: absolute;
+		top: 0;
+		right: 0;
+		max-width: 180px;
+		max-height: 180px;
+	}
+
+	&__content {
+		margin-left: 40px;
+	}
+	&__category {
+		font-family: $font-secondary;
+		margin-bottom: 18px;
+		& span {
+			border-radius: $radius;
+			color: $primary;
+			padding: 8px 18px;
+		}
+		&,
+		ul {
+			@include flex-horizontal-center;
+		}
+
+		ul {
+			margin-left: 16px;
+			& li:not(:last-child) {
+				margin-right: 10px;
+			}
+		}
+	}
+	&__category--gaming {
+		color: $label-gaming;
+		& span {
+			background-color: $label-gaming;
+		}
+	}
+	&__title {
+		font-size: 36px;
+		line-height: calc(42 / 36 * 100%);
+		max-width: 580px;
+	}
+	&__description,
+	&__info {
+		font-family: $font-secondary;
+	}
+	&__description {
+		margin: 16px 0;
+		font-size: 18px;
+		color: $text-gray;
+		max-width: 460px;
+	}
+	&__info {
+		color: $light-gray;
+		margin-bottom: 56px;
+		& > span:first-child {
+			margin: 0 24px 0 20px;
+		}
+	}
+	&__reading-time,
+	&__date {
+		position: relative;
+		&::before {
+			position: absolute;
+			left: -20px;
+		}
+	}
+	&__date {
+		&::before {
+			content: url();
+		}
+	}
+	&__reading-time {
+		&::before {
+			content: url();
+		}
+	}
+	&__button {
+		background-color: $label-gaming;
+		border: 1px solid black;
+		border-radius: calc($radius * 2);
+		padding: 15px 55px;
+		display: inline-block;
+		font-size: 18px;
+		border: 3px solid transparent;
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			right: 5px;
+			bottom: 5px;
+			border: 2px solid black;
+
+			border-radius: $radius;
+		}
+	}
+}
+.article-preview--gaming {
+	margin-top: 80px;
+}

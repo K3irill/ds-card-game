@@ -1,0 +1,56 @@
+@import '../reset';
+@import '../variables';
+@import '../mixins';
+@import '../animations';
+@import '../fonts';
+//----for-ui-components:
+.link-category {
+	border-radius: 20px;
+	background-color: transparent;
+	padding: 8px 17px;
+	border: 1.2px solid $btn-border;
+	font-size: 15px;
+	font-weight: 500;
+	text-wrap: nowrap;
+	@include transition(background-color);
+	&:hover,
+	&:active {
+		@include transition(background-color);
+	}
+	&--design {
+		&:hover,
+		&:active {
+			background-color: $label-design;
+		}
+	}
+	&--programming {
+		&:hover,
+		&:active {
+			background-color: $label-programming;
+		}
+	}
+	&--gaming {
+		&:hover,
+		&:active {
+			background-color: $label-gaming;
+		}
+	}
+	&--marketing {
+		&:hover,
+		&:active {
+			background-color: $label-marketing;
+		}
+	}
+	&--software {
+		&:hover,
+		&:active {
+			background-color: $label-software;
+		}
+	}
+	&--career {
+		&:hover,
+		&:active {
+			background-color: $label-career;
+		}
+	}
+}
