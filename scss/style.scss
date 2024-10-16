@@ -22,41 +22,46 @@
 	font-size: 15px;
 	font-weight: 500;
 	text-wrap: nowrap;
-}
-.link-category--design {
+	@include transition(background-color);
 	&:hover,
 	&:active {
-		background-color: $label-design;
+		@include transition(background-color);
 	}
-}
-.link-category--programming {
-	&:hover,
-	&:active {
-		background-color: $label-programming;
+	&--design {
+		&:hover,
+		&:active {
+			background-color: $label-design;
+		}
 	}
-}
-.link-category--gaming {
-	&:hover,
-	&:active {
-		background-color: $label-gaming;
+	&--programming {
+		&:hover,
+		&:active {
+			background-color: $label-programming;
+		}
 	}
-}
-.link-category--marketing {
-	&:hover,
-	&:active {
-		background-color: $label-marketing;
+	&--gaming {
+		&:hover,
+		&:active {
+			background-color: $label-gaming;
+		}
 	}
-}
-.link-category--software {
-	&:hover,
-	&:active {
-		background-color: $label-software;
+	&--marketing {
+		&:hover,
+		&:active {
+			background-color: $label-marketing;
+		}
 	}
-}
-.link-category--career {
-	&:hover,
-	&:active {
-		background-color: $label-career;
+	&--software {
+		&:hover,
+		&:active {
+			background-color: $label-software;
+		}
+	}
+	&--career {
+		&:hover,
+		&:active {
+			background-color: $label-career;
+		}
 	}
 }
 
@@ -89,8 +94,12 @@
 			width: 100%;
 			height: 100%;
 		}
+		& path {
+			@include transition(fill);
+		}
 		&:hover {
 			path {
+				@include transition(fill);
 				fill: #da3369;
 			}
 		}
@@ -141,8 +150,13 @@
 			background-color: transparent;
 			border: none;
 		}
-		& > button:first-child {
-			margin-right: 26px;
+	}
+	&__button-search {
+		margin-right: 26px;
+		@include transition(filter);
+		&:hover {
+			@include transition(filter);
+			filter: brightness(4);
 		}
 	}
 	&__link-ebac {

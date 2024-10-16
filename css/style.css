@@ -293,28 +293,26 @@ a {
   font-size: 15px;
   font-weight: 500;
   text-wrap: nowrap;
+  transition: background-color 0.3s ease-in-out;
 }
-
+.link-category:hover, .link-category:active {
+  transition: background-color 0.3s ease-in-out;
+}
 .link-category--design:hover, .link-category--design:active {
   background-color: #ec95b1;
 }
-
 .link-category--programming:hover, .link-category--programming:active {
   background-color: #a4ccfe;
 }
-
 .link-category--gaming:hover, .link-category--gaming:active {
   background-color: #bedb39;
 }
-
 .link-category--marketing:hover, .link-category--marketing:active {
   background-color: #ffad20;
 }
-
 .link-category--software:hover, .link-category--software:active {
   background-color: #acd6de;
 }
-
 .link-category--career:hover, .link-category--career:active {
   background-color: #aedfd6;
 }
@@ -350,7 +348,11 @@ a {
   width: 100%;
   height: 100%;
 }
+.header__logo-block path {
+  transition: fill 0.3s ease-in-out;
+}
 .header__logo-block:hover path {
+  transition: fill 0.3s ease-in-out;
   fill: #da3369;
 }
 .header__logo-block svg:first-child {
@@ -399,8 +401,13 @@ a {
   background-color: transparent;
   border: none;
 }
-.header__search-block > button:first-child {
+.header__button-search {
   margin-right: 26px;
+  transition: filter 0.3s ease-in-out;
+}
+.header__button-search:hover {
+  transition: filter 0.3s ease-in-out;
+  filter: brightness(4);
 }
 .header__link-ebac {
   display: flex;
