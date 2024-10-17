@@ -26,7 +26,10 @@ header,
 aside {
 	display: block;
 }
-
+html,
+body {
+	overflow-x: hidden;
+}
 html,
 body,
 #app {

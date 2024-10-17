@@ -74,3 +74,42 @@
 		border: none;
 	}
 }
+.running-line {
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	padding: 40px 0px;
+	left: -5px;
+	width: 105vw;
+	&__content {
+		display: flex;
+		align-items: center;
+		white-space: nowrap;
+	}
+	&__items {
+		display: flex;
+		-webkit-animation: scrollText 15s linear infinite;
+		animation: scrollText 15s linear infinite;
+	}
+	&__content h2 {
+		display: flex;
+		align-items: center;
+		white-space: nowrap;
+		flex-shrink: 0;
+		padding: 0 50px;
+		font-size: 58px;
+		font-weight: 900;
+	}
+
+	&--articles {
+		background-color: $label-software;
+		transform: rotate($deg);
+		& img {
+			transform: rotate(4deg);
+			margin: 0 10px;
+		}
+	}
+}
+.mt-200px {
+	margin-top: 200px;
+}
