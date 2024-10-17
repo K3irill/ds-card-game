@@ -3,12 +3,17 @@
 	position: relative;
 	top: 80px;
 	padding: 0 8px;
-	@media (max-width: 1279px) {
+	@media (width >= 1280px) {
+		&:hover &__sticker {
+			transform: rotate(360deg);
+		}
+	}
+	@media (width <= 1279px) {
 		& {
 			top: 110px;
 		}
 	}
-	@media (max-width: 767px) {
+	@media (width <= 767px) {
 		& {
 			top: 76px;
 		}
@@ -18,78 +23,89 @@
 		margin-top: 100px;
 		position: relative;
 		z-index: 2;
-		@media (max-width: 1279px) {
+		@media (width <= 1279px) {
 			& {
 				flex-direction: column;
 			}
 		}
 	}
-	&__image-wrapper {
-		position: relative;
-		width: 480px;
-		height: 560px;
-		& img {
-			width: 100%;
-			height: 100%;
-		}
-		@media (max-width: 1279px) {
-			width: 704px;
-			height: 320px;
-		}
-		@media (max-width: 767px) {
-			width: 304px;
-			height: 352px;
-		}
-	}
-	// and (min-width: 767px)
-	&__img {
-		object-fit: cover;
-		clip-path: path(
-			'M0 240C0 107.452 107.452 0 240 0C372.548 0 480 107.452 480 240V560H0V240Z'
-		);
-
-		@media (max-width: 1279px) {
-			& {
-				clip-path: path(
-					'M0 151.232C0 67.7088 67.7088 0 151.232 0C189.825 0 225.041 14.4559 251.762 38.2482C278.482 14.4559 313.699 0 352.291 0C390.744 0 425.845 14.3511 452.53 37.9894C479.215 14.3511 514.316 0 552.768 0C636.291 0 704 67.7088 704 151.232V320H0V151.232Z'
-				);
-			}
-		}
-		@media (max-width: 767px) {
-			& {
-				clip-path: path(
-					'M0 150.857C0 67.541 68.0527 0 152 0C235.947 0 304 67.541 304 150.857V352H0V150.857Z'
-				);
-			}
-		}
-	}
-	// M0 150.857C0 67.541 68.0527 0 152 0C235.947 0 304 67.541 304 150.857V352H0V150.857Z
 	&__sticker {
 		position: absolute;
 		top: 0;
 		right: 0;
 		max-width: 180px;
 		max-height: 180px;
-		@media (max-width: 1279px) {
+		transition: transform 3s ease;
+		@media (width <= 1279px) {
 			top: 7px;
 			right: 10px;
 			max-width: 120px;
 			max-height: 120px;
 		}
-		@media (max-width: 767px) {
+		@media (width <= 767px) {
 			max-width: 104px;
 			max-height: 104px;
 		}
 	}
+	&__image-wrapper {
+		position: relative;
+		width: 480px;
+		height: 560px;
+		transition: transform 3s ease;
+		& img {
+			width: 100%;
+			height: 100%;
+		}
+		@media (width <= 1279px) {
+			width: 704px;
+			height: 320px;
+		}
+		@media (width <= 767px) {
+			width: 304px;
+			height: 352px;
+		}
+	}
+	&__img {
+		-o-object-fit: cover;
+		object-fit: cover;
+		-webkit-clip-path: path(
+			'M0 240C0 107.452 107.452 0 240 0C372.548 0 480 107.452 480 240V560H0V240Z'
+		);
+		clip-path: path(
+			'M0 240C0 107.452 107.452 0 240 0C372.548 0 480 107.452 480 240V560H0V240Z'
+		);
+
+		@media (width <= 1279px) {
+			& {
+				-webkit-clip-path: path(
+					'M0 151.232C0 67.7088 67.7088 0 151.232 0C189.825 0 225.041 14.4559 251.762 38.2482C278.482 14.4559 313.699 0 352.291 0C390.744 0 425.845 14.3511 452.53 37.9894C479.215 14.3511 514.316 0 552.768 0C636.291 0 704 67.7088 704 151.232V320H0V151.232Z'
+				);
+				clip-path: path(
+					'M0 151.232C0 67.7088 67.7088 0 151.232 0C189.825 0 225.041 14.4559 251.762 38.2482C278.482 14.4559 313.699 0 352.291 0C390.744 0 425.845 14.3511 452.53 37.9894C479.215 14.3511 514.316 0 552.768 0C636.291 0 704 67.7088 704 151.232V320H0V151.232Z'
+				);
+			}
+		}
+		@media (width <= 767px) {
+			& {
+				-webkit-clip-path: path(
+					'M0 150.857C0 67.541 68.0527 0 152 0C235.947 0 304 67.541 304 150.857V352H0V150.857Z'
+				);
+				clip-path: path(
+					'M0 150.857C0 67.541 68.0527 0 152 0C235.947 0 304 67.541 304 150.857V352H0V150.857Z'
+				);
+			}
+		}
+	}
+
 	&__content-wrapper {
 		margin: -10px 0 0 40px;
-		@media (max-width: 1279px) {
+		@media (width <= 1279px) {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			margin-left: 56px;
 		}
-		@media (max-width: 767px) {
+		@media (width <= 767px) {
 			& {
 				margin-left: 0;
 			}
@@ -98,11 +114,11 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
-		@media (max-width: 1279px) {
+		@media (width <= 1279px) {
 			margin-top: 34px;
 			flex-direction: row;
 		}
-		@media (max-width: 767px) {
+		@media (width <= 767px) {
 			margin-top: 29px;
 			flex-direction: column;
 		}
@@ -125,13 +141,13 @@
 			& li:not(:last-child) {
 				margin-right: 10px;
 			}
-			@media (min-width: 1280px) {
+			@media (width >= 1280px) {
 				& {
 					margin-left: 16px;
 				}
 			}
 		}
-		@media (max-width: 1279px) and (min-width: 767px) {
+		@media (width <= 1279px) and (width >= 767px) {
 			& {
 				flex-direction: column;
 				align-items: end;
@@ -158,7 +174,7 @@
 		line-height: calc(42 / 36 * 100%);
 		font-weight: 900;
 		max-width: 580px;
-		@media (max-width: 1279px) {
+		@media (width <= 1279px) {
 			margin-top: 12px;
 			font-size: 26px;
 			max-width: 480px;
@@ -187,7 +203,7 @@
 		& span {
 			color: $light-gray;
 		}
-		@media (max-width: 1279px) and (min-width: 767px) {
+		@media (width <= 1279px) and (width >= 767px) {
 			display: none;
 			& > span:first-child {
 				margin: 0;
@@ -204,7 +220,7 @@
 		flex-direction: column;
 		align-items: end;
 		margin-right: 10px;
-		@media (min-width: 767px) and (max-width: 1279px) {
+		@media (width >= 767px) and (width <= 1279px) {
 			display: flex;
 		}
 	}
@@ -213,7 +229,7 @@
 		&::before {
 			content: url(/assets/icons/icon-calendar.svg);
 		}
-		@media (max-width: 1279px) and (min-width: 767px) {
+		@media (width <= 1279px) and (width >= 767px) {
 			&::after {
 				content: url(/assets/icons/icon-calendar.svg);
 			}
@@ -223,7 +239,7 @@
 		&::before {
 			content: url(/assets/icons/icon-time.svg);
 		}
-		@media (max-width: 1279px) and (min-width: 767px) {
+		@media (width <= 1279px) and (width >= 767px) {
 			&::after {
 				content: url(/assets/icons/icon-time.svg);
 			}
@@ -237,7 +253,7 @@
 			left: -20px;
 			top: 0;
 		}
-		@media (max-width: 1279px) and (min-width: 767px) {
+		@media (width <= 1279px) and (width >= 767px) {
 			&::before {
 				content: '';
 			}
@@ -257,6 +273,7 @@
 		font-size: 18px;
 		border: 3px solid transparent;
 		position: relative;
+		@include transition(all);
 		&::before {
 			content: '';
 			position: absolute;
@@ -266,12 +283,36 @@
 			bottom: 3px;
 			border: 2px solid black;
 			border-radius: $radius;
+			@include transition(all);
 		}
-		@media (max-width: 1279px) and (min-width: 767px) {
+		@media (width >= 1280px) {
+			&:hover {
+				@include transition(all);
+				-webkit-filter: brightness(1.1);
+				filter: brightness(1.1);
+				&::before {
+					@include transition(all);
+					top: 1px;
+					left: 1px;
+					right: 1px;
+					bottom: 1px;
+				}
+			}
+			&:active {
+				&::before {
+					transition: 0.1s;
+					top: 5px;
+					left: 5px;
+					right: 5px;
+					bottom: 5px;
+				}
+			}
+		}
+		@media (width <= 1279px) and (width >= 767px) {
 			margin-top: 45px;
 			margin-left: -50px;
 		}
-		@media (max-width: 767px) {
+		@media (width <= 767px) {
 			margin-top: 5px;
 			width: 100%;
 		}
