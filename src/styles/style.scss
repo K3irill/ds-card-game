@@ -3,9 +3,10 @@
 @import 'mixins';
 @import 'animations';
 @import 'fonts';
+@import 'ui/ui';
 @import 'header/header';
 @import 'article-preview/article-preview';
-@import 'ui/ui';
+@import 'articles-block/articles-block';
 #app {
 	position: relative;
 }
@@ -29,5 +30,13 @@
 		& {
 			top: 50px;
 		}
+	}
+}
+.ibg-ap {
+	@media (width <= 1279px) {
+		top: -5%;
+	}
+	@media (width <= 767px) {
+		top: -2%;
 	}
 }
