@@ -2,15 +2,15 @@
 	background-image: url('/public/assets/images/backgrounds/articles-block-line-bg-1280px.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+	position: relative;
+	z-index: 1;
+	padding-bottom: 200px;
 	@media (width <= 1279px) {
 		background-image: url('/public/assets/images/backgrounds/articles-block-line-bg-768px.png');
 	}
 	@media (width <= 767px) {
 		background-image: url('/public/assets/images/backgrounds/articles-block-line-bg-320px.png');
 	}
-
-	position: relative;
-	z-index: 1;
 	&__container {
 		display: grid;
 

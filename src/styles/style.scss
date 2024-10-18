@@ -7,6 +7,7 @@
 @import 'header/header';
 @import 'article-preview/article-preview';
 @import 'articles-block/articles-block';
+@import 'webinars-block/webinars-block';
 #app {
 	position: relative;
 }
@@ -38,5 +39,23 @@
 	}
 	@media (width <= 767px) {
 		top: -2%;
+	}
+}
+.ibg--card-workshop {
+	top: auto;
+	bottom: 0;
+	object-fit: contain;
+}
+.ibg--card-webinar {
+	bottom: 0;
+	top: auto;
+}
+.ibg--card-demonstration {
+	top: auto;
+}
+.ibg--webinars {
+	top: 0;
+	@media (width <= 767px) {
+		display: none;
 	}
 }

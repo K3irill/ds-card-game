@@ -8,7 +8,15 @@
 }
 @keyframes scrollText {
 	from {
+		transform: translateX(-50%);
+	}
+	to {
 		transform: translateX(0);
+	}
+}
+@keyframes scrollText--reverse {
+	from {
+		transform: translateX(0%);
 	}
 	to {
 		transform: translateX(-50%);
