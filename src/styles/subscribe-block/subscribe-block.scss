@@ -52,6 +52,7 @@
 
 	&__content-wrapper {
 		padding: 64px 64px 64px 104px;
+		min-height: 520px;
 		@media (width <= 1279px) {
 			padding: 40px 185px 20px 24px;
 		}
@@ -130,7 +131,24 @@
 			}
 		}
 	}
-
+	&__success {
+		padding: 10px 24px;
+		width: 100%;
+		max-width: 576px;
+		background-color: $bg-primary;
+		border-radius: 88px;
+		& p {
+			color: $blue;
+			font-size: 18px;
+			font-weight: 700;
+		}
+		&::after {
+			content: url('/public/assets/images/stickers/sticker-subscribe.svg');
+			position: absolute;
+			top: -60px;
+			right: 60px;
+		}
+	}
 	&__illustration-wrapper {
 		position: relative;
 		width: 100%;

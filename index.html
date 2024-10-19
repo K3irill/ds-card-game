@@ -781,17 +781,24 @@
 								</p>
 							</div>
 							<div class="subscribe-block__form-wrapper">
-								<form name="subscribe-form" action="#" method="post">
+								<div class="subscribe-block__success hidden">
+									<p>Fantástico! Espera La primera carta</p>
+								</div>
+								<form id="subscribe-form" action="#" method="post">
 									<section>
 										<input
 											class="subscribe-input"
 											type="email"
 											name="email"
-											id="email"
+											id="subscribe-email"
 											required
 											placeholder="Su correo electrónico"
 										/>
-										<button class="subscribe-button" type="submit">
+										<button
+											id="subscribe-button"
+											class="subscribe-button"
+											type="submit"
+										>
 											Enviar
 										</button>
 									</section>
@@ -799,12 +806,12 @@
 										class="subscribe-checkbox"
 										type="checkbox"
 										name="checkbox-confirmation"
-										id="checkbox-confirmation"
+										id="subscribe-checkbox"
 										value="1"
 										pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 										required
 									/>
-									<label for="checkbox-confirmation">
+									<label for="subscribe-checkbox">
 										<p>
 											Confirmo que he leído, acepto y entiendo los
 											<a href="#">términos y condiciones</a>, así como el
