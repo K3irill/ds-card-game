@@ -1,33 +1,39 @@
 .webinars-block {
 	position: relative;
-
-	top: -90px;
+	top: -100px;
 	background-color: $bg-block;
 	overflow: hidden;
+	z-index: 2;
 	&__container {
 	}
 	&__content {
 		position: relative;
-		// margin-top: 100px;
-		padding: 170px 0 120px 0;
+		padding: 150px 0 152px 0;
 		display: flex;
 		flex-direction: column;
 		z-index: 2;
 		@media (width <= 1279px) {
-			padding: 150px 32px 80px 32px;
+			padding: 172px 32px 200px 32px;
 		}
 		@media (width <= 767px) {
-			padding: 90px 10px 80px 10px;
+			padding: 100px 10px 80px 10px;
 		}
 	}
 	&__title-wrapper {
 		order: 1;
+		width: -webkit-fit-content;
+		width: -moz-fit-content;
+		width: fit-content;
 		h2 {
 			color: $bg-primary;
 			font-size: 46px;
 			font-weight: 900;
 		}
+		@media (width >= 1297px) {
+			margin-bottom: 40px;
+		}
 		@media (width <= 1279px) {
+			margin-bottom: 25px;
 			h2 {
 				font-size: 28px;
 			}
@@ -39,10 +45,14 @@
 	}
 	&__button-wrapper {
 		position: relative;
-		top: -30px;
+		top: -82px;
 		align-self: flex-end;
 		order: 2;
+		@media (width <= 1279px) {
+			top: -65px;
+		}
 		@media (width <= 767px) {
+			top: 0;
 			margin-top: 64px;
 			align-self: center;
 		}
@@ -52,16 +62,16 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: stretch;
+		-moz-column-gap: 40px;
 		column-gap: 40px;
 		@media (width <= 1279px) {
+			-moz-column-gap: 20px;
 			column-gap: 20px;
 			row-gap: 20px;
-			// padding: 0 32px;
 			justify-content: space-between;
 			flex-wrap: wrap;
 		}
 		@media (width <= 767px) {
-			padding: 0 10px;
 			flex-direction: column;
 			gap: 20px;
 		}
@@ -87,9 +97,21 @@
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
+	cursor: pointer;
 	box-sizing: border-box;
 	flex: 1 1 calc(50% - 20px);
 	max-width: calc(50% - 20px);
+	@include transition(transform);
+	@media (width >= 1024px) {
+		&:hover {
+			@include transition(transform);
+			transform: scale(1.1);
+		}
+		&:active {
+			@include transition(transform);
+			transform: scale(0.9);
+		}
+	}
 	* {
 		color: $bg-primary;
 	}
@@ -222,6 +244,7 @@
 	&__date {
 		position: relative;
 		&::before {
+			-webkit-filter: brightness(2);
 			filter: brightness(2);
 			position: absolute;
 			left: -25px;

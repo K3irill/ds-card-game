@@ -286,7 +286,6 @@
 						>
 							<div class="articles-block__image-wrapper">
 								<img
-									style="transform: scaleX(-1)"
 									class="articles-block__img articles-block__img"
 									src="./assets/images/articles-block/articles-block--design.png"
 									alt="..."
@@ -540,11 +539,28 @@
 					</div>
 				</section>
 				<section class="blocks__webinars-block webinars-block">
-					<img
-						class="ibg ibg--webinars"
-						src="./public/assets/images/backgrounds/webinars-block-main-line-bg.png"
-						alt="backgrounds"
-					/>
+					<picture>
+						<!-- webinars-block-card-demonstration-768px-line-bg.png -->
+						<source
+							srcset="
+								/assets/images/backgrounds/webinars-block-main-line-bg-768px.png
+							"
+							media="(max-width: 1279px)"
+							type="image/png"
+						/>
+						<source
+							srcset="
+								/assets/images/backgrounds/webinars-block-main-line-bg.png
+							"
+							media="(min-width: 1280px)"
+							type="image/png"
+						/>
+						<img
+							class="ibg ibg--webinars"
+							src="/assets/images/backgrounds/webinars-block-main-line-bg.png"
+							alt="backgrounds"
+						/>
+					</picture>
 
 					<div class="webinars-block__container __container">
 						<div class="webinars-block__content">
@@ -643,11 +659,28 @@
 								<div
 									class="webinars-block__wb-card-item wb-card wb-card--demonstration"
 								>
-									<img
-										class="ibg ibg--card-demonstration"
-										src="./public/assets/images/backgrounds/webinars-block-card-demonstration-line-bg.png"
-										alt="backgrounds"
-									/>
+									<picture>
+										<!-- webinars-block-card-demonstration-768px-line-bg.png -->
+										<source
+											srcset="
+												/assets/images/backgrounds/webinars-block-card-demonstration-768px-line-bg.png
+											"
+											media="(max-width: 1279px)"
+											type="image/png"
+										/>
+										<source
+											srcset="
+												/assets/images/backgrounds/webinars-block-card-demonstration-line-bg.png
+											"
+											media="(min-width: 1280px)"
+											type="image/png"
+										/>
+										<img
+											class="ibg ibg--card-demonstration"
+											src="./public/assets/images/backgrounds/webinars-block-card-demonstration-line-bg.png"
+											alt="backgrounds"
+										/>
+									</picture>
 									<div class="wb-card__header">
 										<div class="wb-card__img-wrapp">
 											<img

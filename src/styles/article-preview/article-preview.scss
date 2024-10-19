@@ -166,7 +166,12 @@
 		}
 	}
 	&__description {
+		position: relative;
 		order: 2;
+		@media (width >= 768px) and (width <= 1279px) {
+			top: -15px;
+			left: 5px;
+		}
 	}
 	&__title {
 		margin-top: 18px;
@@ -309,8 +314,8 @@
 			}
 		}
 		@media (width <= 1279px) and (width >= 767px) {
-			margin-top: 45px;
-			margin-left: -50px;
+			margin-top: 33px;
+			margin-left: -45px;
 		}
 		@media (width <= 767px) {
 			margin-top: 5px;

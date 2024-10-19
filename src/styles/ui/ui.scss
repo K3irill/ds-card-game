@@ -81,7 +81,7 @@
 .running-line {
 	overflow: hidden;
 	position: relative;
-	z-index: 1;
+	z-index: 3;
 	padding: 40px 0px;
 	left: -5px;
 	width: 105vw;
@@ -106,28 +106,45 @@
 		transform: rotate(4deg);
 		margin: 0 10px;
 	}
-
+	@media (width <= 1279px) {
+		padding: 20px 0px;
+		&__content h2 {
+			padding: 0 30px;
+			font-size: 30px;
+		}
+	}
 	&--articles {
 		background-color: $label-software;
 		transform: rotate($deg);
+
 		.running-line {
 			&__items {
 				-webkit-animation: scrollText 20s linear infinite;
 				animation: scrollText 20s linear infinite;
 			}
 		}
+		@media (width <= 1279px) {
+			transform: rotate(-3deg);
+			top: -30px;
+		}
+		@media (width <= 1279px) {
+			transform: rotate(-4deg);
+			top: -90px;
+		}
 	}
 	&--webinars {
 		position: relative;
-		top: -40px;
+		top: -47px;
 		background-color: $label-marketing;
 		transform: rotate(-3deg);
-		z-index: 2;
 		@media (width >= 2000px) {
 			transform: rotate(0deg);
 		}
 		@media (width <= 1279px) {
 			top: -70px;
+		}
+		@media (width <= 769px) {
+			transform: rotate(-4deg);
 		}
 		.running-line {
 			&__items {
@@ -138,12 +155,15 @@
 	}
 	&--subscribe {
 		position: relative;
-		top: -125px;
+		top: -137px;
 		background-color: $red;
 		transform: rotate(2deg);
 		z-index: 2;
 		@media (width >= 2000px) {
 			transform: rotate(0deg);
+		}
+		@media (width <= 1279px) {
+			transform: rotate(3deg);
 		}
 		.running-line {
 			&__items {
@@ -163,7 +183,8 @@
 	background-color: $purple;
 	border: none;
 	color: $bg-primary;
-	padding: 17.5px 62px;
+	padding: 20px 58px;
+	font-size: 18px;
 	border-radius: 40px;
 	font-weight: 700;
 	@include transition;

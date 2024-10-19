@@ -24,8 +24,11 @@
 	z-index: 1;
 	top: 0;
 	left: 0;
+	-o-object-fit: cover;
 	object-fit: cover;
 	width: 100%;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
 	height: fit-content;
 	@media (max-width: 1279px) {
 		& {
@@ -44,6 +47,7 @@
 .ibg--card-workshop {
 	top: auto;
 	bottom: 0;
+	-o-object-fit: contain;
 	object-fit: contain;
 }
 .ibg--card-webinar {
@@ -52,9 +56,19 @@
 }
 .ibg--card-demonstration {
 	top: auto;
+	@media (width <= 1279px) {
+		top: 0;
+		-o-object-fit: cover;
+		object-fit: cover;
+		height: 100%;
+	}
 }
 .ibg--webinars {
 	top: 0;
+	@media (width <= 1279px) {
+		top: auto;
+		bottom: 0;
+	}
 	@media (width <= 767px) {
 		display: none;
 	}
