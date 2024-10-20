@@ -1,3 +1,4 @@
+//*subscribe form
 const subscribeEmail = document.getElementById('subscribe-email')
 const subscribeCheckbox = document.getElementById('subscribe-checkbox')
 const subscribeForm = document.getElementById('subscribe-form')
@@ -21,4 +22,23 @@ subscribeForm.addEventListener('submit', event => {
 			subscribeEmail.reportValidity()
 		}
 	}
+})
+
+//*simple accordion
+const navTitles = document.querySelectorAll('.footer__nav-title')
+
+navTitles.forEach(navTitle => {
+	navTitle.addEventListener('click', function () {
+		this.classList.toggle('active')
+		let acc = this.nextElementSibling
+		let img = this.querySelector('.img-accordion')
+
+		if (acc.style.maxHeight) {
+			acc.style.maxHeight = null
+			img.classList.remove('rotated')
+		} else {
+			acc.style.maxHeight = acc.scrollHeight + 'px'
+			img.classList.add('rotated')
+		}
+	})
 })

@@ -9,6 +9,7 @@
 @import 'articles-block/articles-block';
 @import 'webinars-block/webinars-block';
 @import 'subscribe-block/subscribe-block';
+@import 'footer/footer';
 #app {
 	position: relative;
 }
@@ -77,4 +78,14 @@
 
 .hidden {
 	display: none;
+}
+.mobile-hidden {
+	@media (width <= 767px) {
+		display: none;
+	}
+}
+.tablet-hidden {
+	@media (width >= 768px) {
+		display: none;
+	}
 }

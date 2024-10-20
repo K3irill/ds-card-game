@@ -98,13 +98,13 @@
 		align-items: center;
 		white-space: nowrap;
 		flex-shrink: 0;
-		padding: 0 50px;
+		// padding: 0 50px;
 		font-size: 58px;
 		font-weight: 900;
 	}
 	& img {
 		transform: rotate(4deg);
-		margin: 0 10px;
+		margin: 0 48px;
 	}
 	@media (width <= 1279px) {
 		padding: 20px 0px;
@@ -172,6 +172,18 @@
 			}
 		}
 	}
+	&--footer {
+		background-color: $pink;
+		& h2 {
+			color: $bg-primary;
+		}
+		.running-line {
+			&__items {
+				-webkit-animation: scrollText 20s linear infinite;
+				animation: scrollText 20s linear infinite;
+			}
+		}
+	}
 }
 .mt-200px {
 	margin-top: 200px;
@@ -210,6 +222,18 @@
 	font-weight: 500;
 	padding: 13px 28px;
 	color: $bg-primary;
+	&::-webkit-input-placeholder {
+		color: $bg-primary;
+	}
+	&::-moz-placeholder {
+		color: $bg-primary;
+	}
+	&:-ms-input-placeholder {
+		color: $bg-primary;
+	}
+	&::-ms-input-placeholder {
+		color: $bg-primary;
+	}
 	&::placeholder {
 		color: $bg-primary;
 	}
@@ -301,4 +325,61 @@
 	&:disabled + label::before {
 		opacity: 60%;
 	}
+}
+.footer-learning-button {
+	border-radius: 40px;
+	background-color: transparent;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 13px 57px;
+	color: $bg-primary;
+	border: 1.4px solid $bg-primary;
+	@include transition(all);
+	&:hover,
+	&:active {
+		@include transition(all);
+		background-color: $bg-primary;
+		color: $bg-block;
+	}
+	&:disabled {
+		opacity: 60%;
+	}
+	&:focus {
+		outline: none;
+		border: 2.4px solid $bg-primary;
+	}
+	&:focus-visible {
+		border: 2.4px solid $bg-primary;
+	}
+}
+.footer-subscribe-button {
+	border-radius: 40px;
+	background-color: $purple;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 13px 57px;
+	color: $bg-primary;
+	@include transition(background-color);
+	&:hover,
+	&:active {
+		@include transition(background-color);
+		background-color: $pink;
+	}
+	&:disabled {
+		opacity: 60%;
+	}
+	&:focus {
+		outline: none;
+		border: 2.4px solid $bg-primary;
+	}
+	&:focus-visible {
+		border: 2.4px solid $bg-primary;
+	}
+}
+.img-accordion {
+	transform: rotate(180deg);
+}
+.rotated {
+	@include transition(transform);
+	transform: rotate(0deg);
 }
