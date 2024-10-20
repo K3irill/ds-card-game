@@ -7,12 +7,11 @@
 		<meta name="description" content="" />
 		<title>EBAC</title>
 		<link rel="stylesheet" href="/src/styles/style.scss" />
-		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	</head>
 
 	<body>
 		<div id="app">
-			<header class="header">
+			<header id="header" class="header">
 				<div class="header__container __container">
 					<div class="header__logo-block">
 						<a href="#"
@@ -76,10 +75,11 @@
 
 					<div class="header__search-block">
 						<button class="header__button-search">
-							<img src="./assets/icons/search.svg" />
+							<img src="assets/icons/search.svg" alt="search" />
 						</button>
 						<a href="#" class="header__link-ebac">
-							<span>EBAC</span><img src="./assets/icons/link-arrow.svg" />
+							<span>EBAC</span
+							><img src="assets/icons/link-arrow.svg" alt="arrow" />
 						</a>
 					</div>
 				</div>
@@ -89,28 +89,28 @@
 				<picture>
 					<source
 						srcset="
-							/assets/images/backgrounds/arcticle-preview-line-bg-320px.png
+							assets/images/backgrounds/arcticle-preview-line-bg-320px.png
 						"
 						media="(max-width: 767px)"
 						type="image/png"
 					/>
 					<source
 						srcset="
-							/assets/images/backgrounds/arcticle-preview-line-bg-768px.png
+							assets/images/backgrounds/arcticle-preview-line-bg-768px.png
 						"
 						media="(max-width: 1279px)"
 						type="image/png"
 					/>
 					<source
 						srcset="
-							/assets/images/backgrounds/arcticle-preview-line-bg-1280px.png
+							assets/images/backgrounds/arcticle-preview-line-bg-1280px.png
 						"
 						media="(min-width: 1280px)"
 						type="image/png"
 					/>
 					<img
 						class="ibg ibg-ap"
-						src="/assets/images/backgrounds/arcticle-preview-line-bg-1280px.png"
+						src="assets/images/backgrounds/arcticle-preview-line-bg-1280px.png"
 						alt="Background Image"
 					/>
 				</picture>
@@ -119,14 +119,14 @@
 						<div class="article-preview__image-wrapper">
 							<img
 								class="article-preview__img"
-								src="./assets/images/article-preview/main-img-article-prew.png"
-								alt="..."
+								src="assets/images/article-preview/main-img-article-prew.png"
+								alt="article-img"
 							/>
 
 							<img
 								class="article-preview__sticker"
-								src="./assets/images/stickers/sticker-gaming.svg"
-								alt=""
+								src="assets/images/stickers/sticker-gaming.svg"
+								alt="sticker-gaming"
 							/>
 						</div>
 						<div class="article-preview__content-wrapper">
@@ -169,53 +169,53 @@
 								</div>
 							</div>
 
-							<button class="article-preview__button">Leer el artículo</button>
+							<button class="article-preview__button button-leer">
+								Leer el artículo
+							</button>
 						</div>
 					</div>
 				</section>
-				<section class="running-line running-line--articles mt-200px">
+				<section class="running-line running-line--articles">
 					<div class="running-line__content">
 						<div class="running-line__items">
 							<h2>
 								<img
-									src="/public/assets/icons/icon-running-line.svg"
-									alt=""
+									src="assets/icons/icon-running-line.svg"
+									alt="star"
+								/>Artículos populares
+							</h2>
+							<h2>
+								<img src="assets/icons/icon-running-line.svg" alt="" />Artículos
+								populares
+							</h2>
+							<h2>
+								<img
+									src="assets/icons/icon-running-line.svg"
+									alt="star"
 								/>Artículos populares
 							</h2>
 							<h2>
 								<img
-									src="/public/assets/icons/icon-running-line.svg"
-									alt=""
+									src="assets/icons/icon-running-line.svg"
+									alt="star"
 								/>Artículos populares
 							</h2>
 							<h2>
 								<img
-									src="/public/assets/icons/icon-running-line.svg"
-									alt=""
+									src="assets/icons/icon-running-line.svg"
+									alt="star"
 								/>Artículos populares
 							</h2>
 							<h2>
 								<img
-									src="/public/assets/icons/icon-running-line.svg"
-									alt=""
-								/>Artículos populares
-							</h2>
-							<h2>
-								<img
-									src="/public/assets/icons/icon-running-line.svg"
-									alt=""
-								/>Artículos populares
-							</h2>
-							<h2>
-								<img
-									src="/public/assets/icons/icon-running-line.svg"
-									alt=""
+									src="assets/icons/icon-running-line.svg"
+									alt="star"
 								/>Artículos populares
 							</h2>
 						</div>
 					</div>
 				</section>
-				<section class="blocks__articles-block articles-block mt-200px">
+				<section class="blocks__articles-block articles-block">
 					<div class="articles-block__container __container">
 						<article
 							class="articles-block__article articles-block__article--fashion"
@@ -223,14 +223,14 @@
 							<div class="articles-block__image-wrapper">
 								<img
 									class="articles-block__img articles-block__img"
-									src="./assets/images/articles-block/articles-block--fashion.png"
-									alt="..."
+									src="assets/images/articles-block/articles-block--fashion.png"
+									alt="articles--fashion"
 								/>
 
 								<img
 									class="articles-block__sticker"
-									src="./assets/images/stickers/sticker-fashion.svg"
-									alt=""
+									src="assets/images/stickers/sticker-fashion.svg"
+									alt="sticker-fashion"
 								/>
 							</div>
 							<div class="articles-block__content-wrapper">
@@ -269,14 +269,14 @@
 							<div class="articles-block__image-wrapper">
 								<img
 									class="articles-block__img articles-block__img"
-									src="./assets/images/articles-block/articles-block--design.png"
-									alt="..."
+									src="assets/images/articles-block/articles-block--design.png"
+									alt="articles--design"
 								/>
 
 								<img
 									class="articles-block__sticker"
-									src="./assets/images/stickers/sticker-design.svg"
-									alt=""
+									src="assets/images/stickers/sticker-design.svg"
+									alt="sticker-design"
 								/>
 							</div>
 							<div class="articles-block__content-wrapper">
@@ -314,14 +314,14 @@
 							<div class="articles-block__image-wrapper">
 								<img
 									class="articles-block__img articles-block__img"
-									src="./assets/images/articles-block/articles-block--design-big.png"
-									alt="..."
+									src="assets/images/articles-block/articles-block--design-big.png"
+									alt="articles--design"
 								/>
 
 								<img
 									class="articles-block__sticker"
-									src="./assets/images/stickers/sticker-design.svg"
-									alt=""
+									src="assets/images/stickers/sticker-design.svg"
+									alt="sticker-design"
 								/>
 							</div>
 							<div class="articles-block__content-wrapper">
@@ -369,14 +369,14 @@
 							<div class="articles-block__image-wrapper">
 								<img
 									class="articles-block__img articles-block__img"
-									src="./assets/images/articles-block/articles-block--marketing.png"
-									alt="..."
+									src="assets/images/articles-block/articles-block--marketing.png"
+									alt="articles--marketing"
 								/>
 
 								<img
 									class="articles-block__sticker"
-									src="./assets/images/stickers/sticker-marketing-mobile.svg"
-									alt=""
+									src="assets/images/stickers/sticker-marketing-mobile.svg"
+									alt="sticker-marketing"
 								/>
 							</div>
 							<div class="articles-block__content-wrapper">
@@ -415,14 +415,14 @@
 							<div class="articles-block__image-wrapper">
 								<img
 									class="articles-block__img articles-block__img"
-									src="./assets/images/articles-block/articles-block--software.png"
-									alt="..."
+									src="assets/images/articles-block/articles-block--software.png"
+									alt="articles--software"
 								/>
 
 								<img
 									class="articles-block__sticker"
-									src="./assets/images/stickers/sticker-software.svg"
-									alt=""
+									src="assets/images/stickers/sticker-software.svg"
+									alt="sticker-software"
 								/>
 							</div>
 							<div class="articles-block__content-wrapper">
@@ -457,45 +457,48 @@
 					</div>
 				</section>
 				<section class="running-line running-line--webinars">
-					<div class="running-line__content">
-						<div class="running-line__items">
-							<h2>
-								<img
-									src="/public/assets/icons/icon-running-line.svg"
-									alt=""
-								/>Webinars
-							</h2>
-							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
-								Webinars
-							</h2>
-							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
-								Webinars
-							</h2>
-							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
-								Webinars
-							</h2>
-							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
-								Webinars
-							</h2>
-							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
-								Webinars
-							</h2>
-							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
-								Webinars
-							</h2>
-							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
-								Webinars
-							</h2>
+					<section class="running-line-wrapper">
+						<div class="running-line__content">
+							<div class="running-line__items">
+								<h2>
+									<img
+										src="assets/icons/icon-running-line.svg"
+										alt="star"
+									/>Webinars
+								</h2>
+								<h2>
+									<img src="assets/icons/icon-running-line.svg" alt="star" />
+									Webinars
+								</h2>
+								<h2>
+									<img src="assets/icons/icon-running-line.svg" alt="star" />
+									Webinars
+								</h2>
+								<h2>
+									<img src="assets/icons/icon-running-line.svg" alt="star" />
+									Webinars
+								</h2>
+								<h2>
+									<img src="assets/icons/icon-running-line.svg" alt="star" />
+									Webinars
+								</h2>
+								<h2>
+									<img src="assets/icons/icon-running-line.svg" alt="star" />
+									Webinars
+								</h2>
+								<h2>
+									<img src="assets/icons/icon-running-line.svg" alt="star" />
+									Webinars
+								</h2>
+								<h2>
+									<img src="assets/icons/icon-running-line.svg" alt="star" />
+									Webinars
+								</h2>
+							</div>
 						</div>
-					</div>
+					</section>
 				</section>
+
 				<section class="blocks__webinars-block webinars-block">
 					<picture>
 						<source
@@ -514,7 +517,7 @@
 						/>
 						<img
 							class="ibg ibg--webinars"
-							src="/assets/images/backgrounds/webinars-block-main-line-bg.png"
+							src="assets/images/backgrounds/webinars-block-main-line-bg.png"
 							alt="backgrounds"
 						/>
 					</picture>
@@ -533,15 +536,15 @@
 								>
 									<img
 										class="ibg ibg--card-webinar"
-										src="./public/assets/images/backgrounds/webinars-block-card-webinar-line-bg.png"
+										src="assets/images/backgrounds/webinars-block-card-webinar-line-bg.png"
 										alt="backgrounds"
 									/>
 									<div class="wb-card__header">
 										<div class="wb-card__img-wrapp">
 											<img
 												class="wb-card__author-img"
-												src="./assets/images/authors/julia-alvarez.png"
-												alt=""
+												src="assets/images/authors/julia-alvarez.png"
+												alt="autor"
 											/>
 										</div>
 										<div class="wb-card__author-info">
@@ -574,15 +577,15 @@
 								>
 									<img
 										class="ibg ibg--card-workshop"
-										src="./public/assets/images/backgrounds/webinars-block-card-workshop-line-bg.png"
+										src="assets/images/backgrounds/webinars-block-card-workshop-line-bg.png"
 										alt="backgrounds"
 									/>
 									<div class="wb-card__header">
 										<div class="wb-card__img-wrapp">
 											<img
 												class="wb-card__author-img"
-												src="./assets/images/authors/diego-xochihuila.png"
-												alt=""
+												src="assets/images/authors/diego-xochihuila.png"
+												alt="autor"
 											/>
 										</div>
 										<div class="wb-card__author-info">
@@ -633,7 +636,7 @@
 										/>
 										<img
 											class="ibg ibg--card-demonstration"
-											src="./public/assets/images/backgrounds/webinars-block-card-demonstration-line-bg.png"
+											src="assets/images/backgrounds/webinars-block-card-demonstration-line-bg.png"
 											alt="backgrounds"
 										/>
 									</picture>
@@ -641,8 +644,8 @@
 										<div class="wb-card__img-wrapp">
 											<img
 												class="wb-card__author-img"
-												src="./assets/images/authors/consuela-zacatelco.png"
-												alt=""
+												src="assets/images/authors/consuela-zacatelco.png"
+												alt="autor"
 											/>
 										</div>
 										<div class="wb-card__author-info">
@@ -679,28 +682,28 @@
 						<div class="running-line__items">
 							<h2>
 								<img
-									src="/public/assets/icons/icon-running-line.svg"
-									alt=""
+									src="assets/icons/icon-running-line.svg"
+									alt="star"
 								/>Suscribiete
 							</h2>
 							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
+								<img src="assets/icons/icon-running-line.svg" alt="star" />
 								Suscribiete
 							</h2>
 							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
+								<img src="assets/icons/icon-running-line.svg" alt="starstar" />
 								Suscribiete
 							</h2>
 							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
+								<img src="assets/icons/icon-running-line.svg" alt="star" />
 								Suscribiete
 							</h2>
 							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
+								<img src="assets/icons/icon-running-line.svg" alt="star" />
 								Suscribiete
 							</h2>
 							<h2>
-								<img src="/public/assets/icons/icon-running-line.svg" alt="" />
+								<img src="assets/icons/icon-running-line.svg" alt="star" />
 								Suscribiete
 							</h2>
 						</div>
@@ -764,12 +767,12 @@
 							<div class="subscribe-block__illustration-content">
 								<img
 									class="subscribe-block__letter-blur-img"
-									src="/public/assets/images/subscribe-block/letter-blur.png"
+									src="assets/images/subscribe-block/letter-blur.png"
 									alt="letter"
 								/>
 								<img
 									class="subscribe-block__letter-img"
-									src="/public/assets/images/subscribe-block/letter.png"
+									src="assets/images/subscribe-block/letter.png"
 									alt="letter-blur"
 								/>
 							</div>
@@ -784,28 +787,28 @@
 						<div class="running-line__items">
 							<h2>
 								<img
-									src="/public/assets/icons/icon-running-line-white.svg"
-									alt=""
+									src="assets/icons/icon-running-line-white.svg"
+									alt="star"
 								/>Descuento para cursos 20%
 							</h2>
 							<h2>
 								<img
-									src="/public/assets/icons/icon-running-line-white.svg"
-									alt=""
+									src=" /assets/icons/icon-running-line-white.svg"
+									alt="star"
 								/>
 								Descuento para cursos 20%
 							</h2>
 							<h2>
 								<img
-									src="/public/assets/icons/icon-running-line-white.svg"
-									alt=""
+									src="assets/icons/icon-running-line-white.svg"
+									alt="star"
 								/>
 								Descuento para cursos 20%
 							</h2>
 							<h2>
 								<img
-									src="/public/assets/icons/icon-running-line-white.svg"
-									alt=""
+									src="assets/icons/icon-running-line-white.svg"
+									alt="star"
 								/>
 								Descuento para cursos 20%
 							</h2>
@@ -832,7 +835,7 @@
 							</div>
 							<div class="footer__award">
 								<img
-									src="/assets/images/awards/award-2021.png"
+									src="assets/images/awards/award-2021.png"
 									alt="Holon 100 Award 2021"
 								/>
 							</div>
@@ -853,14 +856,17 @@
 								Cursos
 								<img
 									class="img-accordion"
-									src="./public/assets/icons/accordion-arrow.svg"
-									alt=""
+									src="assets/icons/accordion-arrow.svg"
+									alt="accordion-arrow"
 								/>
 							</h3>
 							<ul class="footer__nav-list">
 								<li><a href="#">Diseño</a></li>
 								<li>
-									<a href="#">Programación&nbsp;&amp;<br />Data</a>
+									<a href="#"
+										>Programación &<span class="footer__program-space"></span>
+										Data</a
+									>
 								</li>
 								<li><a href="#">Gaming</a></li>
 								<li><a href="#">Marketing</a></li>
@@ -871,8 +877,8 @@
 							<h3 class="footer__nav-title">
 								Webinars<img
 									class="img-accordion"
-									src="./public/assets/icons/accordion-arrow.svg"
-									alt=""
+									src="assets/icons/accordion-arrow.svg"
+									alt="accordion-arrow"
 								/>
 							</h3>
 							<ul class="footer__nav-list">
@@ -884,8 +890,8 @@
 							<h3 class="footer__nav-title">
 								Sobre<img
 									class="img-accordion"
-									src="./public/assets/icons/accordion-arrow.svg"
-									alt=""
+									src="assets/icons/accordion-arrow.svg"
+									alt="accordion-arrow"
 								/>
 							</h3>
 							<ul class="footer__nav-list">
@@ -898,14 +904,17 @@
 							<h3 class="footer__nav-title">
 								Blog<img
 									class="img-accordion"
-									src="./public/assets/icons/accordion-arrow.svg"
-									alt=""
+									src="assets/icons/accordion-arrow.svg"
+									alt="accordion-arrow"
 								/>
 							</h3>
 							<ul class="footer__nav-list">
 								<li><a href="#">Diseño</a></li>
 								<li>
-									<a href="#">Programación&nbsp;&amp;<br />Data</a>
+									<a href="#"
+										>Programación &
+										<span class="footer__program-space"></span> Data</a
+									>
 								</li>
 								<li><a href="#">Gaming</a></li>
 								<li><a href="#">Marketing</a></li>
@@ -950,23 +959,17 @@
 					</div>
 					<section class="footer__socials">
 						<a href="#" class="footer__social-link"
-							><img
-								src="./public/assets/icons/social/social-instagram.svg"
-								alt=""
+							><img src="assets/icons/social/social-instagram.svg" alt="star"
 						/></a>
 						<a href="#" class="footer__social-link"
-							><img
-								src="./public/assets/icons/social/social-facebook.svg"
-								alt=""
+							><img src="assets/icons/social/social-facebook.svg" alt="star"
 						/></a>
 						<a href="#" class="footer__social-link"
-							><img
-								src="./public/assets/icons/social/social-youtube.svg"
-								alt=""
+							><img src="assets/icons/social/social-youtube.svg" alt="star"
 						/></a>
 
 						<a href="#" class="footer__social-link"
-							><img src="./public/assets/icons/social/social-in.svg" alt=""
+							><img src="assets/icons/social/social-in.svg" alt="star"
 						/></a>
 					</section>
 					<section class="footer__legal">
