@@ -2,7 +2,7 @@
 	background-color: $bg-block;
 
 	* {
-		color: $bg-primary;
+		color: $white-primary;
 	}
 	& li a {
 		position: relative;
@@ -79,8 +79,10 @@
 		justify-content: space-between;
 		flex: 1 1 auto;
 		max-width: 353px;
+		margin-bottom: 74px;
 		@media (width <= 1279px) {
 			max-width: 285px;
+			margin-bottom: 0;
 			img {
 				width: 64px;
 				height: 64px;
@@ -282,6 +284,11 @@
 			display: flex;
 			flex-direction: column;
 			row-gap: 16px;
+		}
+	}
+	&__program-space {
+		@media (width >= 768px) {
+			display: block;
 		}
 	}
 }

@@ -1,7 +1,7 @@
 // ---- Article-preview
 .article-preview {
 	position: relative;
-	top: 80px;
+	margin-top: 153px;
 	padding: 0 8px;
 	@media (width >= 1280px) {
 		&:hover &__sticker {
@@ -10,12 +10,12 @@
 	}
 	@media (width <= 1279px) {
 		& {
-			top: 110px;
+			margin-top: 183px;
 		}
 	}
 	@media (width <= 767px) {
 		& {
-			top: 76px;
+			margin-top: 155px;
 		}
 	}
 	&__container {
@@ -37,12 +37,14 @@
 		max-height: 180px;
 		transition: transform 3s ease;
 		@media (width <= 1279px) {
-			top: 7px;
-			right: 10px;
+			top: 9px;
+			right: 8px;
 			max-width: 120px;
 			max-height: 120px;
 		}
 		@media (width <= 767px) {
+			top: 9px;
+			right: 10px;
 			max-width: 104px;
 			max-height: 104px;
 		}
@@ -270,48 +272,9 @@
 		}
 	}
 	&__button {
-		background-color: $label-gaming;
-		border: 1px solid black;
-		border-radius: calc($radius * 2);
-		padding: 15px 55px;
-		display: inline-block;
-		font-size: 18px;
-		border: 3px solid transparent;
 		position: relative;
-		@include transition(all);
-		&::before {
-			content: '';
-			position: absolute;
-			top: 3px;
-			left: 3px;
-			right: 3px;
-			bottom: 3px;
-			border: 2px solid black;
-			border-radius: $radius;
-			@include transition(all);
-		}
 		@media (width >= 1280px) {
-			&:hover {
-				@include transition(all);
-				-webkit-filter: brightness(1.1);
-				filter: brightness(1.1);
-				&::before {
-					@include transition(all);
-					top: 1px;
-					left: 1px;
-					right: 1px;
-					bottom: 1px;
-				}
-			}
-			&:active {
-				&::before {
-					transition: 0.1s;
-					top: 5px;
-					left: 5px;
-					right: 5px;
-					bottom: 5px;
-				}
-			}
+			top: 6px;
 		}
 		@media (width <= 1279px) and (width >= 767px) {
 			margin-top: 33px;

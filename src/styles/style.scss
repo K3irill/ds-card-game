@@ -3,15 +3,16 @@
 @import 'mixins';
 @import 'animations';
 @import 'fonts';
-@import 'ui/ui';
-@import 'header/header';
-@import 'article-preview/article-preview';
-@import 'articles-block/articles-block';
-@import 'webinars-block/webinars-block';
-@import 'subscribe-block/subscribe-block';
-@import 'footer/footer';
+@import 'modules/ui';
+@import 'modules/header';
+@import 'modules/article-preview';
+@import 'modules/articles-block';
+@import 'modules/webinars-block';
+@import 'modules/subscribe-block';
+@import 'modules/footer';
 #app {
 	position: relative;
+	overflow-x: hidden;
 }
 .__container {
 	max-width: 1206px;

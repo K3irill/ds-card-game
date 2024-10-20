@@ -1,15 +1,17 @@
 .subscribe-block {
-	margin-top: -40px;
+	margin-top: -20px;
 	padding-bottom: 130px;
 	* {
-		color: $bg-primary;
+		color: $white-primary;
 	}
 	@media (width <= 1279px) {
-		padding: 0 32px 100px 32px;
+		margin-top: -30px;
+		padding: 0 32px 108px 32px;
 	}
 	@media (width <= 767px) {
+		margin-top: -70px;
 		@include flex-horizontal-center;
-		padding: 0 8px 60px 8px;
+		padding: 0 8px 100px 8px;
 	}
 	.__container {
 		@media (width >= 768px) and (width <= 1279px) {
@@ -46,8 +48,8 @@
 		@media (width <= 767px) {
 			-webkit-clip-path: none;
 			clip-path: none;
-			-webkit-mask-image: url('/public/assets/images/backgrounds/subscribe-mask-320px.svg');
-			mask-image: url('/public/assets/images/backgrounds/subscribe-mask-320px.svg');
+			-webkit-mask-image: url(' /assets/images/backgrounds/subscribe-mask-320px.svg');
+			mask-image: url(' /assets/images/backgrounds/subscribe-mask-320px.svg');
 			-webkit-mask-repeat: no-repeat;
 			mask-repeat: no-repeat;
 			flex-direction: column;
@@ -74,7 +76,7 @@
 				margin: 10px 0 67px 0;
 			}
 			@media (width <= 767px) {
-				margin: 10px 0 92px 0;
+				margin: 10px 0 83px 0;
 			}
 		}
 	}
@@ -143,7 +145,7 @@
 		padding: 10px 24px;
 		width: 100%;
 		max-width: 576px;
-		background-color: $bg-primary;
+		background-color: $white-primary;
 		border-radius: 88px;
 		& p {
 			color: $blue;
@@ -151,7 +153,7 @@
 			font-weight: 700;
 		}
 		&::after {
-			content: url('/public/assets/images/stickers/sticker-subscribe.svg');
+			content: url(' /assets/images/stickers/sticker-subscribe.svg');
 			position: absolute;
 			top: -60px;
 			right: 60px;
@@ -187,8 +189,9 @@
 		width: 100%;
 		max-width: 416px;
 		@media (width >= 768px) and (width <= 1279px) {
+			max-width: 290px;
 			position: absolute;
-			right: -82px;
+			right: 35px;
 		}
 		@media (width <= 767px) {
 			display: flex;
@@ -215,10 +218,11 @@
 			min-height: 498px;
 			-webkit-clip-path: none;
 			clip-path: none;
-			-webkit-mask-image: url('/public/assets/images/backgrounds/subscribe-letter-mask-768px.svg');
-			mask-image: url('/public/assets/images/backgrounds/subscribe-letter-mask-768px.svg');
+			-webkit-mask-image: url(' /assets/images/backgrounds/subscribe-letter-mask-768px.svg');
+			mask-image: url(' /assets/images/backgrounds/subscribe-letter-mask-768px.svg');
 			-webkit-mask-repeat: no-repeat;
 			mask-repeat: no-repeat;
+			max-width: 290px;
 		}
 		& img {
 			position: relative;
@@ -227,8 +231,8 @@
 			min-height: 400px;
 			max-width: 304px;
 			right: 0;
-			-webkit-mask-image: url('/public/assets/images/backgrounds/subscribe-mask-320px.svg');
-			mask-image: url('/public/assets/images/backgrounds/subscribe-mask-320px.svg');
+			-webkit-mask-image: url(' /assets/images/backgrounds/subscribe-mask-320px.svg');
+			mask-image: url(' /assets/images/backgrounds/subscribe-mask-320px.svg');
 			-webkit-mask-repeat: no-repeat;
 			mask-repeat: no-repeat;
 		}
