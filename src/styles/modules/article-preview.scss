@@ -9,14 +9,10 @@
 		}
 	}
 	@media (width <= 1279px) {
-		& {
-			margin-top: 183px;
-		}
+		margin-top: 185px;
 	}
 	@media (width <= 767px) {
-		& {
-			margin-top: 155px;
-		}
+		margin-top: 155px;
 	}
 	&__container {
 		@include flex-horizontal-center;
@@ -24,9 +20,7 @@
 		position: relative;
 		z-index: 2;
 		@media (width <= 1279px) {
-			& {
-				flex-direction: column;
-			}
+			flex-direction: column;
 		}
 	}
 	&__sticker {

@@ -8,7 +8,7 @@
 	padding-bottom: 200px;
 	margin-top: 200px;
 	@media (width <= 1279px) {
-		margin-top: 188px;
+		margin-top: 184px;
 		padding-bottom: 278px;
 		background-image: url(' /assets/images/backgrounds/articles-block-line-bg-768px.png');
 	}
@@ -306,7 +306,7 @@
 	margin-bottom: 40px;
 	@media (width <= 1279px) {
 		& {
-			margin-top: 172px;
+			margin-top: 72px;
 			margin-bottom: 57px;
 		}
 	}
@@ -587,10 +587,8 @@
 		&__sticker {
 			right: -40px;
 			@media (width <= 1279px) {
-				& {
-					top: 10px;
-					right: 10px;
-				}
+				top: 10px;
+				right: 10px;
 			}
 		}
 		&__category {
