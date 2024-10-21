@@ -226,7 +226,7 @@
 			-webkit-clip-path: none;
 			clip-path: none;
 			-webkit-mask-image: url(' /assets/images/backgrounds/subscribe-letter-mask-768px.svg');
-			mask-image: url(' /assets/images/backgrounds/subscribe-letter-mask-768px.svg');
+			mask-image: url('/assets/images/backgrounds/subscribe-letter-mask-768px.svg');
 			-webkit-mask-repeat: no-repeat;
 			mask-repeat: no-repeat;
 			max-width: 290px;
@@ -235,10 +235,9 @@
 			position: relative;
 		}
 		@media (width <= 767px) {
-			min-height: 400px;
 			max-width: 304px;
 			right: 0;
-			-webkit-mask-image: url(' /assets/images/backgrounds/subscribe-mask-320px.svg');
+			-webkit-mask-image: url('/assets/images/backgrounds/subscribe-mask-320px.svg');
 			mask-image: url(' /assets/images/backgrounds/subscribe-mask-320px.svg');
 			-webkit-mask-repeat: no-repeat;
 			mask-repeat: no-repeat;
