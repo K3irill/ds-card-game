@@ -134,6 +134,10 @@
 			& form {
 				width: 100%;
 				max-width: 304px;
+				& input[type='email'],
+				button {
+					max-width: 270px;
+				}
 			}
 			& form section {
 				display: flex;
