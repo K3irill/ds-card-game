@@ -1,3 +1,4 @@
+import '../styles/style.scss'
 //*hide header by scrolling
 let lastScrollTop = 0
 const header = document.getElementById('header')
