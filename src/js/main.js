@@ -1,19 +1,15 @@
-//*hidden header by scrolling
+//*hide header by scrolling
 let lastScrollTop = 0
 const header = document.getElementById('header')
 const app = document.getElementById('app')
-console.log('Script loaded')
 
 app.addEventListener('scroll', function () {
-	console.log('Scroll event triggered')
 	let scrollTop = app.scrollTop
-
 	if (scrollTop > lastScrollTop) {
 		header.style.top = '-140px'
 	} else {
 		header.style.top = '0px'
 	}
-
 	lastScrollTop = scrollTop
 })
 
