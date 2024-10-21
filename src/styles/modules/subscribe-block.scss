@@ -10,7 +10,7 @@
 	}
 	@media (width <= 767px) {
 		margin-top: -70px;
-		@include flex-horizontal-center;
+		// @include flex-horizontal-center;
 		padding: 0 8px 100px 8px;
 	}
 	.__container {
@@ -19,7 +19,9 @@
 			margin: 0;
 		}
 		@media (width <= 767px) {
+			width: 100%;
 			max-width: 304px;
+			margin: 0 auto;
 		}
 	}
 	&__container {
@@ -65,6 +67,7 @@
 			padding: 40px 185px 20px 24px;
 		}
 		@media (width <= 767px) {
+			max-width: 304px;
 			padding: 65px 24px 60px 24px;
 		}
 	}
@@ -91,7 +94,6 @@
 			line-height: calc(31 / 26 * 100%);
 		}
 		@media (width <= 767px) {
-			padding: 0px 24px;
 			max-width: 280px;
 		}
 	}
@@ -101,7 +103,6 @@
 		max-width: 530px;
 		@media (width <= 767px) {
 			line-height: calc(28 / 16 * 100%);
-			padding: 0px 24px;
 		}
 	}
 
@@ -130,8 +131,10 @@
 			}
 		}
 		@media (width <= 767px) {
-			padding: 0px 12px;
-
+			& form {
+				width: 100%;
+				max-width: 304px;
+			}
 			& form section {
 				display: flex;
 				align-items: center;
