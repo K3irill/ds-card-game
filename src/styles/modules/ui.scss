@@ -139,7 +139,10 @@
 		top: -47px;
 		background-color: $label-marketing;
 		transform: rotate(-3deg);
-		@media (width >= 2000px) {
+		@media (width > 1920px) {
+			transform: rotate(-2deg);
+		}
+		@media (width > 2560px) {
 			transform: rotate(0deg);
 		}
 		@media (width <= 1279px) {
@@ -161,8 +164,11 @@
 		background-color: $red;
 		transform: rotate(2deg);
 		z-index: 2;
-		@media (width >= 2000px) {
+		@media (width >= 2561px) {
 			transform: rotate(0deg);
+		}
+		@media (width >= 2220px) {
+			top: -162px;
 		}
 		@media (width <= 1279px) {
 			transform: rotate(3deg);
@@ -249,14 +255,13 @@
 	&:hover,
 	&:active {
 		@include transition(background-color);
-		background-color: $bg-block;
-		box-shadow: 0px 0px 5px $white-primary;
+		background-color: $pink;
 	}
 	&:disabled {
 		opacity: 60%;
 	}
 	&:focus {
-		border: 2px solid $bg-block;
+		border: 2px solid $white-primary;
 	}
 }
 
@@ -377,13 +382,13 @@
 	background-color: transparent;
 	font-size: 18px;
 	font-weight: 500;
-	padding: 13px 57px;
+	padding: 13px 60px;
 	color: $white-primary;
 	border: 1.4px solid $white-primary;
-	@include transition(all);
+	@include transition(background-color, color);
 	&:hover,
 	&:active {
-		@include transition(all);
+		@include transition(background-color, color);
 		background-color: $white-primary;
 		color: $bg-block;
 	}
