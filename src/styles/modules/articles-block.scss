@@ -173,16 +173,18 @@
 		}
 	}
 	&__description {
+		@media (width <= 767px) {
+			max-width: 530px;
+		}
 	}
+
 	&__title {
 		margin: 14px 0;
 		line-height: calc(38 / 30 * 100%);
 		font-weight: 900;
 		font-size: 30px;
 		@media (width <= 1279px) {
-			& {
-				font-size: 24px;
-			}
+			font-size: 24px;
 		}
 	}
 	&__text {
@@ -238,6 +240,7 @@
 				}
 			}
 		}
+
 		&__category {
 			& ul a {
 				color: $label-fashion;
