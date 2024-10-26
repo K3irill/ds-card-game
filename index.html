@@ -708,9 +708,10 @@
 									<section>
 										<input
 											class="subscribe-input"
-											type="email"
+											type="text"
 											name="email"
 											id="subscribe-email"
+											pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
 											required
 											placeholder="Su correo electrónico"
 										/>
@@ -728,7 +729,6 @@
 										name="checkbox-confirmation"
 										id="subscribe-checkbox"
 										value="1"
-										pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 										required
 									/>
 									<label for="subscribe-checkbox">
