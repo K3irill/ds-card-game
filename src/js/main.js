@@ -18,12 +18,25 @@ const subscribeEmail = document.getElementById('subscribe-email')
 const subscribeCheckbox = document.getElementById('subscribe-checkbox')
 const subscribeForm = document.getElementById('subscribe-form')
 const successText = document.querySelector('.subscribe-block__success')
+const errorText = document.createElement('p')
+errorText.textContent = 'Formato de email inválido, verifique a ortografia'
 
 subscribeEmail.addEventListener('input', function (event) {
-	if (this.validity.typeMismatch) {
-		this.setCustomValidity('Formato de email inválido, verifique a ortografia')
+	if (subscribeEmail.value.length === 0) {
+		if (subscribeCheckbox.parentNode.contains(errorText)) {
+			subscribeCheckbox.parentNode.removeChild(errorText)
+		}
+		return
+	}
+
+	if (!this.validity.valid) {
+		if (!subscribeCheckbox.parentNode.contains(errorText)) {
+			subscribeCheckbox.parentNode.insertBefore(errorText, subscribeCheckbox)
+		}
 	} else {
-		this.setCustomValidity('')
+		if (subscribeCheckbox.parentNode.contains(errorText)) {
+			subscribeCheckbox.parentNode.removeChild(errorText)
+		}
 	}
 })
 subscribeForm.addEventListener('submit', event => {
