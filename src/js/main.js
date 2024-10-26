@@ -2,10 +2,9 @@ import '../styles/style.scss'
 //*hide header by scrolling
 let lastScrollTop = 0
 const header = document.getElementById('header')
-const app = document.getElementById('app')
 
-app.addEventListener('scroll', function () {
-	let scrollTop = app.scrollTop
+window.addEventListener('scroll', function () {
+	let scrollTop = window.pageYOffset || document.documentElement.scrollTop
 	if (scrollTop > lastScrollTop) {
 		header.style.top = '-140px'
 	} else {
