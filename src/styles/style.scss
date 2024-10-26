@@ -12,12 +12,11 @@
 @import 'modules/footer';
 #app {
 	position: relative;
-	overflow-x: hidden;
 }
+
 .__container {
 	max-width: 1206px;
 	margin: 0 auto;
-	// padding: 0 0;
 }
 .blocks {
 	position: relative;
