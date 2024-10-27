@@ -1,0 +1,436 @@
+//----for-ui-components:
+.link-category {
+	border-radius: 20px;
+	background-color: transparent;
+	padding: 9px 17px;
+	border: 1.2px solid $btn-border;
+	font-size: 15px;
+	font-weight: 500;
+	text-wrap: nowrap;
+	@include transition(background-color);
+	&:hover,
+	&:active {
+		@include transition(background-color);
+	}
+	&--design {
+		&:hover,
+		&:active {
+			background-color: $label-design;
+		}
+	}
+	&--programming {
+		&:hover,
+		&:active {
+			background-color: $label-programming;
+		}
+	}
+	&--gaming {
+		&:hover,
+		&:active {
+			background-color: $label-gaming;
+		}
+	}
+	&--marketing {
+		&:hover,
+		&:active {
+			background-color: $label-marketing;
+		}
+	}
+	&--software {
+		&:hover,
+		&:active {
+			background-color: $label-software;
+		}
+	}
+	&--career {
+		&:hover,
+		&:active {
+			background-color: $label-career;
+		}
+	}
+	//
+	&--fashion-li {
+		background-color: $label-fashion;
+		border: none;
+	}
+	&--design-li {
+		background-color: $label-design;
+		border: none;
+	}
+	&--programming-li {
+		background-color: $label-programming;
+		border: none;
+	}
+	&--gaming-li {
+		background-color: $label-gaming;
+		border: none;
+	}
+	&--marketing-li {
+		background-color: $label-marketing;
+		border: none;
+	}
+	&--software-li {
+		background-color: $label-software;
+		border: none;
+	}
+	&--career-li {
+		background-color: $label-career;
+		border: none;
+	}
+}
+.running-line {
+	overflow: hidden;
+	position: relative;
+	z-index: 3;
+	padding: 40px 0px;
+	left: -5px;
+	width: 103vw;
+
+	&__content {
+		display: flex;
+		align-items: center;
+		white-space: nowrap;
+	}
+	&__items {
+		display: flex;
+	}
+	&__content h2 {
+		display: flex;
+		align-items: center;
+		white-space: nowrap;
+		flex-shrink: 0;
+		// padding: 0 50px;
+		font-size: 58px;
+		font-weight: 900;
+	}
+	& img {
+		transform: rotate(4deg);
+		margin: 0 48px;
+	}
+	@media (width <= 1279px) {
+		padding: 20px 0px;
+		&__content h2 {
+			padding: 0 30px;
+			font-size: 30px;
+		}
+	}
+	&--articles {
+		background-color: $label-software;
+		transform: rotate($deg);
+
+		.running-line {
+			&__items {
+				-webkit-animation: scrollText 20s linear infinite;
+				animation: scrollText 20s linear infinite;
+			}
+		}
+		margin-top: 124px;
+		@media (width <= 1279px) {
+			transform: rotate(-3deg);
+			margin-top: 60px;
+		}
+		@media (width <= 767px) {
+			transform: rotate(-4deg);
+			margin-top: 37px;
+		}
+	}
+	&--webinars {
+		position: relative;
+		top: -47px;
+		background-color: $label-marketing;
+		transform: rotate(-3deg);
+		@media (width > 1920px) {
+			transform: rotate(-2deg);
+		}
+		@media (width > 2560px) {
+			transform: rotate(0deg);
+		}
+		@media (width <= 1279px) {
+			top: -70px;
+		}
+		@media (width <= 767px) {
+			transform: rotate(-4deg);
+		}
+		.running-line {
+			&__items {
+				-webkit-animation: scrollText--reverse 15s linear infinite;
+				animation: scrollText--reverse 15s linear infinite;
+			}
+		}
+	}
+	&--subscribe {
+		position: relative;
+		top: -152px;
+		background-color: $red;
+		transform: rotate(2deg);
+		z-index: 2;
+		@media (width >= 2561px) {
+			transform: rotate(0deg);
+		}
+		@media (width >= 2220px) {
+			top: -162px;
+		}
+		@media (width <= 1279px) {
+			transform: rotate(3deg);
+		}
+		@media (width <= 767px) {
+			transform: rotate(4deg);
+		}
+		.running-line {
+			&__items {
+				-webkit-animation: scrollText 20s linear infinite;
+				animation: scrollText 20s linear infinite;
+			}
+		}
+	}
+	&--footer {
+		background-color: $pink;
+		& h2 {
+			color: $white-primary;
+		}
+		.running-line {
+			&__items {
+				-webkit-animation: scrollText 20s linear infinite;
+				animation: scrollText 20s linear infinite;
+			}
+		}
+	}
+}
+.mt-200px {
+	margin-top: 200px;
+}
+.mb-150px {
+	margin-bottom: 150px;
+}
+.button-leer {
+	background-color: $label-gaming;
+	border: 1px solid black;
+	border-radius: calc($radius * 2);
+	padding: 15px 55px;
+	display: inline-block;
+	font-size: 18px;
+	border: 3px solid transparent;
+	position: relative;
+
+	@include transition(all);
+	&::before {
+		content: '';
+		position: absolute;
+		top: 3px;
+		left: 3px;
+		right: 3px;
+		bottom: 3px;
+		border: 2px solid black;
+		border-radius: 44px;
+		@include transition(all);
+	}
+	@media (width >= 1280px) {
+		&:hover {
+			@include transition(all);
+			background-color: $bg-block;
+			color: $white-primary;
+		}
+		&:disabled {
+			opacity: 60%;
+		}
+		&:focus {
+			&::before {
+				top: -3px;
+				left: -3px;
+				right: -3px;
+				bottom: -3px;
+			}
+		}
+	}
+}
+.button-todos {
+	background-color: $purple;
+	border: none;
+	color: $white-primary;
+	padding: 20px 58px;
+	font-size: 18px;
+	border-radius: 40px;
+	font-weight: 700;
+	@include transition(background-color);
+	&:hover,
+	&:active {
+		@include transition(background-color);
+		background-color: $pink;
+	}
+	&:disabled {
+		opacity: 60%;
+	}
+	&:focus {
+		border: 2px solid $white-primary;
+	}
+}
+
+.subscribe-input {
+	border: 2px solid $white-primary;
+	border-radius: 88px;
+	background-color: transparent;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 13px 28px;
+	color: $white-primary;
+	&::-webkit-input-placeholder {
+		color: $white-primary;
+	}
+	&::-moz-placeholder {
+		color: $white-primary;
+	}
+	&:-ms-input-placeholder {
+		color: $white-primary;
+	}
+	&::-ms-input-placeholder {
+		color: $white-primary;
+	}
+	&::placeholder {
+		color: $white-primary;
+	}
+	&:disabled {
+		opacity: 60%;
+	}
+	&:focus {
+		border: 2px solid #1b1f21;
+	}
+	&:invalid,
+	&:valid {
+		background-repeat: no-repeat;
+		background-position: 95%;
+	}
+	&:not(:placeholder-shown):invalid {
+		border-color: $label-marketing;
+		background-image: url('/assets/icons/icon-form-error.svg');
+	}
+
+	&:valid {
+		border-color: $label-gaming;
+		background-image: url('/assets/icons/icon-form-correct.svg');
+	}
+}
+.subscribe-button {
+	border-radius: 40px;
+	background-color: $red;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 14px 116px;
+	color: $white-primary;
+	@include transition(background-color);
+	&:hover,
+	&:active {
+		@include transition(background-color);
+		background-color: $bg-block;
+		box-shadow: 0px 0px 5px $white-primary;
+	}
+	&:disabled {
+		opacity: 60%;
+	}
+	&:focus:not(:active) {
+		border: 2px solid $bg-block;
+	}
+}
+.subscribe-checkbox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	bottom: 20px;
+	left: 5px;
+	& + label {
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		& a {
+			text-decoration: underline;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	& + label::before {
+		content: '';
+		position: relative;
+		top: -7px;
+		display: inline-block;
+		width: 1.5em;
+		height: 1.5em;
+		flex-shrink: 0;
+		flex-grow: 0;
+		border-radius: 0.25em;
+		margin-right: 1em;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 60% 60%;
+		background-color: $white-primary;
+	}
+	&:checked + label::before {
+		background-image: url('/assets/icons/icon-check-mark.svg');
+	}
+	&:focus:not(:checked) + label::before {
+		box-shadow: 0 0 0 0.15rem $bg-block;
+	}
+	&:disabled + label::before {
+		opacity: 60%;
+	}
+}
+.footer-learning-button {
+	border-radius: 40px;
+	background-color: transparent;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 13px 60px;
+	color: $white-primary;
+	border: 1.4px solid $white-primary;
+	@include transition(background-color, color);
+	&:hover,
+	&:active {
+		@include transition(background-color, color);
+		background-color: $white-primary;
+		color: $bg-block;
+	}
+	&:disabled {
+		opacity: 60%;
+	}
+	&:focus {
+		outline: none;
+		border: 2.4px solid $white-primary;
+	}
+	&:focus-visible {
+		border: 2.4px solid $white-primary;
+	}
+}
+.footer-subscribe-button {
+	border-radius: 40px;
+	background-color: $purple;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 13px 57px;
+	color: $white-primary;
+	@include transition(background-color);
+	&:hover,
+	&:active {
+		@include transition(background-color);
+		background-color: $pink;
+	}
+	&:disabled {
+		opacity: 60%;
+	}
+	&:focus {
+		outline: none;
+		border: 2.4px solid $white-primary;
+	}
+	&:focus-visible {
+		border: 2.4px solid $white-primary;
+	}
+}
+.img-accordion {
+	transform: rotate(180deg);
+}
+.rotated {
+	@include transition(transform);
+	transform: rotate(0deg);
+}

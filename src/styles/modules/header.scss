@@ -1,0 +1,123 @@
+//<-----HEADER----->
+.header {
+	position: fixed;
+	top: 0px;
+	left: 0;
+	width: 100%;
+	font-family: $font-secondary;
+	z-index: 999;
+	background: $white-primary;
+	@include transition(all);
+	&__container {
+		@include flex-horizontal-center;
+		justify-content: space-between;
+		padding: 17.5px 0;
+		@media (width <= 1279px) {
+			align-items: start;
+			height: 130px;
+			padding: 17.5px 34px;
+		}
+		@media (width <= 767px) {
+			padding: 21.5px 10px 0 10px;
+		}
+	}
+	&__logo-block {
+		height: 40px;
+		min-width: 110px;
+		& a {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+		}
+		& path {
+			@include transition(fill);
+		}
+		&:hover {
+			path {
+				@include transition(fill);
+				fill: #da3369;
+			}
+		}
+		& svg:first-child {
+			margin-right: 5px;
+		}
+		@media (width <= 767px) {
+			& svg {
+				transform: scale(1.2);
+				&:first-child {
+					margin-right: 15px;
+				}
+			}
+		}
+	}
+	&__navigation {
+		@include flex-horizontal-center;
+		justify-content: center;
+		white-space: nowrap;
+		@media (width <= 1279px) {
+			& {
+				justify-content: flex-start;
+				top: 81px;
+				position: absolute;
+				width: 95%;
+				height: 40px;
+				overflow-x: auto;
+				scrollbar-width: none;
+			}
+		}
+	}
+	&__nav-list {
+		display: flex;
+		flex-wrap: nowrap;
+		padding: 0;
+		width: -webkit-max-content;
+		width: -moz-max-content;
+		width: max-content;
+	}
+	&__nav-item {
+		flex-shrink: 0;
+
+		margin-right: 10px;
+	}
+	&__search-block {
+		display: flex;
+		position: relative;
+		& > button {
+			background-color: transparent;
+			border: none;
+		}
+		@media (width <= 1279px) {
+			top: 10px;
+			right: -2px;
+		}
+	}
+	&__button-search {
+		margin-right: 26px;
+		@include transition(filter);
+		&:hover {
+			@include transition(filter);
+			filter: brightness(4);
+		}
+	}
+	&__link-ebac {
+		display: flex;
+		position: relative;
+		font-weight: 500;
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 1.5px;
+			width: 0;
+			background-color: $label-gaming;
+			@include transition(width);
+		}
+		&:hover::after {
+			width: 100%;
+		}
+		& span {
+			margin-right: 9px;
+		}
+	}
+}

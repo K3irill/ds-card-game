@@ -1,0 +1,10 @@
+@import 'variables';
+
+@mixin flex-horizontal-center {
+	display: flex;
+	align-items: center;
+}
+
+@mixin transition($property...) {
+	transition: $property 0.3s ease-in-out;
+}

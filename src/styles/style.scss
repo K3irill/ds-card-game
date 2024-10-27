@@ -1,0 +1,91 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+@import 'animations';
+@import 'fonts';
+@import 'modules/ui';
+@import 'modules/header';
+@import 'modules/article-preview';
+@import 'modules/articles-block';
+@import 'modules/webinars-block';
+@import 'modules/subscribe-block';
+@import 'modules/footer';
+#app {
+	position: relative;
+}
+
+.__container {
+	max-width: 1206px;
+	margin: 0 auto;
+}
+.blocks {
+	position: relative;
+}
+.ibg {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	-o-object-fit: cover;
+	object-fit: cover;
+	width: 100%;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
+	height: fit-content;
+	@media (max-width: 1279px) {
+		& {
+			top: 50px;
+		}
+	}
+}
+.ibg-ap {
+	@media (width <= 1279px) {
+		top: -5%;
+	}
+	@media (width <= 767px) {
+		top: -2%;
+	}
+}
+.ibg--card-workshop {
+	top: auto;
+	bottom: 0;
+	-o-object-fit: contain;
+	object-fit: contain;
+}
+.ibg--card-webinar {
+	bottom: 0;
+	top: auto;
+}
+.ibg--card-demonstration {
+	top: auto;
+	@media (width <= 1279px) {
+		top: 0;
+		-o-object-fit: cover;
+		object-fit: cover;
+		height: 100%;
+	}
+}
+.ibg--webinars {
+	top: 0;
+	@media (width <= 1279px) {
+		top: auto;
+		bottom: 0;
+	}
+	@media (width <= 767px) {
+		display: none;
+	}
+}
+
+.hidden {
+	display: none;
+}
+.mobile-hidden {
+	@media (width <= 767px) {
+		display: none;
+	}
+}
+.tablet-hidden {
+	@media (width >= 768px) {
+		display: none;
+	}
+}

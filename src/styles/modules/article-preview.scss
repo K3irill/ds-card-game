@@ -1,0 +1,285 @@
+// ---- Article-preview
+.article-preview {
+	position: relative;
+	margin-top: 153px;
+	padding: 0 8px;
+	@media (width >= 1280px) {
+		&:hover &__sticker {
+			transform: rotate(360deg);
+		}
+	}
+	@media (width <= 1279px) {
+		margin-top: 185px;
+	}
+	@media (width <= 767px) {
+		margin-top: 155px;
+	}
+	&__container {
+		@include flex-horizontal-center;
+		margin-top: 100px;
+		position: relative;
+		z-index: 2;
+		@media (width <= 1279px) {
+			flex-direction: column;
+		}
+	}
+	&__sticker {
+		position: absolute;
+		top: 0;
+		right: 0;
+		max-width: 180px;
+		max-height: 180px;
+		transition: transform 3s ease;
+		@media (width <= 1279px) {
+			top: 9px;
+			right: 8px;
+			max-width: 120px;
+			max-height: 120px;
+		}
+		@media (width <= 767px) {
+			top: 9px;
+			right: 10px;
+			max-width: 104px;
+			max-height: 104px;
+		}
+	}
+	&__image-wrapper {
+		position: relative;
+		width: 480px;
+		height: 560px;
+		transition: transform 3s ease;
+		& img {
+			width: 100%;
+			height: 100%;
+		}
+		@media (width <= 1279px) {
+			width: 704px;
+			height: 320px;
+		}
+		@media (width <= 767px) {
+			width: 304px;
+			height: 352px;
+		}
+	}
+	&__img {
+		-o-object-fit: cover;
+		object-fit: cover;
+		-webkit-clip-path: path(
+			'M0 240C0 107.452 107.452 0 240 0C372.548 0 480 107.452 480 240V560H0V240Z'
+		);
+		clip-path: path(
+			'M0 240C0 107.452 107.452 0 240 0C372.548 0 480 107.452 480 240V560H0V240Z'
+		);
+
+		@media (width <= 1279px) {
+			& {
+				-webkit-clip-path: path(
+					'M0 151.232C0 67.7088 67.7088 0 151.232 0C189.825 0 225.041 14.4559 251.762 38.2482C278.482 14.4559 313.699 0 352.291 0C390.744 0 425.845 14.3511 452.53 37.9894C479.215 14.3511 514.316 0 552.768 0C636.291 0 704 67.7088 704 151.232V320H0V151.232Z'
+				);
+				clip-path: path(
+					'M0 151.232C0 67.7088 67.7088 0 151.232 0C189.825 0 225.041 14.4559 251.762 38.2482C278.482 14.4559 313.699 0 352.291 0C390.744 0 425.845 14.3511 452.53 37.9894C479.215 14.3511 514.316 0 552.768 0C636.291 0 704 67.7088 704 151.232V320H0V151.232Z'
+				);
+			}
+		}
+		@media (width <= 767px) {
+			& {
+				-webkit-clip-path: path(
+					'M0 150.857C0 67.541 68.0527 0 152 0C235.947 0 304 67.541 304 150.857V352H0V150.857Z'
+				);
+				clip-path: path(
+					'M0 150.857C0 67.541 68.0527 0 152 0C235.947 0 304 67.541 304 150.857V352H0V150.857Z'
+				);
+			}
+		}
+	}
+
+	&__content-wrapper {
+		margin: -10px 0 0 40px;
+		@media (width <= 1279px) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-left: 56px;
+		}
+		@media (width <= 767px) {
+			& {
+				margin-left: 0;
+			}
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		@media (width <= 1279px) {
+			margin-top: 34px;
+			flex-direction: row;
+		}
+		@media (width <= 767px) {
+			margin-top: 29px;
+			flex-direction: column;
+		}
+	}
+	&__category {
+		font-family: $font-secondary;
+		order: 1;
+		& span {
+			border-radius: $radius;
+			color: $primary;
+			padding: 8px 18px;
+		}
+		&,
+		ul {
+			@include flex-horizontal-center;
+		}
+
+		ul {
+			margin-left: 16px;
+			& li:not(:last-child) {
+				margin-right: 10px;
+			}
+			@media (width >= 1280px) {
+				& {
+					margin-left: 16px;
+				}
+			}
+		}
+		@media (width <= 1279px) and (width >= 768px) {
+			& {
+				flex-direction: column;
+				align-items: end;
+				margin-right: 14px;
+				& li {
+					margin-top: 8px;
+					margin-bottom: 22px;
+				}
+			}
+		}
+	}
+
+	&__category--gaming {
+		& li a {
+			color: $label-gaming;
+		}
+	}
+	&__description {
+		position: relative;
+		order: 2;
+		@media (width >= 768px) and (width <= 1279px) {
+			top: -15px;
+			left: 5px;
+		}
+	}
+	&__title {
+		margin-top: 18px;
+		font-size: 36px;
+		line-height: calc(42 / 36 * 100%);
+		font-weight: 900;
+		max-width: 580px;
+		@media (width <= 1279px) {
+			margin-top: 12px;
+			font-size: 26px;
+			max-width: 480px;
+		}
+	}
+	&__text,
+	&__info {
+		font-family: $font-secondary;
+	}
+	&__text {
+		position: relative;
+		margin-top: 18px;
+		font-size: 18px;
+		line-height: calc(28 / 18 * 100%);
+		color: $text-gray;
+		max-width: 460px;
+	}
+	&__info {
+		color: $light-gray;
+		margin-top: 22px;
+		margin-bottom: 48px;
+		order: 3;
+		& > span:first-child {
+			margin: 0 48px 0 24px;
+		}
+		& span {
+			color: $light-gray;
+		}
+		@media (width >= 768px) and (width <= 1279px) {
+			display: none;
+			& > span:first-child {
+				margin: 0;
+			}
+			& span {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+	}
+	&__info--mobile {
+		display: none;
+		margin: 0;
+		flex-direction: column;
+		align-items: end;
+		margin-right: 10px;
+		@media (width >= 768px) and (width <= 1279px) {
+			display: flex;
+		}
+	}
+
+	&__date {
+		&::before {
+			content: url(/assets/icons/icon-calendar.svg);
+		}
+		@media (width >= 768px) and (width <= 1279px) {
+			&::after {
+				content: url(/assets/icons/icon-calendar.svg);
+			}
+		}
+	}
+	&__reading-time {
+		&::before {
+			content: url(/assets/icons/icon-time.svg);
+		}
+		@media (width >= 768px) and (width <= 1279px) {
+			&::after {
+				content: url(/assets/icons/icon-time.svg);
+			}
+		}
+	}
+	&__reading-time,
+	&__date {
+		position: relative;
+		&::before {
+			position: absolute;
+			left: -20px;
+			top: 0;
+		}
+		@media (width >= 768px) and (width <= 1279px) {
+			&::before {
+				content: '';
+			}
+			&::after {
+				position: absolute;
+				top: 3px;
+				right: -10px;
+			}
+		}
+	}
+	&__button {
+		position: relative;
+		@media (width >= 1280px) {
+			top: 6px;
+		}
+		@media (width >= 768px) and (width <= 1279px) {
+			margin-top: 33px;
+			margin-left: -45px;
+		}
+		@media (width <= 767px) {
+			margin-top: 5px;
+			width: 100%;
+		}
+	}
+}
+.article-preview--gaming {
+	margin-top: 80px;
+}
