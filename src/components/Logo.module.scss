@@ -1,0 +1,17 @@
+@use "../assets/styles/variables" as *;
+@use "../assets/styles/mixins" as *;
+.logo {
+  position: relative;
+
+  &__mask {
+    width: 118px;
+    height: 40px;
+    background-color: $primary;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    @include transition(background-color);
+    &:hover {
+      background-color: $pink;
+    }
+  }
+}
