@@ -1,0 +1,35 @@
+@use "../../assets/styles/mixins" as *;
+@use "../../assets/styles/keyframes" as *;
+@use "../../assets/styles/variables" as *;
+.k3loader {
+  position: relative;
+  width: 131px;
+  // height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & p {
+    color: #111111a7;
+    font-size: 43px;
+    font-weight: 500;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  & img {
+    position: relative;
+    left: -6px;
+    top: 1px;
+    animation: heartbeat 1.5s infinite;
+  }
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(195, 231, 208, 0.7);
+    z-index: 999;
+  }
+}
