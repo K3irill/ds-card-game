@@ -1,0 +1,10 @@
+@use "../../assets/styles/mixins" as *;
+.iconButton {
+  background-color: transparent;
+  border: none;
+  @include transition(filter);
+  &:hover {
+    @include transition(filter);
+    filter: brightness(4);
+  }
+}
