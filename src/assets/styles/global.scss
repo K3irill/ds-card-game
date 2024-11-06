@@ -1,0 +1,14 @@
+@use "./_reset.scss";
+@use "./_variables.scss";
+@use "./_mixins.scss";
+@use "./_keyframes.scss";
+@use "./_fonts.scss";
+
+#root {
+  position: relative;
+}
+
+.__container {
+  max-width: 1206px;
+  margin: 0 auto;
+}
