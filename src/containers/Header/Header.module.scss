@@ -1,0 +1,77 @@
+@use "../../assets/styles/_mixins.scss" as *;
+@use "../../assets/styles/_variables.scss" as *;
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  font-family: $font-secondary;
+  z-index: 999;
+  background: $white-primary;
+  @include transition(all);
+  &__container {
+    @include flex-horizontal-center;
+    justify-content: space-between;
+    padding: 17.5px 0;
+  }
+
+  &__logo-block {
+    position: relative;
+  }
+  &__navigation {
+    @include flex-horizontal-center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  &__nav-list {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  &__nav-item {
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+  &__search-block {
+    display: flex;
+    position: relative;
+  }
+  &__link-ebac {
+    margin-left: 26px;
+    @include flex-horizontal-center;
+    justify-content: center;
+    position: relative;
+    font-weight: 500;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1.5px;
+      width: 100%;
+      background-color: $label-gaming;
+      transform: scaleX(0);
+      transform-origin: left;
+      @include transition(transform);
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+
+    &:not(:hover)::after {
+      transform-origin: right;
+      transform: scaleX(0);
+    }
+
+    & span {
+      margin-left: 9px;
+      display: flex;
+    }
+  }
+  @include responsive-header;
+}
