@@ -1,27 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Header from './containers/Header/Header.tsx'
-import fetchMenu from './services/fetchMenu.ts'
-import { Menu } from './interfaces/MenuInterface.ts'
-import K3Loader from './components/loaders/K3Loader.tsx'
+import { Database } from './interfaces/DataInterface.ts'
+import K3Loader from './components/loaders/k3Loader.tsx'
+// eslint-disable-next-line import/no-named-default
+import { default as requestToData } from './services/fetchData.ts'
+import useData from './hooks/useData.ts'
 
 function App() {
-  const [menuData, setMenuData] = useState<Menu | undefined>(undefined)
-  const [isLoading, setLoading] = useState<boolean>(true)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchMenu()
-      console.log(data)
-      setMenuData(data)
-      setLoading(false)
-    }
-    setTimeout(() => fetchData(), 1500)
-  }, [])
+  const { contentData, isLoading, error } = useData(requestToData)
+  console.log(contentData)
 
   return (
     <>
       {isLoading && <K3Loader />}
-      {menuData && <Header content={menuData} />}
+      {error && <p>{error}</p>}
+      {contentData && <Header content={contentData.menu} />}
     </>
   )
 }
