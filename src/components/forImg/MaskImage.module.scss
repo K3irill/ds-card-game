@@ -1,0 +1,17 @@
+.img-mask {
+  &__arch {
+    width: 100%;
+    height: 100%;
+    mask-image: url(/img/masks/arch.png);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    object-fit: cover;
+    @media (width <= 1279px) {
+      mask-image: url(/img/masks/arch-middle.png);
+    }
+    @media (width <= 767px) {
+      mask-image: url(/img/masks/arch-small.png);
+    }
+  }
+}
