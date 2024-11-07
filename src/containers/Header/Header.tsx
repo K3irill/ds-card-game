@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './Header.module.scss'
 import NavButton from '../../components/buttons/NavButton.tsx'
-import { Menu } from '../../interfaces/MenuInterface.ts'
+import { Menu } from '../../interfaces/DataInterface.ts'
 import IconButton from '../../components/buttons/IconButton.tsx'
 import Logo from '../../components/Logo.tsx'
 
@@ -10,7 +10,7 @@ interface HeaderProps {
 }
 function Header({ content }: HeaderProps) {
   return (
-    <header className={`${styles.header}`}>
+    <header className={`${styles.header} }`}>
       <div className={`${styles.header__container} __container`}>
         <div className={styles['header__logo-block']}>
           <Logo url={content.logo} />
