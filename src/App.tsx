@@ -5,11 +5,14 @@ import K3Loader from './components/loaders/k3Loader.tsx'
 // eslint-disable-next-line import/no-named-default
 import { default as requestToData } from './services/fetchData.ts'
 import useData from './hooks/useData.ts'
+import { useTheme } from './components/ThemeContext.tsx'
 
 function App() {
+  const { theme, toggleTheme } = useTheme()
   const { contentData, isLoading, error } = useData(requestToData)
-  console.log(contentData)
-
+  useEffect(() => {
+    toggleTheme()
+  }, [])
   return (
     <>
       {isLoading && <K3Loader />}
