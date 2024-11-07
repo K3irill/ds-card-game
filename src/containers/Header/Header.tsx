@@ -3,7 +3,7 @@ import styles from './Header.module.scss'
 import NavButton from '../../components/buttons/NavButton.tsx'
 import { Menu } from '../../interfaces/DataInterface.ts'
 import IconButton from '../../components/buttons/IconButton.tsx'
-import Logo from '../../components/Logo.tsx'
+import Logo from '../../components/forImg/Logo.tsx'
 
 interface HeaderProps {
   content: Menu
@@ -27,11 +27,11 @@ function Header({ content }: HeaderProps) {
           </ul>
         </nav>
         <div className={styles['header__search-block']}>
-          <IconButton url="/src/assets/icons/search.svg" />
+          <IconButton url="/icons/search.svg" />
           <a className={styles['header__link-ebac']} href="/">
             EBAC
             <span>
-              <img src="/src/assets/icons/arrow.svg" alt="to outside" />
+              <img src="/icons/arrow.svg" alt="to outside" />
             </span>
           </a>
         </div>
