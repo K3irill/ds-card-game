@@ -1,6 +1,6 @@
 @use "./_reset.scss";
-@use "./_variables.scss";
-@use "./_mixins.scss";
+@use "./_variables.scss" as *;
+@use "./_mixins.scss" as *;
 @use "./_keyframes.scss";
 @use "./_fonts.scss";
 
@@ -12,4 +12,18 @@
 .__container {
   max-width: 1206px;
   margin: 0 auto;
+}
+
+body.light {
+  background-color: $white-primary;
+  color: $bg-block;
+}
+
+body.dark {
+  background-color: #000000d1;
+  color: $white-primary;
+}
+
+body {
+  @include transition(background-color);
 }
