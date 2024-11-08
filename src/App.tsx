@@ -23,7 +23,7 @@ function App() {
 
       {contentData && (
         <main>
-          <ArticlePreview>
+          <ArticlePreview ticker={contentData.sections.main.ticker}>
             <Article content={contentData.sections.main.items[0]} />
           </ArticlePreview>
         </main>
