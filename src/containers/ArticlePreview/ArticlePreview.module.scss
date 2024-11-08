@@ -2,13 +2,14 @@
 @use "../../assets/styles/_variables.scss" as *;
 
 .article-preview {
-  padding-top: 155px;
+  padding-top: 150px;
+  padding-bottom: 126px;
   @media (width <= 1279px) {
-    padding-top: 170px;
+    padding-top: 182px;
+    padding-bottom: 56px;
   }
   @media (width <= 767px) {
     padding-top: 149px;
-  }
-  &__container {
+    padding-bottom: 35px;
   }
 }
