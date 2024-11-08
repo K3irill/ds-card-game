@@ -124,7 +124,7 @@
       &__sticker {
       }
       &__content-wrapper {
-        padding-top: 43px;
+        padding-top: 46px;
         margin-left: 40px;
       }
       &__title {
@@ -148,24 +148,22 @@
           align-items: center;
         }
         &__content {
-					display: grid;
-					grid-template-columns: 235px 1fr 1fr;
-					grid-template-rows: repeat(2, auto);
+          display: grid;
+          grid-template-columns: 235px 1fr 1fr;
+          grid-template-rows: repeat(2, auto);
 
-					grid-template-areas: 
-						'tags description description'
-						'info description description'
-					;
-
+          grid-template-areas:
+            "tags description description"
+            "info description description";
         }
         &__title {
           font-size: 26px;
           padding: 0px 0px 9px;
         }
         &__tags_list {
-					grid-area: tags;
+          grid-area: tags;
           position: relative;
-					margin-right: 15px;
+          margin-right: 15px;
           margin-top: 16px;
           justify-content: end;
           li:first-child {
@@ -175,11 +173,11 @@
           }
         }
         &__info {
-					grid-area: info;
-					margin: -13px 16px 0 0;
+          grid-area: info;
+          margin: -13px 16px 0 0;
           flex-direction: column;
           p {
-						margin: 0 0 5px 0;
+            margin: 0 0 5px 0;
             flex-direction: row-reverse;
             span {
               margin-left: 8px;
@@ -187,7 +185,7 @@
           }
         }
         &__description {
-					grid-area: description;
+          grid-area: description;
         }
         &__button {
           margin-top: 50px;
