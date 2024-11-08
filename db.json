@@ -124,7 +124,7 @@
           }
         }
       ],
-      "ticker": { "text": "Artículos populares", "color:": "#acd6de" }
+			"ticker": { "text": "Artículos populares", "color": "#acd6de" }
     },
     "content": {
       "items": [
@@ -219,7 +219,7 @@
           }
         }
       ],
-      "ticker": { "text": "Webinars", "color:": "#ffad20" }
+      "ticker": { "text": "Webinars", "color": "#ffad20" }
     },
     "proposals": {
       "title": "Webinars gratuitos",
@@ -265,7 +265,7 @@
           "time": "19:00"
         }
       ],
-      "ticker": { "text": "Suscríbete", "color:": "#fe6d44" }
+      "ticker": { "text": "Suscríbete", "color": "#fe6d44" }
     },
     "subscription": {
       "title": "Suscríbete a nuestra newsletter para no perderte nada nuevo",
