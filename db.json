@@ -124,7 +124,7 @@
           }
         }
       ],
-			"ticker": { "text": "Artículos populares", "color": "#acd6de" }
+      "ticker": { "text": "Artículos populares", "color": "#acd6de" }
     },
     "content": {
       "items": [
@@ -173,7 +173,7 @@
           "size": "full-image",
           "tags": ["Diseño", "Artículo", "Niños", "Proyecto"],
           "img": {
-            "url": "/img/content-3.jpg",
+            "url": "/img/sections/content/3.jpg",
             "shape": "cloud"
           },
           "stamp": {
