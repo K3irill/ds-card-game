@@ -8,6 +8,7 @@ import useData from './hooks/useData.ts'
 import { useTheme } from './components/ThemeContext.tsx'
 import ArticlePreview from './containers/ArticlePreview/ArticlePreview.tsx'
 import { Article } from './components/Article.tsx'
+import ArticlesBlock from './containers/Article/ArticlesBlock.tsx'
 function App() {
   const { theme, toggleTheme } = useTheme()
   const { contentData, isLoading, error } = useData(requestToData)
@@ -26,6 +27,11 @@ function App() {
           <ArticlePreview ticker={contentData.sections.main.ticker}>
             <Article content={contentData.sections.main.items[0]} />
           </ArticlePreview>
+          <ArticlesBlock>
+            {contentData.sections.content.items.map((item) => {
+              return <Article content={item} />
+            })}
+          </ArticlesBlock>
         </main>
       )}
     </>
