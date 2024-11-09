@@ -1,56 +1,72 @@
 @use "../assets/styles/variables" as *;
 @use "../assets/styles/mixins" as *;
+
 .article {
   display: flex;
   flex-direction: column;
+
   &__img-wrapper {
     position: relative;
     max-width: 100%;
     max-height: 100%;
-    overflow: hidden;
+
+    @include article-media-img-wrapper();
   }
+
   &__sticker {
     position: absolute;
-    @media (width <= 1279px) {
-      width: 17%;
-    }
-    @media (width <= 767px) {
-      width: 36%;
-    }
+
+    @include article-media-sticker();
   }
+
   &__tags {
     &_list {
       display: flex;
       align-items: center;
       order: 1;
-      & li:first-child {
+
+      & a {
         padding: 7px 18px;
         border-radius: 20px;
-        margin-right: 16px;
       }
+
+      ul {
+        display: flex;
+      }
+
       & li {
-        margin-right: 10px;
+        margin-left: 10px;
+      }
+
+      & li:first-child {
+        margin-left: 14px;
       }
     }
   }
+
   &__content-wrapper {
   }
+
   &__content {
     display: flex;
     flex-direction: column;
     position: relative;
   }
+
   &__description {
     order: 2;
   }
+
   &__info {
     display: flex;
     margin-top: 16px;
     order: 3;
+
     p {
       display: flex;
       color: $light-gray;
       margin-right: 24px;
+
       span {
         display: flex;
         align-items: center;
@@ -58,6 +74,7 @@
       }
     }
   }
+
   &__button {
     margin-top: 53px;
     background-color: $label-gaming;
@@ -82,141 +99,32 @@
       box-shadow: 0 0 0 5px $label-gaming;
     }
   }
+
   &__title {
     @include transition(color);
+
     &--dark {
       @include transition(color);
       color: $white-primary;
     }
+
     &--light {
       @include transition(color);
       color: $bg-block;
     }
   }
+
   &__full-size {
     flex-direction: row;
-    @media (width <= 1279px) {
-      align-items: center;
-      flex-direction: column;
-    }
-    .article {
-      &__img-wrapper {
-        max-width: 480px;
-        width: 100%;
-        max-height: 560px;
-        @media (width <= 1279px) {
-          max-width: 704px;
-          max-height: 320px;
-          &:first-child {
-            width: 100%;
-            height: 320px;
-          }
-        }
-        @media (width <= 767px) {
-          max-width: 304px;
-          max-height: 352px;
-          &:first-child {
-            width: 100%;
-            height: 352px;
-          }
-        }
-      }
-      &__sticker {
-      }
-      &__content-wrapper {
-        padding-top: 46px;
-        margin-left: 40px;
-      }
-      &__title {
-        font-size: 36px;
-        line-height: calc(43 / 36 * 100%);
-        padding: 18px 0px 16px;
-      }
 
-      &__text {
-        font-size: 18px;
-        color: $text-gray;
-        max-width: 450px;
-        line-height: calc(28.5 / 18 * 100%);
-      }
-      @media (width >= 768px) and (width <= 1279px) {
-        &__content-wrapper {
-          padding-top: 24px;
-          max-width: 728px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        &__content {
-          display: grid;
-          grid-template-columns: 235px 1fr 1fr;
-          grid-template-rows: repeat(2, auto);
-
-          grid-template-areas:
-            "tags description description"
-            "info description description";
-        }
-        &__title {
-          font-size: 26px;
-          padding: 0px 0px 9px;
-        }
-        &__tags_list {
-          grid-area: tags;
-          position: relative;
-          margin-right: 15px;
-          margin-top: 16px;
-          justify-content: end;
-          li:first-child {
-            top: -16px;
-            right: -6.5px;
-            position: absolute;
-          }
-        }
-        &__info {
-          grid-area: info;
-          margin: -13px 16px 0 0;
-          flex-direction: column;
-          p {
-            margin: 0 0 5px 0;
-            flex-direction: row-reverse;
-            span {
-              margin-left: 8px;
-            }
-          }
-        }
-        &__description {
-          grid-area: description;
-        }
-        &__button {
-          margin-top: 50px;
-          left: -12px;
-        }
-      }
-      @media (width <= 767px) {
-        &__content-wrapper {
-          margin: 0;
-          padding: 18px 0px 0px 0px;
-          display: flex;
-          flex-direction: column;
-          max-width: 304px;
-        }
-
-        &__title {
-          font-size: 26px;
-        }
-      }
-    }
+    @include article-media-full-size();
   }
+
   &__compact {
-    .article__img-wrapper {
-      max-width: 584px;
-      max-height: 328px;
-    }
+    @include article-media-compact();
   }
+
   &__full-image {
-    .article__img-wrapper {
-      max-width: 1208px;
-      max-height: 520px;
-    }
+    @include article-media-full-image();
   }
 }

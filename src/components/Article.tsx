@@ -13,10 +13,12 @@ export const Article = ({ content }: ArticleProps) => {
   const { theme } = useTheme()
   const stickerPosition = content.stamp.position.split('-')
   const stickerStyle = {
-    [stickerPosition[0]]: '0',
-    [stickerPosition[1]]: '0',
+    [stickerPosition[0]]: '-48px',
+    [stickerPosition[1]]: '-40px',
   }
-
+  const tagBColor = {
+    backgroundColor: content.accent,
+  }
   return (
     <article
       className={`${styles.article} ${styles['article__' + content.size]}`}
@@ -32,20 +34,21 @@ export const Article = ({ content }: ArticleProps) => {
       </div>
       <div className={` ${styles['article__content-wrapper']}`}>
         <div className={` ${styles['article__content']}`}>
-          <ul className={` ${styles['article__tags_list']}`}>
-            {content.tags.map((tag, index) => {
-              const tagColor =
-                index === 0
-                  ? { backgroundColor: content.accent }
-                  : { color: content.accent }
-
-              return (
-                <li style={tagColor} key={tag + 'id'}>
-                  {tag}
-                </li>
-              )
-            })}
-          </ul>
+          <div className={`${styles['article__tags_list']}`}>
+            <a style={tagBColor}>{content.tags[0]}</a>
+            <ul>
+              {content.tags.slice(1).map((tag, index) => {
+                return (
+                  <li
+                    style={{ color: content.accent }}
+                    key={tag + index + 'id'}
+                  >
+                    {tag}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
           <div className={styles['article__description']}>
             <h1
               className={` ${styles['article__title']} ${
