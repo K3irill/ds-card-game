@@ -1,86 +1,60 @@
 @use "../../assets/styles/mixins" as *;
 .img-mask {
+  width: 100%;
+  height: 100%;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  object-fit: cover;
   &__arch {
-    width: 100%;
-    height: 100%;
     @include article-media-mask(
       "/img/masks/arch-small.png",
       "/img/masks/arch-middle.png",
       "/img/masks/arch.png"
     );
-    mask-size: contain;
-    mask-position: center;
-    mask-repeat: no-repeat;
-    object-fit: cover;
   }
 
   &__semi-squared-rounded {
-    width: 100%;
-    height: 100%;
     @include article-media-mask(
       "/img/masks/semi-squared-rounded-small.png",
       "/img/masks/semi-squared-rounded-middle.png",
       "/img/masks/semi-squared-rounded.png"
     );
-    mask-size: contain;
-    mask-position: center;
-    mask-repeat: no-repeat;
-    object-fit: cover;
   }
 
   &__semi-squared-cloud {
-    width: 100%;
-    height: 100%;
     @include article-media-mask(
       "/img/masks/semi-squared-cloud-small.png",
       "/img/masks/semi-squared-cloud-middle.png",
       "/img/masks/semi-squared-cloud.png"
     );
-    mask-size: contain;
-    mask-position: center;
-    mask-repeat: no-repeat;
-    object-fit: cover;
   }
 
   &__cloud {
-    width: 100%;
-    height: 100%;
     @include article-media-mask(
       "/img/masks/cloud-small.png",
       "/img/masks/cloud-middle.png",
       "/img/masks/cloud.png"
     );
-    mask-size: contain;
-    mask-position: center;
-    mask-repeat: no-repeat;
-    object-fit: cover;
   }
 
   &__corner-squared-cloud {
-    width: 100%;
-    height: 100%;
     @include article-media-mask(
       "/img/masks/corner-squared-cloud-small.png",
       "/img/masks/corner-squared-cloud-middle.png",
       "/img/masks/corner-squared-cloud.png"
     );
-    mask-size: contain;
-    mask-position: center;
-    mask-repeat: no-repeat;
-    object-fit: cover;
   }
 
   &__corner-squared-rounded {
-    width: 100%;
-    height: 100%;
     @include article-media-mask(
       "/img/masks/corner-squared-rounded-small.png",
       "/img/masks/corner-squared-rounded-middle.png",
       "/img/masks/corner-squared-rounded.png"
     );
+  }
+  &__avatar {
+    mask-image: url(/img/masks/avatar.png);
     mask-size: contain;
-    mask-position: center;
-    mask-repeat: no-repeat;
-    object-fit: cover;
   }
 }
