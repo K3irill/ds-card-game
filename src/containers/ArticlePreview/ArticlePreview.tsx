@@ -14,7 +14,7 @@ function ArticlePreview({ children, ticker }: ArticlePreviewProps) {
           {children}
         </div>
       </section>
-      <RunningLine ticker={ticker} mod={'articles'} />
+      <RunningLine ticker={ticker} label={'articles'} />
     </div>
   )
 }
