@@ -2,6 +2,14 @@
 @use "../../assets/styles/_variables.scss" as *;
 
 .articles-block {
+  padding-bottom: 155px;
+  @media (width <= 1279px) {
+    padding-bottom: 217px;
+  }
+
+  @media (width <= 767px) {
+    padding-bottom: 87px;
+  }
   &__container {
     display: grid;
 

@@ -1,10 +1,12 @@
 import React, { Children, ReactNode, useEffect } from 'react'
 import styles from './ArticlesBlock.module.scss'
-
+import { Section } from '../../interfaces/DataInterface'
+import RunningLine from '../../components/running-line/RunningLine'
 interface ArticleProps {
   children: ReactNode
+  content: Section
 }
-function ArticlesBlock({ children }: ArticleProps) {
+function ArticlesBlock({ children, content }: ArticleProps) {
   return (
     <>
       <section className={styles['articles-block']}>
@@ -12,6 +14,7 @@ function ArticlesBlock({ children }: ArticleProps) {
           {children}
         </div>
       </section>
+      <RunningLine ticker={content.ticker} label={'webinars'} />
     </>
   )
 }
