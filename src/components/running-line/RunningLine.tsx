@@ -4,17 +4,20 @@ import { Ticker } from '../../interfaces/DataInterface'
 
 interface RunningLineProps {
   ticker: Ticker
-  mod: string
+  label: string
+  optional?: string | undefined
 }
 
-const RunningLine = ({ ticker, mod }: RunningLineProps) => {
+const RunningLine = ({ ticker, label, optional }: RunningLineProps) => {
   const background = {
     backgroundColor: ticker.color,
   }
 
   return (
     <div
-      className={`${styles['running-line']} ${styles['running-line--' + mod]}`}
+      className={`${styles['running-line']} ${
+        styles['running-line--' + label]
+      } ${optional}`}
       style={background}
     >
       <div className={styles['running-line__content']}>

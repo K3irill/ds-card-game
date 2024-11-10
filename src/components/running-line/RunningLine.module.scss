@@ -1,5 +1,7 @@
 @use "../../assets/styles/keyframes" as *;
 .running-line {
+  position: relative;
+  z-index: 1;
   overflow: hidden;
   white-space: nowrap;
   display: flex;
@@ -34,6 +36,25 @@
     }
     @media (width <= 767px) {
       transform: rotate(-4deg);
+    }
+  }
+  &--webinars {
+    transform: rotate(-3deg);
+    @media (width <= 1279px) {
+      transform: rotate(-3deg);
+    }
+    @media (width <= 767px) {
+      transform: rotate(-4deg);
+    }
+  }
+  &--sub {
+    transform: rotate(2deg);
+
+    @media (width <= 1279px) {
+      transform: rotate(3deg);
+    }
+    @media (width <= 767px) {
+      transform: rotate(4deg);
     }
   }
 }
