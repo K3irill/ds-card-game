@@ -1,0 +1,20 @@
+@use "../../assets/styles/mixins" as *;
+@use "../../assets/styles/variables" as *;
+.subscribe-form {
+  position: relative;
+  &__email-input-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    column-gap: 18px;
+    row-gap: 16px;
+  }
+
+  &__err-text {
+    color: $white-primary;
+    font-size: 13px;
+    position: absolute;
+    top: 40%;
+  }
+  @include responsive-subscribe-form;
+}
