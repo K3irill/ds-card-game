@@ -1,0 +1,83 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/_mixins.scss" as *;
+.webinar-card {
+  border-radius: 32px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    height: 93px;
+  }
+  &__img-wrapper {
+    min-width: 64px;
+
+    height: 64px;
+  }
+  &__author-info {
+    padding-top: 5px;
+    margin-left: 20px;
+    color: $white-primary;
+    width: 200px;
+    h5 {
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 2px;
+      line-height: calc(32 / 26 * 100%);
+    }
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      display: block;
+    }
+  }
+  &__text {
+    padding: 16px 0 38px 0;
+    flex: 1 0 auto;
+    p {
+      font-size: 30px;
+      line-height: calc(36 / 30 * 100%);
+      font-weight: 400;
+      font-family: "Archivo Black";
+    }
+  }
+  &__tags {
+    margin-bottom: 11px;
+    span {
+      font-weight: 500;
+    }
+    span:first-child {
+      margin-right: 26px;
+    }
+  }
+  &__schedule {
+    display: flex;
+    justify-content: space-between;
+    img {
+      filter: contrast(100);
+    }
+  }
+  &__date {
+    display: flex;
+    align-items: start;
+    p {
+      padding-left: 7px;
+      line-height: calc(21 / 15 * 100%);
+      max-width: 220px;
+    }
+  }
+  &__time {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    margin-left: 10px;
+
+    span {
+      padding-left: 8px;
+    }
+  }
+  @include responsive-webinar-card;
+}
