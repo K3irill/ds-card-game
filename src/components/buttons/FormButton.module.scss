@@ -1,0 +1,23 @@
+@use "../../assets/styles/mixins" as *;
+@use "../../assets/styles/variables" as *;
+.form-button {
+  border-radius: 40px;
+  background-color: $red;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 112px;
+  color: $white-primary;
+  border: 2px solid transparent;
+  @include transition(background-color);
+  &:hover,
+  &:active {
+    @include transition(background-color);
+    background-color: $bg-block;
+  }
+  &:disabled {
+    opacity: 60%;
+  }
+  &:focus:not(:active) {
+    border: 2px solid $bg-block;
+  }
+}
