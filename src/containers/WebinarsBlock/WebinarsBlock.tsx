@@ -1,9 +1,9 @@
 import React, { ReactNode, useEffect } from 'react'
 import styles from './WebinarsBlock.module.scss'
 import { Proposals } from '../../interfaces/DataInterface'
-import WebinarCard from '../../components/WebinarCard'
+import WebinarCard from '../../components/webinar-card/WebinarCard.tsx'
 import RunningLine from '../../components/running-line/RunningLine'
-import WebButton from '../../components/buttons/webButton'
+import WebButton from '../../components/buttons/WebButton.tsx'
 interface WebinarsBlockProps {
   content: Proposals
 }
@@ -21,8 +21,8 @@ function WebinarsBlock({ content }: WebinarsBlockProps) {
             </div>
 
             <div className={`${styles['webinars-block__cards']}`}>
-              {content.items.map((item) => {
-                return <WebinarCard content={item} />
+              {content.items.map((item, index) => {
+                return <WebinarCard key={index + 'id'} content={item} />
               })}
             </div>
           </div>
