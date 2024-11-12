@@ -101,6 +101,7 @@
   }
 
   &__title {
+    font-weight: 800;
     @include transition(color);
 
     &--dark {

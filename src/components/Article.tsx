@@ -3,7 +3,7 @@ import styles from './Article.module.scss'
 import MaskImage from './forImg/MaskImage.tsx'
 import { SectionItem } from '../interfaces/DataInterface.ts'
 import formatSpainDate from '../services/formatSpainDate.ts'
-import { useTheme } from './ThemeContext.tsx'
+import { useTheme } from './theme-provider/ThemeContext.tsx'
 
 interface ArticleProps {
   content: SectionItem
