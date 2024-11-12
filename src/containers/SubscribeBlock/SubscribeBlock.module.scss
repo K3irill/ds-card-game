@@ -1,0 +1,55 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
+.subscribe-block {
+  margin-top: 132px;
+  padding-bottom: 200px;
+  position: relative;
+  overflow: visible;
+
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    mask-image: url(/img/masks/subscribe-block-mask.png);
+
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+  &__content-wrapper {
+    width: 1208px;
+    height: 518px;
+    background-color: $blue;
+  }
+  &__content {
+    padding: 65px 0px 0px 106px;
+    max-width: 694px;
+
+    h2,
+    p {
+      color: $white-primary;
+    }
+    h2 {
+      font-size: 36px;
+      line-height: calc(43 / 36 * 100%);
+      padding-bottom: 8px;
+    }
+    p {
+      font-size: 18px;
+      line-height: calc(28.2 / 18 * 100%);
+    }
+  }
+  &__illustration {
+    background: url(/img/form/illustration.png);
+    min-width: 418px;
+    height: 518px;
+    margin-right: -2px;
+    position: absolute;
+    right: 0px;
+  }
+  &__form {
+    margin-top: 89px;
+  }
+  @include responsive-subscribe-block;
+}
