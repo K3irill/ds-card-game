@@ -1,0 +1,20 @@
+@use "../../assets/styles/mixins" as *;
+@use "../../assets/styles/variables" as *;
+.success-message {
+  background-color: $white-primary;
+  border-radius: 88px;
+  padding: 10px 24px;
+  position: relative;
+  p {
+    color: $blue;
+    font-weight: 700;
+  }
+  img {
+    position: absolute;
+    top: -45px;
+    right: 64px;
+    width: 104px;
+    height: 104px;
+  }
+  @include responsive-success-message;
+}
