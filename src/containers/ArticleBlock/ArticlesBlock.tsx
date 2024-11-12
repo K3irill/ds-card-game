@@ -8,14 +8,14 @@ interface ArticleProps {
 }
 function ArticlesBlock({ children, content }: ArticleProps) {
   return (
-    <>
-      <section className={styles['articles-block']}>
+    <section className={styles['articles-block__wrapper']}>
+      <div className={styles['articles-block']}>
         <div className={`${styles['articles-block__container']} __container`}>
           {children}
         </div>
-      </section>
+      </div>
       <RunningLine ticker={content.ticker} label={'webinars'} />
-    </>
+    </section>
   )
 }
 

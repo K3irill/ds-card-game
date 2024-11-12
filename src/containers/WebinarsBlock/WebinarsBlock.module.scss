@@ -3,11 +3,26 @@
 
 .webinars-block {
   margin-top: -210px;
+  @include line-background(
+    none,
+    "/img/backgrounds/webinars-block-middle.png",
+    "/img/backgrounds/webinars-block-big.png",
+    contain,
+    repeat
+  );
+  @media (width <= 1920px) {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: $bg-block;
+  }
+
   background-color: $bg-block;
   clip-path: polygon(0 26%, 100% 0, 100% 100%, 0 84%);
   * {
     color: $btn-border;
   }
+
   &__container {
     padding: 235px 0 236px 0;
   }

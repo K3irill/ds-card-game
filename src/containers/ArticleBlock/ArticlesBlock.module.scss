@@ -3,12 +3,15 @@
 
 .articles-block {
   padding-bottom: 155px;
-  @media (width <= 1279px) {
-    padding-bottom: 217px;
-  }
 
-  @media (width <= 767px) {
-    padding-bottom: 87px;
+  &__wrapper {
+    @include line-background(
+      "/img/backgrounds/article-block-small.png",
+      "/img/backgrounds/article-block-middle.png",
+      "/img/backgrounds/article-block-big.png",
+      cover,
+      no-repeat
+    );
   }
   &__container {
     display: grid;
@@ -18,28 +21,12 @@
     row-gap: 136px;
     column-gap: 40px;
     -moz-column-gap: 40px;
+  }
 
-    @media (width <= 1279px) {
-      padding: 0 32px;
-      row-gap: 104px;
-      column-gap: 24px;
-    }
-
-    @media (width <= 767px) {
-      row-gap: 86px;
-      padding: 0 8px;
-      grid-template-columns: 1fr;
-    }
-    & article {
-      &:nth-child(3) {
-        grid-column: 1 / span 2;
-      }
-
-      @media (width <= 767px) {
-        &:nth-child(3) {
-          grid-column: 1;
-        }
-      }
+  & article {
+    &:nth-child(3) {
+      grid-column: 1 / span 2;
     }
   }
+  @include responsive-articles-block;
 }

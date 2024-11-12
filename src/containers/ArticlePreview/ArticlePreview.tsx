@@ -8,14 +8,14 @@ interface ArticlePreviewProps {
 }
 function ArticlePreview({ children, ticker }: ArticlePreviewProps) {
   return (
-    <div className={styles['article-preview__wrapper']}>
-      <section className={styles['article-preview']}>
+    <section className={styles['article-preview__wrapper']}>
+      <div className={styles['article-preview']}>
         <div className={`${styles['article-preview__container']} __container`}>
           {children}
         </div>
-      </section>
+      </div>
       <RunningLine ticker={ticker} label={'articles'} />
-    </div>
+    </section>
   )
 }
 

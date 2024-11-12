@@ -11,6 +11,13 @@
   &__wrapper {
     padding-bottom: 201px;
 
+    @include line-background(
+      "/img/backgrounds/article-prev-small.png",
+      "/img/backgrounds/article-prev-middle.png",
+      "/img/backgrounds/article-prev-big.png",
+      cover,
+      no-repeat
+    );
     @include media-padding(1279px, null, 182px);
     @include media-padding(767px, null, 165px);
   }

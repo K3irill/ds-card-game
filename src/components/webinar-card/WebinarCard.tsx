@@ -9,8 +9,10 @@ interface WebinarCardProps {
 const WebinarCard = ({ content }: WebinarCardProps) => {
   return (
     <div
-      className={styles['webinar-card']}
-      style={{ background: content.background }}
+      className={`${styles['webinar-card']} ${
+        styles[`${'webinar-card--' + content.tags[1]}`]
+      }`}
+      style={{ backgroundColor: content.background }}
     >
       <div className={styles['webinar-card__header']}>
         <div className={styles['webinar-card__img-wrapper']}>

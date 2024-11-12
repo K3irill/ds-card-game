@@ -414,6 +414,37 @@
     }
   }
 }
+@mixin responsive-articles-block {
+  @media (width <= 1279px) {
+    padding-bottom: 217px;
+  }
+
+  @media (width <= 767px) {
+    padding-bottom: 87px;
+  }
+
+  &__container {
+    @media (width <= 1279px) {
+      padding: 0 32px;
+      row-gap: 104px;
+      column-gap: 24px;
+    }
+
+    @media (width <= 767px) {
+      row-gap: 86px;
+      padding: 0 8px;
+      grid-template-columns: 1fr;
+    }
+    & article {
+      @media (width <= 767px) {
+        &:nth-child(3) {
+          grid-column: 1;
+        }
+      }
+    }
+  }
+}
+
 // для масок
 @mixin article-media-mask($mask-mobile, $mask-tablet, $mask-desktop) {
   mask-image: url($mask-desktop);
@@ -594,9 +625,12 @@
       mask-image: none;
       border-radius: 39px 300px 300px 39px;
       height: 498px;
-
+      background-position: right;
+      background-size: 100% 100%;
+      background-color: $blue;
       width: 100%;
     }
+
     @media (width <= 944px) {
       clip-path: polygon(0% 0%, 77% 0, 77% 100%, 0 100%);
     }
@@ -715,5 +749,15 @@
     }
     @media (width <= 767px) {
     }
+  }
+}
+
+@mixin line-background($mobile, $tablet, $desktop, $size, $repeat) {
+  background: url($desktop) 100% -20% / $size $repeat;
+  @media (width <= 1279px) {
+    background: url($tablet) 100% 0% / $size $repeat;
+  }
+  @media (width <= 767px) {
+    background: url($mobile) 100% 0% / $size $repeat;
   }
 }

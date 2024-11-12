@@ -81,3 +81,45 @@
   }
   @include responsive-webinar-card;
 }
+.webinar-card-- {
+  &Webinar {
+    @include line-background(
+      "/img/backgrounds/webinar-card-1.png",
+      "/img/backgrounds/webinar-card-1.png",
+      "/img/backgrounds/webinar-card-1.png",
+      contain,
+      no-repeat
+    );
+    background-origin: content-box;
+    background-position: 50px 50px;
+    @media (width <= 767px) {
+      background-size: 100% 100%;
+    }
+  }
+  &Workshop {
+    @include line-background(
+      "/img/backgrounds/webinar-card-2-middle.png",
+      "/img/backgrounds/webinar-card-2-middle.png",
+      "/img/backgrounds/webinar-card-2-big.png",
+      contain,
+      no-repeat
+    );
+    @media (width <= 767px) {
+      background-size: 100% 100%;
+    }
+    background-position: right;
+  }
+  &Demonstração {
+    @include line-background(
+      "/img/backgrounds/webinar-card-1.png",
+      "/img/backgrounds/webinar-card-3-middle.png",
+      "/img/backgrounds/webinar-card-3-big.png",
+      contain,
+      no-repeat
+    );
+    background-position: left;
+    @media (width <= 767px) {
+      background-size: 100% 100%;
+    }
+  }
+}

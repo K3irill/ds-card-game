@@ -18,6 +18,15 @@
     mask-repeat: no-repeat;
   }
   &__content-wrapper {
+    @include line-background(
+      "/img/backgrounds/sub-small.png",
+      "/img/backgrounds/sub-middle.png",
+      "/img/backgrounds/sub-big.png",
+      contain,
+      no-repeat
+    );
+    background-position: 110px -50px;
+    background-size: 75%;
     width: 1208px;
     height: 518px;
     background-color: $blue;
