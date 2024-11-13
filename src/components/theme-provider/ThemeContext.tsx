@@ -28,8 +28,11 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState('light')
   useEffect(() => {
-    document.body.classList.remove('light', 'dark')
-    document.body.classList.add(theme)
+    const root = document.querySelector('#root')
+    if (root) {
+      root.classList.remove('light', 'dark')
+      root.classList.add(theme)
+    }
   }, [theme])
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))

@@ -6,7 +6,7 @@
   left: 0;
   width: 100%;
   font-family: $font-secondary;
-  z-index: 999;
+  z-index: 100;
   background: $white-primary;
   @include transition(all);
   &__container {
@@ -46,27 +46,7 @@
     position: relative;
     font-weight: 500;
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 1.5px;
-      width: 100%;
-      background-color: $label-gaming;
-      transform: scaleX(0);
-      transform-origin: left;
-      @include transition(transform);
-    }
-
-    &:hover::after {
-      transform: scaleX(1);
-    }
-
-    &:not(:hover)::after {
-      transform-origin: right;
-      transform: scaleX(0);
-    }
+    @include animation-link-underline($label-gaming);
 
     & span {
       margin-left: 9px;

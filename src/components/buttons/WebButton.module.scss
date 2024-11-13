@@ -4,10 +4,11 @@
   background-color: $purple;
   border: none;
   color: $white-primary;
-  padding: 20px 61px;
+  padding: 18px 59px;
   font-size: 18px;
   border-radius: 40px;
   font-weight: 700;
+  border: 2px solid transparent;
   @include transition(background-color);
   &:hover,
   &:active {

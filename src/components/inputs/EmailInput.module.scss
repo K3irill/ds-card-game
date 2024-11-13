@@ -10,18 +10,28 @@
   color: $white-primary;
   &::-webkit-input-placeholder {
     color: $white-primary;
+    font-size: 18px;
+    font-family: "Nunito";
   }
   &::-moz-placeholder {
     color: $white-primary;
+    font-size: 18px;
+    font-family: "Nunito";
   }
   &:-ms-input-placeholder {
     color: $white-primary;
+    font-size: 18px;
+    font-family: "Nunito";
   }
   &::-ms-input-placeholder {
     color: $white-primary;
+    font-size: 18px;
+    font-family: "Nunito";
   }
   &::placeholder {
     color: $white-primary;
+    font-size: 18px;
+    font-family: "Nunito";
   }
   &:disabled {
     opacity: 60%;

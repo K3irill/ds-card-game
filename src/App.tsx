@@ -11,6 +11,7 @@ import { Article } from './components/Article.tsx'
 import ArticlesBlock from './containers/ArticleBlock/ArticlesBlock.tsx'
 import WebinarsBlock from './containers/WebinarsBlock/WebinarsBlock.tsx'
 import SubscribeBlock from './containers/SubscribeBlock/SubscribeBlock.tsx'
+import Footer from './containers/Footer/Footer.tsx'
 function App() {
   const { theme, toggleTheme } = useTheme()
   const { contentData, isLoading, error } = useData(requestToData)
@@ -39,6 +40,10 @@ function App() {
             ></WebinarsBlock>
             <SubscribeBlock content={contentData.sections.subscription} />
           </main>
+          <Footer
+            content={contentData.menu}
+            contacts={contentData.contacts}
+          ></Footer>
         </>
       )}
     </>

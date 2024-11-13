@@ -16,11 +16,22 @@ function useData(fetchFunction: () => Promise<Database>) {
       } catch (err) {
         setError(`Ошибка при загрузке данных: ${err} `)
       } finally {
-        setLoading(false)
+        setTimeout(() => setLoading(false), 2000)
       }
     }
-    setTimeout(() => fetchData(), 1500)
+    fetchData()
   }, [fetchFunction])
+
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isLoading])
 
   return { contentData, isLoading, error }
 }

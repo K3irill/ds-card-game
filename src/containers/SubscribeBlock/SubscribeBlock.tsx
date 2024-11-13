@@ -6,6 +6,7 @@ import {
 } from '../../interfaces/DataInterface'
 
 import SubscribeForm from '../../components/forms/SubscribeForm'
+import RunningLine from '../../components/running-line/RunningLine'
 interface SubscribeBlockProps {
   content: SubscriptionSection
 }
@@ -28,6 +29,7 @@ function SubscribeBlock({ content }: SubscribeBlockProps) {
           <div className={`${styles['subscribe-block__illustration']}`}></div>
         </div>
       </section>
+      <RunningLine ticker={content.ticker} label={'discount'} />
     </>
   )
 }
