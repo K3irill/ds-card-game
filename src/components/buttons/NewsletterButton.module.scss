@@ -1,0 +1,29 @@
+@use "../../assets/styles/_mixins.scss" as *;
+@use "../../assets/styles/_variables.scss" as *;
+.newsletter-button {
+  border-radius: 40px;
+  background-color: $purple;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10.4px 53.4px;
+
+  color: $white-primary;
+  text-wrap: nowrap;
+  border: 2.4px solid transparent;
+  @include transition(background-color);
+  &:hover,
+  &:active {
+    @include transition(background-color);
+    background-color: $pink;
+  }
+  &:disabled {
+    opacity: 60%;
+  }
+  &:focus {
+    outline: none;
+    border: 2.4px solid $white-primary;
+  }
+  &:focus-visible {
+    border: 2.4px solid $white-primary;
+  }
+}
