@@ -4,6 +4,7 @@ import MaskImage from './forImg/MaskImage.tsx'
 import { SectionItem } from '../interfaces/DataInterface.ts'
 import formatSpainDate from '../services/formatSpainDate.ts'
 import { useTheme } from './theme-provider/ThemeContext.tsx'
+import ArticleButton from './buttons/ArticleButton.tsx'
 
 interface ArticleProps {
   content: SectionItem
@@ -75,9 +76,9 @@ export const Article = ({ content }: ArticleProps) => {
           </div>
         </div>
         {content.size === 'full-size' && (
-          <button className={styles.article__button}>
-            {content['browse-text']}
-          </button>
+          <div className={styles.article__button}>
+            <ArticleButton text={content['browse-text']} />
+          </div>
         )}
       </div>
     </article>
