@@ -2,14 +2,15 @@
 @use "../../assets/styles/keyframes" as *;
 @use "../../assets/styles/variables" as *;
 .k3loader {
-  position: relative;
-  width: 131px;
-  // height: 80px;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
-
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   & p {
     color: #111111a7;
     font-size: 43px;
@@ -24,7 +25,7 @@
   }
   &__wrapper {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;

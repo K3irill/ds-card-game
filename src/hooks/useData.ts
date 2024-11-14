@@ -16,7 +16,7 @@ function useData(fetchFunction: () => Promise<Database>) {
       } catch (err) {
         setError(`Ошибка при загрузке данных: ${err} `)
       } finally {
-        setTimeout(() => setLoading(false), 2000)
+        setTimeout(() => setLoading(false), 1500)
       }
     }
     fetchData()
@@ -32,7 +32,6 @@ function useData(fetchFunction: () => Promise<Database>) {
       document.body.style.overflow = ''
     }
   }, [isLoading])
-
   return { contentData, isLoading, error }
 }
 export default useData
