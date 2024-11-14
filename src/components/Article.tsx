@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Article.module.scss'
 import MaskImage from './forImg/MaskImage.tsx'
 import { SectionItem } from '../interfaces/DataInterface.ts'
-import formatSpainDate from '../utils/formatSpainDate.ts'
+import formatSpainDate from '../services/formatSpainDate.ts'
 import { useTheme } from './theme-provider/ThemeContext.tsx'
 import ArticleButton from './buttons/ArticleButton.tsx'
 
@@ -14,8 +14,8 @@ export const Article = ({ content }: ArticleProps) => {
   const { theme } = useTheme()
   const stickerPosition = content.stamp.position.split('-')
   const stickerStyle = {
-    [stickerPosition[0]]: '-48px',
-    [stickerPosition[1]]: '-40px',
+    [stickerPosition[0]]: '0px',
+    [stickerPosition[1]]: '0px',
   }
   const tagBColor = {
     backgroundColor: content.accent,
@@ -29,8 +29,12 @@ export const Article = ({ content }: ArticleProps) => {
         <img
           src={`/img/stickers/${content.stamp.word}.svg`}
           alt={content.stamp.word}
-          style={stickerStyle}
-          className={` ${styles['article__sticker']}`}
+          // style={stickerStyle}
+          className={` ${styles['article__sticker']} ${
+            styles['article__sticker--' + stickerPosition[0]]
+          } ${styles['article__sticker--' + stickerPosition[1]]} ${
+            styles['article__sticker--' + content.stamp.word]
+          }`}
         />
       </div>
       <div className={` ${styles['article__content-wrapper']}`}>

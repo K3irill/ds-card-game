@@ -17,6 +17,23 @@
     position: absolute;
 
     @include article-media-sticker();
+
+    &--top {
+      top: 0px;
+    }
+    &--right {
+      right: 0px;
+    }
+    &--left {
+      left: 0px;
+    }
+    &--bottom {
+      bottom: 0px;
+    }
+
+    &--Marketing {
+      transform: scale(1.68) rotate(-15deg) translate(23px, 25px);
+    }
   }
 
   &__tags {
