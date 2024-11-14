@@ -3,7 +3,7 @@ import Header from './containers/Header/Header.tsx'
 import { Database } from './interfaces/DataInterface.ts'
 import K3Loader from './components/loaders/k3Loader.tsx'
 // eslint-disable-next-line import/no-named-default
-import { default as requestToData } from './services/fetchData.ts'
+import { default as requestToData } from './utils/fetchData.ts'
 import useData from './hooks/useData.ts'
 import { useTheme } from './components/theme-provider/ThemeContext.tsx'
 import ArticlePreview from './containers/ArticlePreview/ArticlePreview.tsx'

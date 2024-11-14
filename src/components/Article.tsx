@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Article.module.scss'
 import MaskImage from './forImg/MaskImage.tsx'
 import { SectionItem } from '../interfaces/DataInterface.ts'
-import formatSpainDate from '../services/formatSpainDate.ts'
+import formatSpainDate from '../utils/formatSpainDate.ts'
 import { useTheme } from './theme-provider/ThemeContext.tsx'
 import ArticleButton from './buttons/ArticleButton.tsx'
 

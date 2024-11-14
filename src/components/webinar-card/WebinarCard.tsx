@@ -2,7 +2,7 @@ import React from 'react'
 import MaskImage from '../forImg/MaskImage'
 import styles from './WebinarCard.module.scss'
 import { ProposalsItem } from '../../interfaces/DataInterface'
-import formatSpainDate from '../../services/formatSpainDate'
+import formatSpainDate from '../../utils/formatSpainDate'
 interface WebinarCardProps {
   content: ProposalsItem
 }

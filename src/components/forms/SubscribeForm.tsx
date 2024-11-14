@@ -5,7 +5,7 @@ import EmailInput from '../inputs/EmailInput'
 import FormButton from '../buttons/FormButton'
 import SubCheckbox from '../checkbox/SubCheckbox'
 import useValidEmail from '../../hooks/useEmailValid'
-import pasteLinkInText from '../../services/pasteLinkInText'
+import pasteLinkInText from '../../utils/pasteLinkInText'
 import SuccessMessage from '../success-message/SuccessMessage'
 interface SubscribeFormProps {
   content: SubscriptionSection
