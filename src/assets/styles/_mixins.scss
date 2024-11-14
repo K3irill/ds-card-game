@@ -1,14 +1,14 @@
 @use "_variables.scss" as *;
-
+//--------------------------------------------------------------------
 @mixin flex-horizontal-center {
   display: flex;
   align-items: center;
 }
-
+//--------------------------------------------------------------------
 @mixin transition($property...) {
   transition: $property 0.3s ease-in-out;
 }
-
+//--------------------------------------------------------------------
 @mixin responsive-header {
   @media (width <= 1279px) {
     height: 120px;
@@ -60,27 +60,27 @@
   }
 }
 
-//для статей
+//для статей-------------------------------------------------------------
 @mixin media-padding($max-width, $padding-top, $padding-bottom) {
   @media (max-width: $max-width) {
     padding-top: $padding-top;
     padding-bottom: $padding-bottom;
   }
 }
-
+//--------------------------------------------------------------------
 @mixin article-media-img-wrapper() {
   @media (width <= 767px) {
     width: 304px;
     height: 352px;
   }
 }
-
+//--------------------------------------------------------------------
 @mixin article-media-sticker() {
   @media (width <= 1279px) {
     transform: scale(0.55);
   }
 }
-
+//--------------------------------------------------------------------
 @mixin article-media-full-size() {
   @media (width <= 1279px) {
     align-items: center;
@@ -444,7 +444,7 @@
     }
   }
 }
-
+//--------------------------------------------------------------------
 // для масок
 @mixin article-media-mask($mask-mobile, $mask-tablet, $mask-desktop) {
   mask-image: url($mask-desktop);
@@ -456,8 +456,15 @@
   }
 }
 //webinars
-
+//--------------------------------------------------------------------
 @mixin responsive-webinars-block {
+  @media (width <= 1920px) {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: $bg-block;
+  }
+
   @media (width <= 3458px) {
     margin-top: -195px;
     clip-path: polygon(0 16%, 100% 0, 100% 100%, 0 84%);
@@ -545,7 +552,7 @@
   }
 }
 
-//webinar-card
+//webinar-card------------------------------------------------------------------
 
 @mixin responsive-webinar-card {
   @media (width <= 1279px) {
@@ -594,7 +601,7 @@
     }
   }
 }
-
+//--------------------------------------------------------------------
 @mixin responsive-subscribe-block {
   @media (width <= 1279px) {
     margin-top: 117px;
@@ -690,7 +697,7 @@
     }
   }
 }
-
+//--------------------------------------------------------------------
 @mixin responsive-success-message {
   @media (width <= 1279px) {
     border-radius: 24px;
@@ -710,7 +717,7 @@
     }
   }
 }
-
+//--------------------------------------------------------------------
 @mixin responsive-subscribe-form {
   &__email-input-wrapper {
     @media (width <= 1279px) {
@@ -751,7 +758,7 @@
     }
   }
 }
-
+//--------------------------------------------------------------------
 @mixin line-background($mobile, $tablet, $desktop, $size, $repeat) {
   background: url($desktop) 100% -20% / $size $repeat;
 
@@ -762,7 +769,7 @@
     background: url($mobile) 100% 0% / $size $repeat;
   }
 }
-
+//--------------------------------------------------------------------
 @mixin animation-link-underline($color) {
   &::after {
     content: "";
@@ -785,5 +792,179 @@
   &:not(:hover)::after {
     transform-origin: right;
     transform: scaleX(0);
+  }
+}
+//--------------------------------------------------------------------
+@mixin responsive-nav-accordion {
+  &__title {
+    @media (width <= 767px) {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3px;
+      height: 29px;
+      & img {
+        @include transition(transform);
+        display: block;
+        width: 12px;
+      }
+    }
+  }
+
+  &__list {
+    @media (width <= 767px) {
+      max-height: 0;
+      overflow: hidden;
+      & li {
+        margin-bottom: 13px;
+        max-width: 100%;
+      }
+      & li:first-child {
+        padding-top: 24px;
+      }
+    }
+  }
+  @media (width <= 767px) {
+    margin-bottom: 14px;
+  }
+}
+//footer--------------------------------------------------------------------
+@mixin responsive-footer {
+  @media (width <= 1279px) {
+    padding: 0px 0 32px 0;
+  }
+
+  &__container {
+    @media (width <= 1279px) {
+      padding: 64px 32px 64px 32px;
+      grid-template-areas:
+        "info"
+        "social"
+        "nav"
+        "contacts"
+        "hr-line"
+        "legal";
+
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, auto);
+      row-gap: 0px;
+    }
+    @media (width <= 767px) {
+      padding: 29px 9px;
+    }
+  }
+  &__logo {
+    a div {
+      @media (width <= 1279px) {
+        width: 173px;
+        height: 64px;
+        mask-size: contain;
+      }
+    }
+  }
+  &__info-wrapper,
+  &__nav {
+    @media (width <= 1279px) {
+      margin: 0;
+    }
+  }
+  &__info-wrapper {
+    @media (width <= 1279px) {
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 100%;
+    }
+    @media (width <= 767px) {
+      margin-bottom: 40px;
+    }
+  }
+  &__info {
+    @media (width <= 1279px) {
+      max-width: 285px;
+      margin-bottom: 0;
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+    @media (width <= 767px) {
+      max-width: 100%;
+    }
+  }
+  &__nav {
+    @media (width <= 1279px) {
+      max-width: 100%;
+      top: 0;
+      margin: 88px 20px 80px 0;
+    }
+    @media (width <= 767px) {
+      margin: 66px 4px 42px 0;
+      flex-direction: column;
+    }
+  }
+  &__contacts {
+    @media (width <= 767px) {
+      height: 100%;
+      flex-direction: column;
+      row-gap: 24px;
+      align-items: start;
+      margin-bottom: 65px;
+      p {
+        margin-bottom: 6px;
+      }
+      li {
+        margin: 0px;
+      }
+    }
+  }
+  &__socials {
+    @media (width <= 1279px) {
+      & a {
+        margin-left: 0px;
+      }
+      align-items: start;
+      justify-content: space-between;
+      max-width: 200px;
+      height: auto;
+    }
+    @media (width <= 767px) {
+      margin: 0 auto;
+      max-width: 300px;
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+  &__hr-line {
+    @media (width <= 1279px) {
+      margin: 20px 0;
+    }
+  }
+  &__legal {
+    & a {
+      @media (width <= 767px) {
+        height: 21px;
+      }
+    }
+
+    & a:not(:last-child) {
+      @media (width >= 768px) {
+        &::after {
+          content: "";
+          position: absolute;
+          right: -7%;
+          top: 39%;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background-color: $text-gray;
+        }
+      }
+    }
+    @media (width <= 767px) {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+    }
   }
 }

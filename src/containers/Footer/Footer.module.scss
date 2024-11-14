@@ -3,9 +3,6 @@
 .footer {
   background-color: $bg-block;
   padding: 64px 0 64px 0;
-  @media (width <= 1279px) {
-    padding: 0px 0 32px 0;
-  }
 
   &__container {
     display: grid;
@@ -17,23 +14,6 @@
     grid-template-columns: 382px 1fr 1fr 1fr;
     grid-template-rows: repeat(2, auto);
     row-gap: 28px;
-    @media (width <= 1279px) {
-      padding: 64px 32px 64px 32px;
-      grid-template-areas:
-        "info"
-        "social"
-        "nav"
-        "contacts"
-        "hr-line"
-        "legal";
-
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(6, auto);
-      row-gap: 0px;
-    }
-    @media (width <= 767px) {
-      padding: 29px 9px;
-    }
   }
   &__logo {
     a div {
@@ -42,11 +22,6 @@
       height: 82px;
       display: flex;
       mask-size: cover;
-      @media (width <= 1279px) {
-        width: 173px;
-        height: 64px;
-        mask-size: contain;
-      }
     }
     a {
       width: 224px;
@@ -56,9 +31,6 @@
   &__info-wrapper,
   &__nav {
     margin-bottom: 68px;
-    @media (width <= 1279px) {
-      margin: 0;
-    }
   }
   &__info-wrapper {
     border-color: $blue;
@@ -67,14 +39,6 @@
     grid-area: info;
     max-width: 382px;
     width: 100%;
-    @media (width <= 1279px) {
-      flex-direction: row;
-      justify-content: space-between;
-      max-width: 100%;
-    }
-    @media (width <= 767px) {
-      margin-bottom: 40px;
-    }
   }
   &__info {
     display: flex;
@@ -82,17 +46,6 @@
     flex: 1 1 auto;
     max-width: 353px;
     margin-bottom: 80px;
-    @media (width <= 1279px) {
-      max-width: 285px;
-      margin-bottom: 0;
-      img {
-        width: 64px;
-        height: 64px;
-      }
-    }
-    @media (width <= 767px) {
-      max-width: 100%;
-    }
   }
   &__nav {
     position: relative;
@@ -106,15 +59,6 @@
         position: relative;
         @include animation-link-underline($white);
       }
-    }
-    @media (width <= 1279px) {
-      max-width: 100%;
-      top: 0;
-      margin: 88px 20px 80px 0;
-    }
-    @media (width <= 767px) {
-      margin: 66px 4px 42px 0;
-      flex-direction: column;
     }
   }
   &__contacts {
@@ -141,19 +85,6 @@
       color: $white-primary;
       @include animation-link-underline($white);
     }
-    @media (width <= 767px) {
-      height: 100%;
-      flex-direction: column;
-      row-gap: 24px;
-      align-items: start;
-      margin-bottom: 65px;
-      p {
-        margin-bottom: 6px;
-      }
-      li {
-        margin: 0px;
-      }
-    }
   }
   &__socials {
     display: flex;
@@ -172,32 +103,10 @@
       @include transition(opacity);
       opacity: 0.8;
     }
-    @media (width <= 1279px) {
-      & a {
-        margin-left: 0px;
-      }
-      align-items: start;
-      justify-content: space-between;
-      max-width: 200px;
-      height: auto;
-    }
-    @media (width <= 767px) {
-      margin: 0 auto;
-      max-width: 300px;
-      img {
-        width: 48px;
-        height: 48px;
-      }
-    }
   }
   &__hr-line {
     grid-area: hr-line;
     border: 1px solid $text-gray;
-    // position: relative;
-    // top: -4px;
-    @media (width <= 1279px) {
-      margin: 20px 0;
-    }
   }
   &__legal {
     grid-area: legal;
@@ -214,30 +123,10 @@
         @include transition(opacity);
         opacity: 0.8;
       }
-      @media (width <= 767px) {
-        height: 21px;
-      }
     }
 
     & a:not(:last-child) {
       margin-right: 25px;
-      @media (width >= 768px) {
-        &::after {
-          content: "";
-          position: absolute;
-          right: -7%;
-          top: 39%;
-          width: 5px;
-          height: 5px;
-          border-radius: 50%;
-          background-color: $text-gray;
-        }
-      }
-    }
-    @media (width <= 767px) {
-      display: flex;
-      flex-direction: column;
-      row-gap: 16px;
     }
   }
   &__subscribe-mobile {
@@ -251,6 +140,7 @@
       row-gap: 8px;
     }
   }
+  @include responsive-footer;
 }
 .mobile-hidden {
   @media (width <= 767px) {

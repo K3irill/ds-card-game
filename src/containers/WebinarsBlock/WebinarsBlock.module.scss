@@ -10,12 +10,6 @@
     contain,
     repeat
   );
-  @media (width <= 1920px) {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-color: $bg-block;
-  }
 
   background-color: $bg-block;
   clip-path: polygon(0 26%, 100% 0, 100% 100%, 0 84%);
