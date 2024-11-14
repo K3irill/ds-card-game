@@ -9,6 +9,9 @@
   z-index: 100;
   background: $white-primary;
   @include transition(all);
+  &--hidden {
+    top: -100px;
+  }
   &__container {
     @include flex-horizontal-center;
     justify-content: space-between;
