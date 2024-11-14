@@ -205,6 +205,7 @@
 
       &__title {
         font-size: 26px;
+        padding: 16px 0px 18px;
       }
     }
   }
@@ -819,7 +820,10 @@
         max-width: 100%;
       }
       & li:first-child {
-        padding-top: 24px;
+        padding-top: 20px;
+      }
+      & li:last-child {
+        padding-bottom: 8px;
       }
     }
   }
@@ -899,6 +903,15 @@
     @media (width <= 767px) {
       margin: 66px 4px 42px 0;
       flex-direction: column;
+    }
+    @media (width >= 768px) {
+      & div:nth-child(2) {
+        margin-left: -32px;
+      }
+      & div:nth-child(3) {
+        margin-left: -45px;
+        text-wrap: nowrap;
+      }
     }
   }
   &__contacts {
