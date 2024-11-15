@@ -5,7 +5,7 @@ import { Contacts, Menu } from '../../interfaces/DataInterface.ts'
 import IconButton from '../../components/buttons/IconButton.tsx'
 import Logo from '../../components/forImg/Logo.tsx'
 import NavAccordion from '../../components/nav-accordion/NavAccrodion.tsx'
-import NewsletterForm from '../../components/forms/newsletterForm.tsx'
+import NewsletterForm from '../../components/forms/NewsletterForm.tsx'
 
 interface FooterProps {
   content: Menu

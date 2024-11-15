@@ -1,4 +1,5 @@
 @use "_variables.scss" as *;
+@use "_keyframes.scss" as *;
 //--------------------------------------------------------------------
 @mixin flex-horizontal-center {
   display: flex;
@@ -912,18 +913,18 @@
     background-color: $color;
     transform: scaleX(0);
     transform-origin: left;
-    @include transition(transform);
+    animation: none;
   }
 
   &:hover::after {
-    transform: scaleX(1);
+    animation: underline-expand 0.3s forwards;
   }
 
   &:not(:hover)::after {
-    transform-origin: right;
-    transform: scaleX(0);
+    animation: underline-collapse 0.3s forwards;
   }
 }
+
 //--------------------------------------------------------------------
 @mixin responsive-nav-accordion {
   &__title {
@@ -986,11 +987,10 @@
     }
   }
   &__logo {
-    a div {
+    a {
       @media (width <= 1279px) {
         width: 173px;
         height: 64px;
-        mask-size: contain;
       }
     }
   }

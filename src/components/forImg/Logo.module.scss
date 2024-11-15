@@ -2,16 +2,15 @@
 @use "../../assets/styles/mixins" as *;
 .logo {
   position: relative;
-
-  &__mask {
-    width: 118px;
-    height: 40px;
-    background-color: $primary;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    @include transition(background-color);
-    &:hover {
-      background-color: $pink;
+  cursor: pointer;
+  &__img {
+    @include transition(filter);
+  }
+  &:hover {
+    a img {
+      @include transition(filter);
+      filter: invert(23%) sepia(100%) saturate(426%) hue-rotate(282deg)
+        brightness(0.97) contrast(1.1);
     }
   }
 }

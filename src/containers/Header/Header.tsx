@@ -18,9 +18,7 @@ function Header({ content }: HeaderProps) {
     >
       <div className={`${styles.header__container} __container`}>
         <div className={styles['header__logo-block']}>
-          <a href="/">
-            <img src={content.logo} alt="logo" />
-          </a>
+          <Logo url={content.logo} />
         </div>
         <nav className={styles.header__navigation}>
           <ul className={styles['header__nav-list']}>

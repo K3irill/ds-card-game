@@ -8,14 +8,8 @@ interface LogoProps {
 function Logo({ url }: LogoProps) {
   return (
     <div className={styles.logo}>
-      <a href="/">
-        <div
-          className={styles.logo__mask}
-          style={{
-            maskImage: `url(${url})`,
-            WebkitMaskImage: `url(${url})`,
-          }}
-        />
+      <a className={styles.logo__link} href="/">
+        <img className={styles.logo__img} src={url} alt="logo" />
       </a>
     </div>
   )

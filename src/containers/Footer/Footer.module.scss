@@ -26,6 +26,11 @@
     a {
       width: 224px;
       display: flex;
+      img {
+        filter: brightness(100);
+        width: 100%;
+        height: 100%;
+      }
     }
   }
   &__info-wrapper,
