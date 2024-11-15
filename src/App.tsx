@@ -15,18 +15,22 @@ import Footer from './containers/Footer/Footer.tsx'
 function App() {
   const { theme, toggleTheme } = useTheme()
   const { contentData, isLoading, error } = useData(requestToData)
-  useEffect(() => {
-    toggleTheme()
-  }, [])
 
+  if (error) return <p>{error}</p>
   return (
     <>
       {isLoading && <K3Loader />}
-      {error && <p>{error}</p>}
       {contentData && (
         <>
           <Header content={contentData.menu} />
           <main>
+            <div
+              className={`settings-wrapper __container ${'settings--' + theme}`}
+            >
+              <button onClick={toggleTheme} className="settings__theme-button">
+                <img src="/icons/sun.svg" alt="switch theme" />
+              </button>
+            </div>
             <ArticlePreview ticker={contentData.sections.main.ticker}>
               <Article content={contentData.sections.main.items[0]} />
             </ArticlePreview>

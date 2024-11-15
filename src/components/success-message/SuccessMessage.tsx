@@ -8,7 +8,7 @@ const SuccessMessage = ({ text, imgUrl }: SuccessMessageProps) => {
   return (
     <div className={styles['success-message']}>
       <p>{text}</p>
-      <img src={imgUrl} />
+      {imgUrl && <img src={imgUrl} />}
     </div>
   )
 }

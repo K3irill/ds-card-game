@@ -14,15 +14,17 @@ function Header({ content }: HeaderProps) {
 
   return (
     <header
-      className={`${styles.header} ${styles['header--' + headerHidden]} }`}
+      className={`${styles.header} ${styles['header--' + headerHidden]} `}
     >
       <div className={`${styles.header__container} __container`}>
         <div className={styles['header__logo-block']}>
-          <Logo url={content.logo} />
+          <a href="/">
+            <img src={content.logo} alt="logo" />
+          </a>
         </div>
         <nav className={styles.header__navigation}>
           <ul className={styles['header__nav-list']}>
-            {content.header.map((item) => {
+            {content.header?.map((item) => {
               return (
                 <li key={item.label} className={styles['header__nav-item']}>
                   <NavButton buttonName={item.label} />

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styles from './NavAccordion.module.scss'
+import { Contacts, Footer } from '../../interfaces/DataInterface'
 interface NavAccordionProps {
-  content: any
+  content: Footer
 }
 
 const NavAccordion = ({ content }: NavAccordionProps) => {
@@ -25,7 +26,7 @@ const NavAccordion = ({ content }: NavAccordionProps) => {
       <ul className={styles['nav-accordion__list']}>
         {content.items.map((link, index) => {
           return (
-            <li>
+            <li key={index}>
               <a href={link.url}>{link.label}</a>
             </li>
           )

@@ -4,7 +4,10 @@
 .article {
   display: flex;
   flex-direction: column;
-
+  cursor: pointer;
+  &:hover .article__sticker {
+    transform: rotate(360deg);
+  }
   &__img-wrapper {
     position: relative;
     max-width: 100%;
@@ -15,7 +18,7 @@
 
   &__sticker {
     position: absolute;
-
+    transition: transform 1.4s;
     @include article-media-sticker();
 
     &--top {
