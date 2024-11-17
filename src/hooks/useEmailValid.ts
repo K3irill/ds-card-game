@@ -10,7 +10,6 @@ function useValidEmail() {
 
   const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    console.log(isValid)
 
     if (event.target.value === '') {
       setValid(null)

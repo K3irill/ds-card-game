@@ -20,6 +20,7 @@
 
   &__logo-block {
     position: relative;
+    padding-right: 10px;
   }
   &__navigation {
     @include flex-horizontal-center;
@@ -43,7 +44,7 @@
     position: relative;
   }
   &__link-ebac {
-    margin-left: 26px;
+    margin-left: 30px;
     @include flex-horizontal-center;
     justify-content: center;
     position: relative;
