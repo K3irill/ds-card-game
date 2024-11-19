@@ -10,3 +10,16 @@
     padding: 10px 20px;
   }
 }
+.bg-board {
+  background: $grad-green;
+  transition: all 1s;
+  opacity: 100%;
+}
+
+.bg-results {
+  background: $grad-orange;
+}
+
+.bg-settings {
+  background: $grad-purple;
+}
