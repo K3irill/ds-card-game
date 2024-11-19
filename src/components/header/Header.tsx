@@ -7,7 +7,6 @@ import {
   Routes,
   useLocation,
 } from 'react-router-dom'
-import GamePage from '../../pages/game-page/GamePage'
 interface user {
   name: string
   tag: string
