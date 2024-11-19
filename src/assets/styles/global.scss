@@ -1,0 +1,12 @@
+@use "./mixins" as *;
+@use "./reset" as *;
+@use "./variables" as *;
+
+#root {
+  padding: 10px 100px;
+  min-height: 100vh;
+
+  @media (width <= 1279px) {
+    padding: 10px 20px;
+  }
+}

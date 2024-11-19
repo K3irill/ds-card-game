@@ -1,0 +1,41 @@
+//fonts
+$font-primary: "Goldman";
+$font-secondary: "Irish Grover";
+
+//colors
+$red-link: #e02200;
+$white-primary: #ffffff;
+$pink: #ff00ee;
+$purple: #7f04de;
+$blue: #326edd;
+$trans-green: #92f95a;
+$trans-orange: #f9845a;
+$trans-red: #fe4c4c;
+$bright-green: #00ff00;
+$bright-yellow: #ffea00;
+$bright-red: #ff0000;
+$link-trans-red: #ce7d7d;
+$grey: #b9b3b3;
+/* gradients */
+$grad-green: linear-gradient(
+  128.31deg,
+  rgba(23, 168, 83, 0.97) -3.11%,
+  #252cb4 121.62%
+);
+$grad-purple: linear-gradient(
+  128.31deg,
+  rgba(165, 70, 197, 0.97) -3.11%,
+  #2e3393
+);
+
+$grad-orange: linear-gradient(
+  128.31deg,
+  rgba(197, 186, 70, 0.97) -3.11%,
+  #932e2e 121.62%
+);
+
+//backgrounds
+$back-light-green: #33e09b;
+$back-bright-green: #4ffc4f;
+$back-light-red: #fc4f4f;
+$back-transparent: rgba(255, 255, 255, 0.19);
