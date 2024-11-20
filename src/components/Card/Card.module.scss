@@ -1,8 +1,8 @@
-@use "../../styles/variables" as *;
+@use "../../assets/styles/variables" as *;
 .card {
   width: 180px;
   height: 180px;
-
+  position: relative;
   perspective: 1000px;
   border-radius: 40px;
   cursor: pointer;

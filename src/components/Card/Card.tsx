@@ -18,7 +18,7 @@ const Card = ({ cardObject, handleCardClick }: CardProps) => {
     <div
       className={`${styles.card} ${
         card.isInverted ? styles.card__inverted : ''
-      }`}
+      } `}
       onClick={() => handleCardClick(card)}
     >
       <div className={styles.card__inside}>

@@ -1,0 +1,14 @@
+@use "../../assets/styles/_variables.scss" as *;
+
+.game-board {
+  margin: 0 auto;
+  padding: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $back-transparent;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}

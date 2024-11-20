@@ -1,0 +1,11 @@
+.game-page {
+  display: flex;
+  justify-content: center;
+  &__container {
+    width: 856px;
+  }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -2,18 +2,20 @@ import { useEffect, useState } from 'react'
 
 type ImageData = string
 
-const useFetch = (count: number) => {
+const useFetch = (count: number, category = 'nature') => {
   const [images, setImages] = useState<ImageData[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [loadingText, setLoadingText] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
-    const fetchImages = async (
-      category: string = 'technology',
-    ): Promise<ImageData[]> => {
+    const fetchImages = async (): Promise<ImageData[]> => {
       try {
         setIsLoading(true)
+        setLoadingText('Загружаем изображения. пурум-пум-пум')
         setError(null)
+
         const imagePromises = Array.from({ length: count }).map(async () => {
           const resp = await fetch(
             `https://api.api-ninjas.com/v1/randomimage?category=${category}`,
@@ -41,23 +43,31 @@ const useFetch = (count: number) => {
         setError(err.message || 'произошла ошибка')
         throw new Error(err)
       } finally {
-        setIsLoading(false)
+        setLoadingText(null)
       }
     }
 
-    const fetchData = async () => {
-      try {
-        const imgArray = await fetchImages('nature')
-        setImages(imgArray)
-      } catch (error) {
-        console.error('Error fetching images:', error)
-      }
+    const fetchData = () => {
+      fetchImages()
+        .then((img) => setImages(img))
+        .catch((err) => {
+          console.warn(err)
+        })
+        .finally(() => setLoadingText('Перемешиваем карточки.'))
     }
 
     fetchData()
-  }, [count])
-
-  return { images, isLoading, error }
+  }, [count, category, reloadKey])
+  const reloadImages = () => setReloadKey((key) => key + 1)
+  return {
+    images,
+    isLoading,
+    error,
+    setIsLoading,
+    loadingText,
+    setLoadingText,
+    reloadImages,
+  }
 }
 
 export default useFetch
