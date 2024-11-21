@@ -3,12 +3,14 @@ import styles from './GameResultModal.module.scss'
 interface GameResultModalProps {
   textResult: string
   count: number
-  resetBtn: any
+  nextBtn: any
+  currentBtn: any
 }
 const GameResultModal = ({
   textResult,
   count,
-  resetBtn,
+  nextBtn,
+  currentBtn,
 }: GameResultModalProps) => {
   return (
     <div
@@ -21,12 +23,20 @@ const GameResultModal = ({
         <span>{count}</span>
         {textResult === 'success' ? 'guesses' : 'mistakes'}
       </p>
-      <button
-        onClick={resetBtn}
-        className={styles['game-result-modal__restart-btn']}
-      >
-        next
-      </button>
+      <div>
+        <button
+          onClick={currentBtn}
+          className={styles['game-result-modal__restart-btn']}
+        >
+          current images
+        </button>
+        <button
+          onClick={nextBtn}
+          className={styles['game-result-modal__restart-btn']}
+        >
+          new images
+        </button>
+      </div>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import {
   CommonStatisticsValue,
   CurrentStatisticsValue,
   AppContextValue,
+  GameContextValue,
 } from '../interfaces/gameSetting.interface'
 
 export const GameSettingsContext =
@@ -17,4 +18,4 @@ export const CurrentStatisticsContext =
 
 export const AppContext = createContext<AppContextValue | null>(null)
 
-import React from 'react'
+export const GameContext = createContext<GameContextValue | null>(null)

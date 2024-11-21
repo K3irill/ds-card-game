@@ -31,7 +31,6 @@
   }
 
   &__front {
-    background-color: $grad-orange;
     &_background {
       border-radius: 20px;
       width: 100%;
@@ -39,7 +38,12 @@
       position: absolute;
       top: 0;
       left: 0;
-      background: $grad-orange;
+
+      background: url(icons/snowflake.svg),
+        linear-gradient(to left, #8080f7, #c0c0c0);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain, cover;
     }
   }
 

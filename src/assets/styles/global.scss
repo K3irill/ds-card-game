@@ -11,7 +11,8 @@
   }
 }
 .bg-board {
-  background: $grad-green;
+  background: linear-gradient(to bottom right, #001f54, #00ffab, #800080);
+
   transition: all 1s;
   opacity: 100%;
 }

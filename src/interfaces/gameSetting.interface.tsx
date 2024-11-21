@@ -4,6 +4,7 @@ export interface GameSettings {
   boardSize: string
   downloadImages: string
   themeImages: string
+  maxMistakes: number
 }
 
 export interface GameSettingsContextValue {
@@ -43,4 +44,13 @@ export interface AppContextValue {
   setSettings: React.Dispatch<React.SetStateAction<GameSettings>>
   setCommonStatics: React.Dispatch<React.SetStateAction<CommonStatistics>>
   setCurrentStatistics: React.Dispatch<React.SetStateAction<CurrentStatistics>>
+}
+
+export interface GameContextValue {
+  isStarted: boolean
+  setIsStarted: React.Dispatch<React.SetStateAction<boolean>>
+  isResetGame: boolean
+  setIsResetGame: React.Dispatch<React.SetStateAction<boolean>>
+  resetKey: number
+  setResetKey: React.Dispatch<React.SetStateAction<number>>
 }

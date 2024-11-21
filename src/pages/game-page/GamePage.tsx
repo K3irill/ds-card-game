@@ -8,27 +8,33 @@ import {
   CommonStatisticsContext,
   CurrentStatisticsContext,
   AppContext,
+  GameContext,
 } from '../../context/Context'
+import useGame from '../../hooks/useGame'
 
 const GamePage = () => {
-  // контекст ----------------------------------------
+  //контекст_____________________________________________________
   const appContext = useContext(AppContext)
   if (!appContext) {
     throw new Error('AppContext must be used within an AppProvider')
   }
+  const { settings, commonStatics, currentStatistics } = appContext
 
-  const {
-    settings,
-    setSettings,
-    commonStatics,
-    setCommonStatics,
-    currentStatistics,
-  } = appContext
+  const gameContext = useContext(GameContext)
+  if (!gameContext) {
+    throw new Error('GameContext must be used within an GameProvider')
+  }
+  const { isStarted, setIsStarted, setIsResetGame, setResetKey } = gameContext
+  //______________________________________________________________
 
-  useEffect(() => {
-    console.log(settings?.timer)
-  }, [])
-
+  const handleStartGame = () => {
+    setIsStarted(true)
+    console.log('Игра началась!')
+  }
+  const handleRestartGame = () => {
+    setIsResetGame(true)
+    setResetKey((prev) => prev + 1)
+  }
   return (
     <div className={styles['game-page']}>
       <div className={styles['game-page__container']}>
@@ -38,13 +44,17 @@ const GamePage = () => {
             <div>
               <Timer time={settings?.timer} />
               <div>
-                <button>START</button>
-                <button>RESET</button>
+                <button onClick={handleStartGame}>START</button>
+                <button onClick={handleRestartGame}>RESTART</button>
               </div>
             </div>
             <Statistics content={currentStatistics} />
           </div>
-          <GameBoard />
+          {isStarted ? (
+            <GameBoard />
+          ) : (
+            <h2 style={{ textAlign: 'center' }}>Нажмите START чтобы начать!</h2>
+          )}
         </div>
       </div>
     </div>
