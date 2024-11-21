@@ -1,5 +1,5 @@
 @use "../../assets/styles/variables" as *;
-
+@use "../../assets/styles/mixins" as *;
 .header {
   display: flex;
   justify-content: space-between;
@@ -25,13 +25,7 @@
     font-family: $font-secondary;
     font-size: 24px;
     transition: color 0.4s;
-    &::before {
-      transition: opacity 0.2s;
-      opacity: 0;
-      position: absolute;
-      content: url(/icons/spider.svg);
-      left: -17px;
-    }
+    @include link-hover;
     &--active {
       color: $pink;
       top: -8px;
@@ -46,14 +40,7 @@
         height: 1.4px;
       }
     }
-    &:hover {
-      transition: color 0.4s;
-      color: $link-trans-red;
-      &::before {
-        transition: color 0.4s, opacity 0.4s;
-        opacity: 100%;
-      }
-    }
+
     &[aria-disabled="true"] {
       pointer-events: none;
       cursor: default;

@@ -15,8 +15,8 @@ interface StatisticsProps {
 const Statistics = ({ content }: StatisticsProps) => {
   return (
     <div className={styles['statistic']}>
-      <h3>{content.title}</h3>
-      <ul>
+      <h3 className={styles['statistic__title']}>{content.title}</h3>
+      <ul className={styles['statistic__list']}>
         <li>
           <p>games played:</p>
           <span>{content.gamesCount}</span>
@@ -31,7 +31,7 @@ const Statistics = ({ content }: StatisticsProps) => {
         </li>
         {content.gamePassage >= 0 ? (
           <li>
-            passage: <span>{content.gamePassage}</span>%
+            <p>passage:</p> <span>{content.gamePassage}</span>%
           </li>
         ) : (
           ''

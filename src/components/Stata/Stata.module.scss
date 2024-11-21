@@ -1,0 +1,23 @@
+@use "../../assets/styles/variables" as *;
+.statistic {
+  background-color: rgba(66, 49, 49, 0.48);
+  width: 300px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  &__title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  &__list {
+    li {
+      display: flex;
+      p {
+        color: #cfcc0b;
+      }
+      span {
+        margin-left: 10px;
+      }
+    }
+  }
+}

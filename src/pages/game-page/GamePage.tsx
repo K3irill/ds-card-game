@@ -41,11 +41,21 @@ const GamePage = () => {
         <div className={styles['game-page__content']}>
           <div className={styles['game-page__info']}>
             <Statistics content={commonStatics} />
-            <div>
-              <Timer time={settings?.timer} />
-              <div>
-                <button onClick={handleStartGame}>START</button>
-                <button onClick={handleRestartGame}>RESTART</button>
+            <div className={styles['game-page__activities']}>
+              <Timer />
+              <div className={styles['game-page__buttons']}>
+                <button
+                  className={styles['game-page__btn']}
+                  onClick={handleStartGame}
+                >
+                  START
+                </button>
+                <button
+                  className={styles['game-page__btn']}
+                  onClick={handleRestartGame}
+                >
+                  RESTART
+                </button>
               </div>
             </div>
             <Statistics content={currentStatistics} />
@@ -53,7 +63,16 @@ const GamePage = () => {
           {isStarted ? (
             <GameBoard />
           ) : (
-            <h2 style={{ textAlign: 'center' }}>Нажмите START чтобы начать!</h2>
+            <h2
+              style={{
+                textAlign: 'center',
+                fontSize: '30px',
+                marginTop: '240px',
+                textShadow: '0px 0px 5px black',
+              }}
+            >
+              Нажмите START чтобы начать!
+            </h2>
           )}
         </div>
       </div>

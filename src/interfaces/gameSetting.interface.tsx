@@ -53,4 +53,8 @@ export interface GameContextValue {
   setIsResetGame: React.Dispatch<React.SetStateAction<boolean>>
   resetKey: number
   setResetKey: React.Dispatch<React.SetStateAction<number>>
+  seconds: number
+  startTimer: any
+  resetTimer: any
+  stopTimer: any
 }

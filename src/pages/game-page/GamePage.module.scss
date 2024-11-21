@@ -1,3 +1,5 @@
+@use "../../assets/styles/variables" as *;
+@use "../../assets/styles/mixins" as *;
 .game-page {
   display: flex;
   justify-content: center;
@@ -7,5 +9,23 @@
   &__info {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  &__activities {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btn {
+    position: relative;
+
+    transition: color 0.4s;
+    background: transparent;
+    color: $white-primary;
+    @include link-hover;
   }
 }

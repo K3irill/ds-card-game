@@ -6,6 +6,7 @@ import SettingsPage from './pages/settings-page/SettingsPage'
 import changeBackground from './utils/changeBackground'
 import { AppContext, GameContext } from './context/Context.tsx'
 import GamePage from './pages/game-page/GamePage.tsx'
+import useTimer from './hooks/useTimer.tsx'
 
 const App = () => {
   const location = useLocation()
@@ -35,6 +36,22 @@ const App = () => {
   const [isStarted, setIsStarted] = useState<boolean>(false)
   const [isResetGame, setIsResetGame] = useState<boolean>(false)
   const [resetKey, setResetKey] = useState<number>(0)
+  const { seconds, startTimer, resetTimer, stopTimer } = useTimer(
+    settings.timer,
+  )
+
+  const storedCommonStatics = localStorage.getItem('commonStatics')
+  const storedCurrentStatistics = sessionStorage.getItem('currentStatistics')
+
+  useEffect(() => {
+    if (storedCommonStatics) {
+      setCommonStatics(JSON.parse(storedCommonStatics))
+    }
+    if (storedCurrentStatistics) {
+      setCurrentStatistics(JSON.parse(storedCurrentStatistics))
+    }
+  }, [])
+
   useEffect(() => {
     changeBackground(location)
   }, [location.pathname])
@@ -58,6 +75,10 @@ const App = () => {
           setIsResetGame,
           resetKey,
           setResetKey,
+          seconds,
+          startTimer,
+          resetTimer,
+          stopTimer,
         }}
       >
         <Header />

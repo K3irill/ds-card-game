@@ -1,0 +1,18 @@
+@use "./variables" as *;
+@mixin link-hover {
+  &::before {
+    transition: opacity 0.2s;
+    opacity: 0;
+    position: absolute;
+    content: url(icons/spider.svg);
+    left: -17px;
+  }
+  &:hover {
+    transition: color 0.4s;
+    color: $link-trans-red;
+    &::before {
+      transition: color 0.4s, opacity 0.4s;
+      opacity: 100%;
+    }
+  }
+}

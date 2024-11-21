@@ -23,8 +23,17 @@ const useGame = () => {
   if (!gameContext) {
     throw new Error('GameContext must be used within an GameProvider')
   }
-  const { isStarted, setIsStarted, isResetGame, setIsResetGame, resetKey } =
-    gameContext
+  const {
+    isStarted,
+    setIsStarted,
+    isResetGame,
+    setIsResetGame,
+    resetKey,
+    startTimer,
+    seconds,
+    resetTimer,
+    stopTimer,
+  } = gameContext
 
   const appContext = useContext(AppContext)
   if (!appContext) {
@@ -48,6 +57,17 @@ const useGame = () => {
       img: img,
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem('commonStatics', JSON.stringify(commonStatics))
+  }, [commonStatics])
+
+  useEffect(() => {
+    sessionStorage.setItem(
+      'currentStatistics',
+      JSON.stringify(currentStatistics),
+    )
+  }, [currentStatistics])
 
   const startGame = () => {
     if (images.length === 0) return
@@ -76,17 +96,9 @@ const useGame = () => {
   useEffect(() => {
     if (isStarted && !isLoading && images.length > 0) {
       startGame()
+      startTimer()
     }
   }, [images, isLoading, isStarted])
-
-  const handleStartClick = () => {
-    if (isLoading) {
-      console.log('Игра не может начаться, изображения все еще загружаются...')
-      return
-    }
-    setIsStarted(true)
-    console.log('Игра началась!')
-  }
 
   useEffect(() => {
     if (flippedCards.length === 2) {
@@ -117,6 +129,7 @@ const useGame = () => {
 
           if (updatedCards.every((card) => card.isGuessed)) {
             handleGameOver('success')
+            resetTimer(settings.timer)
           }
 
           return updatedCards
@@ -156,6 +169,12 @@ const useGame = () => {
     }, 0)
   }
 
+  useEffect(() => {
+    if (seconds === 0) {
+      handleGameOver('fail')
+    }
+  }, [seconds])
+
   const handleCardClick = (clickedCard: CardItem) => {
     if (
       clickedCard.isGuessed ||
@@ -189,6 +208,9 @@ const useGame = () => {
       gamePassage: 0,
     }))
     setGameOver(false)
+
+    resetTimer(settings.timer)
+
     reloadImages()
   }
 
@@ -201,6 +223,8 @@ const useGame = () => {
     }))
     setGameOver(false)
     shuffleCards()
+    resetTimer(settings.timer)
+    startTimer()
   }
 
   useEffect(() => {
@@ -208,6 +232,12 @@ const useGame = () => {
       newGameWithNewImages()
     }
   }, [isResetGame, resetKey])
+  useEffect(() => {
+    if (!isLoading && images.length > 0 && isStarted) {
+      startTimer()
+      startGame()
+    }
+  }, [isLoading, images, isStarted])
 
   return {
     cards,
