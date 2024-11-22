@@ -1,0 +1,15 @@
+.settings-page {
+  display: flex;
+  justify-content: center;
+  &__container {
+    padding-top: 50px;
+    width: 856px;
+  }
+  &__headings {
+    display: flex;
+    justify-content: space-around;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+}
