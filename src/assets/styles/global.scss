@@ -18,9 +18,10 @@
 }
 
 .bg-results {
-  background: $grad-orange;
+  // background: linear-gradient(45deg, #7b68ee, #32cd32, #ffd700);
+  background: linear-gradient(45deg, #00ced1, #191970);
 }
 
 .bg-settings {
-  background: $grad-purple;
+  background: linear-gradient(90deg, #1e90ff, #c3ddf5);
 }
