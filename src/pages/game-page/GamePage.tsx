@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import GameBoard from '../../components/GameBoard/GameBoard'
 import Statistics from '../../components/Stata/Stata'
 import styles from './GamePage.module.scss'
@@ -24,13 +24,21 @@ const GamePage = () => {
   if (!gameContext) {
     throw new Error('GameContext must be used within an GameProvider')
   }
-  const { isStarted, setIsStarted, setIsResetGame, setResetKey } = gameContext
+  const { isStarted, setIsStarted, setIsResetGame, setResetKey, resetTimer } =
+    gameContext
   //______________________________________________________________
-
+  const [startBtnText, setStartBtnText] = useState<string>('START')
   const handleStartGame = () => {
-    setIsStarted(true)
-    console.log('Игра началась!')
+    setIsStarted((prev) => {
+      const newState = !prev
+      if (!newState) {
+        resetTimer(settings.timer)
+      }
+      return newState
+    })
+    setStartBtnText((prev) => (prev === 'START' ? 'STOP' : 'START'))
   }
+
   const handleRestartGame = () => {
     setIsResetGame(true)
     setResetKey((prev) => prev + 1)
@@ -48,7 +56,7 @@ const GamePage = () => {
                   className={styles['game-page__btn']}
                   onClick={handleStartGame}
                 >
-                  START
+                  {startBtnText}
                 </button>
                 <button
                   className={styles['game-page__btn']}
@@ -58,7 +66,10 @@ const GamePage = () => {
                 </button>
               </div>
             </div>
-            <Statistics content={currentStatistics} />
+            <Statistics
+              content={currentStatistics}
+              maxMistakes={settings.maxMistakes}
+            />
           </div>
           {isStarted ? (
             <GameBoard />

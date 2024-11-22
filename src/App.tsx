@@ -13,10 +13,11 @@ const App = () => {
   const [settings, setSettings] = useState({
     timer: 30,
     difficulty: 'easy',
-    boardSize: '4x3',
+    cardsCount: 12,
     downloadImages: 'api',
     themeImages: 'techno',
     maxMistakes: 10,
+    category: 'nature',
   })
 
   const [commonStatics, setCommonStatics] = useState({

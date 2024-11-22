@@ -10,9 +10,10 @@ type Content = {
 }
 interface StatisticsProps {
   content: Content
+  maxMistakes?: number
 }
 
-const Statistics = ({ content }: StatisticsProps) => {
+const Statistics = ({ content, maxMistakes }: StatisticsProps) => {
   return (
     <div className={styles['statistic']}>
       <h3 className={styles['statistic__title']}>{content.title}</h3>
@@ -28,8 +29,16 @@ const Statistics = ({ content }: StatisticsProps) => {
         <li>
           <p>mistakes count:</p>
           <span>{content.mistakesCount}</span>
+          {maxMistakes ? (
+            <>
+              <p style={{ marginLeft: '10px' }}>/</p>
+              <span>{maxMistakes}</span>
+            </>
+          ) : (
+            ''
+          )}
         </li>
-        {content.gamePassage >= 0 ? (
+        {content.gamePassage !== undefined && content.gamePassage >= 0 ? (
           <li>
             <p>passage:</p> <span>{content.gamePassage}</span>%
           </li>

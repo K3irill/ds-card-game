@@ -44,6 +44,9 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain, cover;
+      &:hover {
+        filter: contrast(1.2);
+      }
     }
   }
 

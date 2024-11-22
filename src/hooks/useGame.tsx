@@ -15,10 +15,6 @@ const useGame = () => {
   const [isFlipping, setIsFlipping] = useState<boolean>(false)
   const [gameOver, setGameOver] = useState<boolean>(false)
   const [gameResult, setGameResult] = useState<string>('success')
-
-  const { images, isLoading, setIsLoading, reloadImages, loadingText } =
-    useFetch(6, 'abstract')
-
   const gameContext = useContext(GameContext)
   if (!gameContext) {
     throw new Error('GameContext must be used within an GameProvider')
@@ -47,6 +43,8 @@ const useGame = () => {
     setCurrentStatistics,
     currentStatistics,
   } = appContext
+  const { images, isLoading, setIsLoading, reloadImages, loadingText } =
+    useFetch(settings.cardsCount, settings.category)
 
   const createCard = (img: string, id: number, coupleId: number): CardItem => {
     return {
@@ -99,6 +97,15 @@ const useGame = () => {
       startTimer()
     }
   }, [images, isLoading, isStarted])
+
+  useEffect(() => {
+    setCurrentStatistics((prev) => ({
+      ...prev,
+      guessCount: 0,
+      mistakesCount: 0,
+      gamePassage: 0,
+    }))
+  }, [isStarted])
 
   useEffect(() => {
     if (flippedCards.length === 2) {
@@ -156,7 +163,7 @@ const useGame = () => {
   }, [flippedCards])
 
   useEffect(() => {
-    if (currentStatistics.mistakesCount >= settings.maxMistakes)
+    if (currentStatistics.mistakesCount > settings.maxMistakes)
       handleGameOver('fail')
   }, [flippedCards])
 
@@ -208,9 +215,7 @@ const useGame = () => {
       gamePassage: 0,
     }))
     setGameOver(false)
-
     resetTimer(settings.timer)
-
     reloadImages()
   }
 

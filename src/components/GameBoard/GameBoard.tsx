@@ -56,7 +56,12 @@ const GameBoard = () => {
       )}
 
       {isLoading ? (
-        <div>{loadingText}</div>
+        <div className={styles['game-board__loading-container']}>
+          <div className={styles['game-board__loading-img']}>
+            <span> Loading...</span>
+            <img src="/img/moroz.gif" alt="fsfsa" />
+          </div>
+        </div>
       ) : (
         cards.map((card) => (
           <Card

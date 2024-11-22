@@ -3,7 +3,6 @@
 .game-board {
   margin: 0 auto;
   padding: 20px;
-  padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -11,4 +10,28 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  overflow: hidden;
+  &__loading-container {
+    position: relative;
+  }
+  &__loading-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: moroz-translate 120s ease 0s forwards;
+    transform: translateX(150%);
+    span {
+      position: relative;
+      right: -70px;
+    }
+  }
+}
+
+@keyframes moroz-translate {
+  0% {
+    transform: translateX(-35%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
 }
