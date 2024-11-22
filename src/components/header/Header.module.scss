@@ -21,11 +21,15 @@
   &__nav-item {
   }
   &__nav-link {
+    background: transparent;
+    color: $white-primary;
     position: relative;
     font-family: $font-secondary;
     font-size: 24px;
     transition: color 0.4s;
-    @include link-hover;
+    &:hover {
+      opacity: 0.8;
+    }
     &--active {
       color: $pink;
       top: -8px;
@@ -47,6 +51,7 @@
     }
   }
   &__user {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Header.module.scss'
 import {
   BrowserRouter as Router,
@@ -6,7 +6,9 @@ import {
   Link,
   Routes,
   useLocation,
+  useNavigate,
 } from 'react-router-dom'
+import { GameContext } from '../../context/Context'
 interface user {
   name: string
   tag: string
@@ -14,16 +16,31 @@ interface user {
   id: number
 }
 const Header = () => {
+  const navigate = useNavigate()
+  const gameContext = useContext(GameContext)
+  if (!gameContext) {
+    throw new Error('GameContext must be used within an GameProvider')
+  }
+  const { isStarted } = gameContext
+
   let location = useLocation()
 
   const isActive = (path: string) => location.pathname === path
 
   const user: user = {
-    name: 'nePROSTOchel2024',
-    tag: '@prochel',
-    img: 'https://cdn1.ozone.ru/s3/multimedia-5/6349201877.jpg',
+    name: 'Vaas Montenegro',
+    tag: '@VaasMontenegro',
+    img: 'https://i.pinimg.com/736x/dc/38/5c/dc385c948cd14acfc6445dfb4a6593f5.jpg',
     id: 1,
   }
+  const handleLinkClick = (path: string) => {
+    if (!isStarted) {
+      navigate(path)
+    } else {
+      alert('Сначала завершите или остановите игру! пж пж пж пж ')
+    }
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles.header__logo}>
@@ -34,41 +51,44 @@ const Header = () => {
       <nav className={styles['header__nav']}>
         <ul className={styles['header__nav-list']}>
           <li className={styles['header__nav-item']}>
-            <Link
-              to="/results"
+            <button
+              onClick={() => handleLinkClick('/results')}
               aria-disabled={isActive('/results')}
               className={` ${styles['header__nav-link']} ${
                 isActive('/results') ? styles['header__nav-link--active'] : ''
               }`}
             >
               results
-            </Link>
+            </button>
           </li>
           <li className={styles['header__nav-item']}>
-            <Link
-              to="/board"
+            <button
+              onClick={() => handleLinkClick('/board')}
               aria-disabled={isActive('/board')}
               className={` ${styles['header__nav-link']} ${
                 isActive('/board') ? styles['header__nav-link--active'] : ''
               }`}
             >
               Board
-            </Link>
+            </button>
           </li>
           <li className={styles['header__nav-item']}>
-            <Link
-              to="/settings"
+            <button
+              onClick={() => handleLinkClick('/settings')}
               aria-disabled={isActive('/settings')}
               className={` ${styles['header__nav-link']} ${
                 isActive('/settings') ? styles['header__nav-link--active'] : ''
               }`}
             >
               settings
-            </Link>
+            </button>
           </li>
         </ul>
       </nav>
-      <Link to="/results" className={styles['header__user']}>
+      <a
+        onClick={() => handleLinkClick('/results')}
+        className={styles['header__user']}
+      >
         <div className={styles['header__user-wrapper']}>
           {user ? (
             <>
@@ -98,7 +118,7 @@ const Header = () => {
             </>
           )}
         </div>
-      </Link>
+      </a>
     </header>
   )
 }
