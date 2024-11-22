@@ -1,0 +1,30 @@
+@use "../../assets/styles/variables" as *;
+
+.text-input {
+  background: #1e8fffb6;
+  border-radius: 20px;
+  padding: 8px;
+  width: 156px;
+  color: $white-primary;
+  font-size: 20px;
+  font-family: $font-primary;
+  text-align: center;
+  position: relative;
+  &::placeholder {
+    font-family: $font-primary;
+    color: $white-primary;
+    font-size: 15px;
+  }
+  &__wrapper {
+    width: 156px;
+    position: relative;
+  }
+  &__clear-btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    background: transparent;
+    color: $back-light-red;
+  }
+}
