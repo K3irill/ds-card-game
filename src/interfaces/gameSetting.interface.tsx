@@ -1,10 +1,11 @@
 export interface GameSettings {
   timer: number
   difficulty: string
-  boardSize: string
+  cardsCount: number
   downloadImages: string
   themeImages: string
   maxMistakes: number
+  category: string
 }
 
 export interface GameSettingsContextValue {
