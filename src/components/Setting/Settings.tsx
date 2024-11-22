@@ -30,18 +30,30 @@ const Settings = () => {
     e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     setCardsCount(Number(e.target.value))
+    setSettings((prev) => ({
+      ...prev,
+      difficulty: 'custom',
+    }))
   }
 
   const handleMaxMistakesOnChange = (
     e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setMistakesCount(Number(e.target.value))
+    setSettings((prev) => ({
+      ...prev,
+      difficulty: 'custom',
+    }))
   }
 
   const handleImageThemeOnChange = (
     e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     setImageTheme(e.target.value)
+    setSettings((prev) => ({
+      ...prev,
+      difficulty: 'custom',
+    }))
   }
 
   const handleEasyBtnOnChange = () => {
@@ -49,18 +61,30 @@ const Settings = () => {
     setCardsCount(9)
     setMistakesCount(20)
     setImageTheme('nature')
+    setSettings((prev) => ({
+      ...prev,
+      difficulty: 'easy',
+    }))
   }
   const handleMediumBtnOnChange = () => {
     setGameTimeValue(60)
     setCardsCount(12)
     setMistakesCount(10)
     setImageTheme('food')
+    setSettings((prev) => ({
+      ...prev,
+      difficulty: 'medium',
+    }))
   }
   const handleHardBtnOnChange = () => {
     setGameTimeValue(30)
     setCardsCount(20)
     setMistakesCount(5)
     setImageTheme('abstract')
+    setSettings((prev) => ({
+      ...prev,
+      difficulty: 'hard',
+    }))
   }
 
   const handleSubmitGameForm = (e: React.FormEvent<HTMLFormElement>) => {

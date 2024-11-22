@@ -18,7 +18,7 @@ const GamePage = () => {
   if (!appContext) {
     throw new Error('AppContext must be used within an AppProvider')
   }
-  const { settings, commonStatics, currentStatistics } = appContext
+  const { settings, commonStatics, currentStatistics, resetStats } = appContext
 
   const gameContext = useContext(GameContext)
   if (!gameContext) {
@@ -33,6 +33,7 @@ const GamePage = () => {
       const newState = !prev
       if (!newState) {
         resetTimer(settings.timer)
+        resetStats()
       }
       return newState
     })

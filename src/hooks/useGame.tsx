@@ -42,6 +42,8 @@ const useGame = () => {
     setCommonStatics,
     setCurrentStatistics,
     currentStatistics,
+    setUserResultData,
+    resetStats,
   } = appContext
   const { images, isLoading, setIsLoading, reloadImages, loadingText } =
     useFetch(settings.cardsCount, settings.category)
@@ -163,7 +165,7 @@ const useGame = () => {
   }, [flippedCards])
 
   useEffect(() => {
-    if (currentStatistics.mistakesCount > settings.maxMistakes)
+    if (currentStatistics.mistakesCount >= settings.maxMistakes)
       handleGameOver('fail')
   }, [flippedCards])
 
@@ -173,6 +175,31 @@ const useGame = () => {
       incrementGamesCount(setCurrentStatistics)
       setGameOver(true)
       setGameResult(result)
+      stopTimer()
+      const now = new Date()
+      const options: Intl.DateTimeFormatOptions = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZone: 'Europe/Moscow',
+      }
+      const formatter = new Intl.DateTimeFormat('ru-RU', options)
+      const moscowDateTime = formatter.format(now)
+
+      setUserResultData((prev) => [
+        {
+          date_time: moscowDateTime,
+          playing_time: settings.timer - seconds,
+          mistakes: currentStatistics.mistakesCount,
+          difficulty: settings.difficulty,
+          guesses: currentStatistics.guessCount,
+          user: 'Vaas',
+        },
+        ...prev,
+      ])
     }, 0)
   }
 
@@ -208,24 +235,14 @@ const useGame = () => {
   }
 
   const newGameWithNewImages = () => {
-    setCurrentStatistics((prev) => ({
-      ...prev,
-      guessCount: 0,
-      mistakesCount: 0,
-      gamePassage: 0,
-    }))
+    resetStats()
     setGameOver(false)
     resetTimer(settings.timer)
     reloadImages()
   }
 
   const newGameWithCurrentImages = () => {
-    setCurrentStatistics((prev) => ({
-      ...prev,
-      guessCount: 0,
-      mistakesCount: 0,
-      gamePassage: 0,
-    }))
+    resetStats()
     setGameOver(false)
     shuffleCards()
     resetTimer(settings.timer)

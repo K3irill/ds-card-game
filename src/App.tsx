@@ -7,6 +7,7 @@ import changeBackground from './utils/changeBackground'
 import { AppContext, GameContext } from './context/Context.tsx'
 import GamePage from './pages/game-page/GamePage.tsx'
 import useTimer from './hooks/useTimer.tsx'
+import { UserResultData } from './interfaces/gameSetting.interface.tsx'
 
 const App = () => {
   const location = useLocation()
@@ -34,6 +35,9 @@ const App = () => {
     mistakesCount: 0,
     gamePassage: 0,
   })
+
+  const [userResultData, setUserResultData] = useState<UserResultData[]>([])
+
   const [isStarted, setIsStarted] = useState<boolean>(false)
   const [isResetGame, setIsResetGame] = useState<boolean>(false)
   const [resetKey, setResetKey] = useState<number>(0)
@@ -57,6 +61,14 @@ const App = () => {
     changeBackground(location)
   }, [location.pathname])
 
+  function resetStats() {
+    setCurrentStatistics((prev) => ({
+      ...prev,
+      guessCount: 0,
+      mistakesCount: 0,
+      gamePassage: 0,
+    }))
+  }
   return (
     <AppContext.Provider
       value={{
@@ -66,6 +78,9 @@ const App = () => {
         setCommonStatics,
         currentStatistics,
         setCurrentStatistics,
+        userResultData,
+        setUserResultData,
+        resetStats,
       }}
     >
       <GameContext.Provider
