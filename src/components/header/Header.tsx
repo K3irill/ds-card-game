@@ -8,15 +8,16 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom'
-import { GameContext } from '../../context/Context'
-interface user {
-  name: string
-  tag: string
-  img: string
-  id: number
-}
+import { AppContext, GameContext } from '../../context/Context'
+
 const Header = () => {
   const navigate = useNavigate()
+  const appContext = useContext(AppContext)
+  if (!appContext) {
+    throw new Error('AppContext must be used within an AppProvider')
+  }
+  const { user } = appContext
+
   const gameContext = useContext(GameContext)
   if (!gameContext) {
     throw new Error('GameContext must be used within an GameProvider')
@@ -24,15 +25,8 @@ const Header = () => {
   const { isStarted } = gameContext
 
   let location = useLocation()
-
   const isActive = (path: string) => location.pathname === path
 
-  const user: user = {
-    name: 'Vaas Montenegro',
-    tag: '@VaasMontenegro',
-    img: 'https://i.pinimg.com/736x/dc/38/5c/dc385c948cd14acfc6445dfb4a6593f5.jpg',
-    id: 1,
-  }
   const handleLinkClick = (path: string) => {
     if (!isStarted) {
       navigate(path)

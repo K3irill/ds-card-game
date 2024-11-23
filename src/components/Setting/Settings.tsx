@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import styles from './Settings.module.scss'
 import TextInput from '../inputs/TextInput'
 import { AppContext, GameContext } from '../../context/Context'
@@ -8,7 +8,7 @@ const Settings = () => {
   if (!appContext) {
     throw new Error('AppContext must be used within an AppProvider')
   }
-  const { settings, commonStatics, currentStatistics, setSettings } = appContext
+  const { settings, setSettings, setUser } = appContext
 
   const gameContext = useContext(GameContext)
   if (!gameContext) {
@@ -16,12 +16,19 @@ const Settings = () => {
   }
   const { resetTimer } = gameContext
 
-  const [gameTimeValue, setGameTimeValue] = useState(settings.timer)
-  const [cardsCount, setCardsCount] = useState(settings.cardsCount)
-  const [mistakesCount, setMistakesCount] = useState(settings.maxMistakes)
-  const [imageTheme, setImageTheme] = useState(settings.category)
+  const [gameTimeValue, setGameTimeValue] = useState<number>(settings.timer)
+  const [cardsCount, setCardsCount] = useState<number>(settings.cardsCount)
+  const [mistakesCount, setMistakesCount] = useState<number>(
+    settings.maxMistakes,
+  )
+  const [imageTheme, setImageTheme] = useState<string>(settings.category)
   const [formError, setFormError] = useState<string | null>(null)
   const [isApplied, setIsApplied] = useState<boolean>(false)
+  const [userName, setUserName] = useState<string>('')
+  const fileInputRef = useRef<HTMLInputElement | null>(null)
+  const [avatar, setAvatar] = useState<string | undefined>()
+  const [userNameError, setUserNameError] = useState<string | null>(null)
+  const [avatarError, setAvatarError] = useState<string | null>(null)
   const handleTimeOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setGameTimeValue(Number(e.target.value))
   }
@@ -107,6 +114,52 @@ const Settings = () => {
     setIsApplied(true)
   }
 
+  const changeUserName = () => {
+    if (userName.length < 5) {
+      setUserNameError('The name is too short!')
+      return
+    }
+    const tag = '@' + userName
+    setUser((prev) => ({
+      ...prev,
+      name: userName,
+      tag: `${tag.toLowerCase() + prev.id}`,
+    }))
+    setUserName('')
+    setUserNameError(null)
+  }
+  const handleAvatarChange = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click()
+    }
+  }
+  const handleUserNameOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserName(e.target.value)
+  }
+  const changeAvatar = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const files = e.target.files
+    if (!files || files.length === 0) {
+      setAvatarError('No file selected')
+      return
+    }
+
+    const file = files[0]
+    const regex = /image\/(svg\+xml|png|jpeg|jpg)/
+    if (!regex.test(file.type)) {
+      console.log('Invalid file type!')
+      setAvatarError('Invalid file type!')
+      return
+    }
+
+    const newAvatarUrl = URL.createObjectURL(file)
+    setAvatar(newAvatarUrl)
+
+    setUser((prev) => ({
+      ...prev,
+      img: newAvatarUrl,
+    }))
+    setAvatarError(null)
+  }
   return (
     <div className={styles['settings-menu']}>
       <div className={styles['settings-menu__game']}>
@@ -122,6 +175,7 @@ const Settings = () => {
           >
             <h3>Game time:</h3>
             <TextInput
+              type="number"
               value={gameTimeValue}
               funOnChange={handleTimeOnChange}
               placeholder={'enter time in seconds'}
@@ -150,6 +204,7 @@ const Settings = () => {
           >
             <h3>Max mistakes:</h3>
             <TextInput
+              type="number"
               value={mistakesCount}
               funOnChange={handleMaxMistakesOnChange}
               placeholder={'enter max amount mistakes'}
@@ -213,11 +268,51 @@ const Settings = () => {
       </div>
       <hr className={styles['settings-menu__hr-line']} />
       <div className={styles['settings-menu__user']}>
-        <div>
-          <h3>User</h3>
-          <button>change nickname</button>
-          <br />
-          <button>change avatar</button>
+        <h3>User</h3>
+        <div className={styles['settings-menu__user-settings']}>
+          <p>User name:</p>
+          <div className={styles['settings-menu__user-name']}>
+            <TextInput
+              value={userName}
+              funOnChange={handleUserNameOnChange}
+              placeholder={'user name'}
+              setValue={setUserName}
+              type={'text'}
+            />
+            <SettingsButton
+              type="button"
+              text={'change nickname'}
+              backg={'#92f95a'}
+              onClickFunc={changeUserName}
+            />
+            {userNameError && (
+              <p className={styles['settings-menu__user-error']}>
+                {userNameError}
+              </p>
+            )}
+          </div>
+          <p>User avatar:</p>
+          <div className={styles['settings-menu__user-avatar']}>
+            <SettingsButton
+              type="button"
+              text={'change avatar'}
+              backg={'#92f95a'}
+              onClickFunc={handleAvatarChange}
+            />
+            <input
+              ref={fileInputRef}
+              className={styles['settings-menu__user-avatar-input']}
+              type="file"
+              name="avatar"
+              id="user-avatar"
+              onChange={changeAvatar}
+            />
+            {avatarError && (
+              <p className={styles['settings-menu__user-error']}>
+                {avatarError}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -32,7 +32,12 @@ export interface CurrentStatistics {
   mistakesCount: number
   gamePassage: number
 }
-
+export interface user {
+  name: string
+  tag: string
+  img: string
+  id: string
+}
 export interface CurrentStatisticsValue {
   currentStatistics: CurrentStatistics
   setCurrentStatistics: React.Dispatch<React.SetStateAction<CurrentStatistics>>
@@ -55,6 +60,8 @@ export interface AppContextValue {
   userResultData: UserResultData[]
   setUserResultData: React.Dispatch<React.SetStateAction<UserResultData[]>>
   resetStats: () => void
+  user: user
+  setUser: React.Dispatch<React.SetStateAction<user>>
 }
 
 export interface GameContextValue {

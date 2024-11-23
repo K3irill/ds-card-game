@@ -2,10 +2,11 @@ import React from 'react'
 import styles from './TextInput.module.scss'
 
 interface TextInputProps {
-  value: number
+  value: number | string
   funOnChange: any
   placeholder: string
   setValue: any
+  type: 'number' | 'text' | undefined
 }
 
 const TextInput = ({
@@ -13,12 +14,13 @@ const TextInput = ({
   funOnChange,
   placeholder,
   setValue,
+  type,
 }: TextInputProps) => {
   return (
     <div className={styles['text-input__wrapper']}>
       <input
         className={styles['text-input']}
-        type="number"
+        type={type}
         value={value}
         onChange={funOnChange}
         placeholder={placeholder}

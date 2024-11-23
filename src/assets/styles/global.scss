@@ -5,11 +5,25 @@
 #root {
   padding: 10px 100px;
   min-height: 100vh;
-
+  display: flex;
+  flex-direction: column;
   @media (width <= 1279px) {
     padding: 10px 20px;
   }
 }
+
+main {
+  flex: 1 1 auto;
+  height: 100%;
+}
+.author {
+  text-align: center;
+  font-size: 22px;
+  span {
+    color: $pink;
+  }
+}
+
 .bg-board {
   background: linear-gradient(to bottom right, #001f54, #00ffab, #800080);
 

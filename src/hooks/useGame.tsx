@@ -44,6 +44,7 @@ const useGame = () => {
     currentStatistics,
     setUserResultData,
     resetStats,
+    user,
   } = appContext
   const { images, isLoading, setIsLoading, reloadImages, loadingText } =
     useFetch(settings.cardsCount, settings.category)
@@ -196,7 +197,7 @@ const useGame = () => {
           mistakes: currentStatistics.mistakesCount,
           difficulty: settings.difficulty,
           guesses: currentStatistics.guessCount,
-          user: 'Vaas',
+          user: user.name,
         },
         ...prev,
       ])

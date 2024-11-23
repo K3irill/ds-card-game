@@ -35,6 +35,12 @@ const App = () => {
     mistakesCount: 0,
     gamePassage: 0,
   })
+  const [user, setUser] = useState({
+    name: 'Vaas Montenegro',
+    tag: '@VaasMontenegro',
+    img: 'https://i.pinimg.com/736x/dc/38/5c/dc385c948cd14acfc6445dfb4a6593f5.jpg',
+    id: '0001',
+  })
 
   const [userResultData, setUserResultData] = useState<UserResultData[]>([])
 
@@ -81,6 +87,8 @@ const App = () => {
         userResultData,
         setUserResultData,
         resetStats,
+        user,
+        setUser,
       }}
     >
       <GameContext.Provider
@@ -106,6 +114,11 @@ const App = () => {
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
+        <footer>
+          <p className="author">
+            made by K<span>3</span>irill
+          </p>
+        </footer>
       </GameContext.Provider>
     </AppContext.Provider>
   )
