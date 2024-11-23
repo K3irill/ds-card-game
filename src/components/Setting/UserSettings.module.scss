@@ -1,0 +1,48 @@
+@use "../../assets/styles/variables" as *;
+.settings-menu {
+  &__user {
+    width: 500px;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  &__user {
+    flex-direction: column;
+    justify-content: start;
+  }
+  &__user-name {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    input {
+      width: 180px;
+    }
+    & > button {
+      width: 180px;
+      text-wrap: nowrap;
+      padding: 2px;
+    }
+  }
+  &__user-error {
+    position: absolute;
+    bottom: -20px;
+    color: $red-link;
+  }
+
+  &__user-settings {
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+  }
+  &__user-avatar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  &__user-avatar-input {
+    position: absolute;
+    visibility: hidden;
+  }
+}

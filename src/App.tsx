@@ -41,9 +41,9 @@ const App = () => {
     img: 'https://i.pinimg.com/736x/dc/38/5c/dc385c948cd14acfc6445dfb4a6593f5.jpg',
     id: '0001',
   })
-
+  const [usersImageArr, setUsersImageArr] = useState<string[]>([])
   const [userResultData, setUserResultData] = useState<UserResultData[]>([])
-
+  const [cardsBy, setCardsBy] = useState<'api' | 'custom'>('api')
   const [isStarted, setIsStarted] = useState<boolean>(false)
   const [isResetGame, setIsResetGame] = useState<boolean>(false)
   const [resetKey, setResetKey] = useState<number>(0)
@@ -89,6 +89,10 @@ const App = () => {
         resetStats,
         user,
         setUser,
+        cardsBy,
+        setCardsBy,
+        usersImageArr,
+        setUsersImageArr,
       }}
     >
       <GameContext.Provider

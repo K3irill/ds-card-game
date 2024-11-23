@@ -1,14 +1,22 @@
-import React, { useContext, useRef, useState } from 'react'
-import styles from './Settings.module.scss'
-import TextInput from '../inputs/TextInput'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { AppContext, GameContext } from '../../context/Context'
+import styles from './GameSettings.module.scss'
+import TextInput from '../inputs/TextInput'
 import SettingsButton from '../buttons/SettingsButton'
-const Settings = () => {
+import UserImagesModal from '../modals/user-images/UserImagesModal'
+const GameSettings = () => {
   const appContext = useContext(AppContext)
   if (!appContext) {
     throw new Error('AppContext must be used within an AppProvider')
   }
-  const { settings, setSettings, setUser } = appContext
+  const {
+    settings,
+    setSettings,
+    setCardsBy,
+    cardsBy,
+    usersImageArr,
+    setUsersImageArr,
+  } = appContext
 
   const gameContext = useContext(GameContext)
   if (!gameContext) {
@@ -24,11 +32,11 @@ const Settings = () => {
   const [imageTheme, setImageTheme] = useState<string>(settings.category)
   const [formError, setFormError] = useState<string | null>(null)
   const [isApplied, setIsApplied] = useState<boolean>(false)
-  const [userName, setUserName] = useState<string>('')
-  const fileInputRef = useRef<HTMLInputElement | null>(null)
-  const [avatar, setAvatar] = useState<string | undefined>()
-  const [userNameError, setUserNameError] = useState<string | null>(null)
-  const [avatarError, setAvatarError] = useState<string | null>(null)
+  const imagesInputRef = useRef<HTMLInputElement | null>(null)
+  const [userImageError, setUserImageError] = useState<string | null>(null)
+  const [imageModalOpened, setImageModalOpened] = useState<boolean>(false)
+  const [imageRadioError, setImageRadioError] = useState<string | null>(null)
+
   const handleTimeOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setGameTimeValue(Number(e.target.value))
   }
@@ -93,6 +101,36 @@ const Settings = () => {
       difficulty: 'hard',
     }))
   }
+  const handleImagesChange = () => {
+    if (imagesInputRef.current) {
+      imagesInputRef.current.click()
+    }
+  }
+  const downloadImages = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const files = e.target.files
+
+    if (!files || files.length === 0) {
+      setUserImageError('No file selected')
+      return
+    }
+
+    const regex = /image\/(svg\+xml|png|jpeg|jpg)/
+
+    const validImages = Array.from(files).reduce<string[]>((acc, file) => {
+      if (!regex.test(file.type)) {
+        console.log('Invalid file type!')
+        setUserImageError('Invalid file type!')
+        return acc
+      }
+
+      const image = URL.createObjectURL(file)
+      acc.push(image)
+      return acc
+    }, [])
+
+    setUsersImageArr((prev) => [...prev, ...validImages])
+    console.log(usersImageArr)
+  }
 
   const handleSubmitGameForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -113,55 +151,27 @@ const Settings = () => {
     setFormError(null)
     setIsApplied(true)
   }
-
-  const changeUserName = () => {
-    if (userName.length < 5) {
-      setUserNameError('The name is too short!')
+  const handleImageRadio = (value: string) => {
+    if (usersImageArr.length < 20) {
+      setImageRadioError('You need download minimum 20 images!')
       return
-    }
-    const tag = '@' + userName
-    setUser((prev) => ({
-      ...prev,
-      name: userName,
-      tag: `${tag.toLowerCase() + prev.id}`,
-    }))
-    setUserName('')
-    setUserNameError(null)
-  }
-  const handleAvatarChange = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click()
-    }
-  }
-  const handleUserNameOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserName(e.target.value)
-  }
-  const changeAvatar = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const files = e.target.files
-    if (!files || files.length === 0) {
-      setAvatarError('No file selected')
-      return
+    } else {
+      setImageRadioError(null)
     }
 
-    const file = files[0]
-    const regex = /image\/(svg\+xml|png|jpeg|jpg)/
-    if (!regex.test(file.type)) {
-      console.log('Invalid file type!')
-      setAvatarError('Invalid file type!')
-      return
+    if (value === 'api') {
+      setCardsBy('api')
     }
-
-    const newAvatarUrl = URL.createObjectURL(file)
-    setAvatar(newAvatarUrl)
-
-    setUser((prev) => ({
-      ...prev,
-      img: newAvatarUrl,
-    }))
-    setAvatarError(null)
+    if (value === 'custom') {
+      setCardsBy('custom')
+    }
   }
+  useEffect(() => {
+    console.log(cardsBy)
+  })
+
   return (
-    <div className={styles['settings-menu']}>
+    <>
       <div className={styles['settings-menu__game']}>
         <form onSubmit={handleSubmitGameForm}>
           {isApplied && (
@@ -231,6 +241,7 @@ const Settings = () => {
               <option value="wildlife">Wildlife</option>
             </select>
           </div>
+
           <div
             className={`${styles['settings-menu__game-difficulty-wrapper']} ${styles['settings-menu__fields']}`}
           >
@@ -256,6 +267,66 @@ const Settings = () => {
               />
             </div>
           </div>
+          <div
+            className={`${styles['settings-menu__game-images-wrapper']} ${styles['settings-menu__fields']}`}
+          >
+            <h3>Game images:</h3>
+            <div className={styles['settings-menu__images-btns']}>
+              <SettingsButton
+                type="button"
+                text={'Download images'}
+                backg="#00ff00"
+                onClickFunc={handleImagesChange}
+              />
+              <input
+                ref={imagesInputRef}
+                className={styles['settings-menu__user-avatar-input']}
+                type="file"
+                name="user-images"
+                id="user-images"
+                multiple
+                onChange={downloadImages}
+              />
+              <button
+                type="button"
+                onClick={() => setImageModalOpened(true)}
+                className={styles['settings-menu__eye-btn']}
+              >
+                <img src="/icons/eye.svg" alt="watch" />
+              </button>
+            </div>
+            <div className={styles['settings-menu__radios']}>
+              <div className={styles['settings-menu__radio-item']}>
+                <label htmlFor="api">Images by random (API & Internet):</label>
+                <input
+                  type="radio"
+                  id="api"
+                  name="imageBy"
+                  value="api"
+                  checked={cardsBy === 'api'}
+                  onChange={() => handleImageRadio('api')}
+                />
+              </div>
+              <div className={styles['settings-menu__radio-item']}>
+                <label htmlFor="custom">User's images:</label>
+                <input
+                  type="radio"
+                  id="custom"
+                  name="imageBy"
+                  value="custom"
+                  checked={cardsBy === 'custom'}
+                  onChange={() => handleImageRadio('custom')}
+                />
+                {imageRadioError && (
+                  <p className={styles['settings-menu__radio-error']}>
+                    {imageRadioError}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <br />
           <div className={styles['settings-menu__apply']}>
             <SettingsButton
               type="submit"
@@ -266,57 +337,15 @@ const Settings = () => {
           </div>
         </form>
       </div>
-      <hr className={styles['settings-menu__hr-line']} />
-      <div className={styles['settings-menu__user']}>
-        <h3>User</h3>
-        <div className={styles['settings-menu__user-settings']}>
-          <p>User name:</p>
-          <div className={styles['settings-menu__user-name']}>
-            <TextInput
-              value={userName}
-              funOnChange={handleUserNameOnChange}
-              placeholder={'user name'}
-              setValue={setUserName}
-              type={'text'}
-            />
-            <SettingsButton
-              type="button"
-              text={'change nickname'}
-              backg={'#92f95a'}
-              onClickFunc={changeUserName}
-            />
-            {userNameError && (
-              <p className={styles['settings-menu__user-error']}>
-                {userNameError}
-              </p>
-            )}
-          </div>
-          <p>User avatar:</p>
-          <div className={styles['settings-menu__user-avatar']}>
-            <SettingsButton
-              type="button"
-              text={'change avatar'}
-              backg={'#92f95a'}
-              onClickFunc={handleAvatarChange}
-            />
-            <input
-              ref={fileInputRef}
-              className={styles['settings-menu__user-avatar-input']}
-              type="file"
-              name="avatar"
-              id="user-avatar"
-              onChange={changeAvatar}
-            />
-            {avatarError && (
-              <p className={styles['settings-menu__user-error']}>
-                {avatarError}
-              </p>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
+      {imageModalOpened && (
+        <UserImagesModal
+          images={usersImageArr}
+          setImages={setUsersImageArr}
+          onClose={setImageModalOpened}
+        />
+      )}
+    </>
   )
 }
 
-export default Settings
+export default GameSettings

@@ -62,6 +62,10 @@ export interface AppContextValue {
   resetStats: () => void
   user: user
   setUser: React.Dispatch<React.SetStateAction<user>>
+  cardsBy: 'api' | 'custom'
+  setCardsBy: React.Dispatch<React.SetStateAction<'api' | 'custom'>>
+  usersImageArr: string[]
+  setUsersImageArr: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 export interface GameContextValue {

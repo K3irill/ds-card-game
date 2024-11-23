@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 type ImageData = string
 
 const useFetch = (count: number, category = 'nature') => {
-  const [images, setImages] = useState<ImageData[]>([])
+  const [apiImages, setApiImages] = useState<ImageData[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [loadingText, setLoadingText] = useState<string | null>(
     'Загружаем изображения. пурум-пум-пум',
@@ -53,7 +53,7 @@ const useFetch = (count: number, category = 'nature') => {
       try {
         const imgs = await fetchImages()
         if (imgs.length > 0) {
-          setImages(imgs)
+          setApiImages(imgs)
         } else {
           setError('Не удалось загрузить изображения')
         }
@@ -71,7 +71,7 @@ const useFetch = (count: number, category = 'nature') => {
   const reloadImages = () => setReloadKey((key) => key + 1)
 
   return {
-    images,
+    apiImages,
     isLoading,
     error,
     setIsLoading,

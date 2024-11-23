@@ -38,6 +38,7 @@ const GameBoard = () => {
     newGameWithCurrentImages,
     loadingText,
     setIsStarted,
+    error,
   } = useGame()
 
   return (
@@ -54,7 +55,7 @@ const GameBoard = () => {
           }
         />
       )}
-
+      {error && <p>{error}</p>}
       {isLoading ? (
         <div className={styles['game-board__loading-container']}>
           <div className={styles['game-board__loading-img']}>

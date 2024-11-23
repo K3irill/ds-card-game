@@ -10,11 +10,24 @@ import {
 } from '../context/contexHandlers'
 
 const useGame = () => {
-  const [cards, setCards] = useState<CardItem[]>([])
-  const [flippedCards, setFlippedCards] = useState<CardItem[]>([])
-  const [isFlipping, setIsFlipping] = useState<boolean>(false)
-  const [gameOver, setGameOver] = useState<boolean>(false)
-  const [gameResult, setGameResult] = useState<string>('success')
+  const appContext = useContext(AppContext)
+  if (!appContext) {
+    throw new Error('AppContext must be used within an AppProvider')
+  }
+  const {
+    settings,
+    setSettings,
+    commonStatics,
+    setCommonStatics,
+    setCurrentStatistics,
+    currentStatistics,
+    setUserResultData,
+    resetStats,
+    user,
+    cardsBy,
+    usersImageArr,
+    setUsersImageArr,
+  } = appContext
   const gameContext = useContext(GameContext)
   if (!gameContext) {
     throw new Error('GameContext must be used within an GameProvider')
@@ -31,23 +44,40 @@ const useGame = () => {
     stopTimer,
   } = gameContext
 
-  const appContext = useContext(AppContext)
-  if (!appContext) {
-    throw new Error('AppContext must be used within an AppProvider')
-  }
   const {
-    settings,
-    setSettings,
-    commonStatics,
-    setCommonStatics,
-    setCurrentStatistics,
-    currentStatistics,
-    setUserResultData,
-    resetStats,
-    user,
-  } = appContext
-  const { images, isLoading, setIsLoading, reloadImages, loadingText } =
-    useFetch(settings.cardsCount, settings.category)
+    apiImages,
+    isLoading,
+    setIsLoading,
+    reloadImages,
+    loadingText,
+    error,
+  } = useFetch(settings.cardsCount * 2, settings.category)
+
+  const [cards, setCards] = useState<CardItem[]>([])
+  const [flippedCards, setFlippedCards] = useState<CardItem[]>([])
+  const [isFlipping, setIsFlipping] = useState<boolean>(false)
+  const [gameOver, setGameOver] = useState<boolean>(false)
+  const [gameResult, setGameResult] = useState<string>('success')
+  const [images, setImages] = useState<string[]>([])
+
+  //---------------------------------------------
+
+  useEffect(() => {
+    if (cardsBy === 'api') {
+      setImages(apiImages)
+      console.log('API Images set:', apiImages)
+    }
+    if (cardsBy === 'custom') {
+      setImages(usersImageArr)
+      console.log('Custom Images set:', usersImageArr)
+    }
+  }, [cardsBy, apiImages, usersImageArr])
+
+  useEffect(() => {
+    if (cardsBy === 'api') {
+      setImages(apiImages)
+    }
+  }, [apiImages, cardsBy])
 
   const createCard = (img: string, id: number, coupleId: number): CardItem => {
     return {
@@ -71,12 +101,15 @@ const useGame = () => {
   }, [currentStatistics])
 
   const startGame = () => {
+    console.log(apiImages)
     if (images.length === 0) return
 
     const renderImages = () => {
-      const newCards: CardItem[] = images.map((img, i) => {
-        return createCard(img, i, i)
-      })
+      const newCards: CardItem[] = images
+        .slice(0, settings.cardsCount)
+        .map((img, i) => {
+          return createCard(img, i, i)
+        })
 
       const copyCards: CardItem[] = newCards.map((card, index) => ({
         ...card,
@@ -275,6 +308,7 @@ const useGame = () => {
     loadingText,
     startGame,
     setIsStarted,
+    error,
   }
 }
 
