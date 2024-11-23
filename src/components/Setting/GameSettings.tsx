@@ -146,7 +146,7 @@ const GameSettings = () => {
       maxMistakes: mistakesCount,
       category: imageTheme,
     }))
-    console.log(settings)
+
     resetTimer(+gameTimeValue)
     setFormError(null)
     setIsApplied(true)
@@ -166,9 +166,6 @@ const GameSettings = () => {
       setCardsBy('custom')
     }
   }
-  useEffect(() => {
-    console.log(cardsBy)
-  })
 
   return (
     <>
@@ -203,9 +200,9 @@ const GameSettings = () => {
               name="cardsCount"
               id="cards-count"
             >
-              <option value="4">4</option>
               <option value="9">9</option>
               <option value="12">12</option>
+              <option value="16">16</option>
               <option value="20">20</option>
             </select>
           </div>

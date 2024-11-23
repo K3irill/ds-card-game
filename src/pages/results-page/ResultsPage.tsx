@@ -3,6 +3,7 @@ import styles from './ResultPage.module.scss'
 import { AppContext } from '../../context/Context'
 import parseCustomDate from '../../utils/parseCustomDate'
 import { UserResultData } from '../../interfaces/gameSetting.interface'
+import TextInput from '../../components/inputs/TextInput'
 const ResultsPage = () => {
   const appContext = useContext(AppContext)
   if (!appContext) {
@@ -12,16 +13,33 @@ const ResultsPage = () => {
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [sortTeg, setSortTeg] = useState<'asc' | 'desc'>('asc')
   const [sortedData, setSortedData] = useState<UserResultData[]>(userResultData)
+  const [searchKeyword, setSearchKeyword] = useState<string>('')
 
   const rowsPerPage = 10
   const startIndex = (currentPage - 1) * rowsPerPage
   const endIndex = startIndex + rowsPerPage
   const currentData = sortedData.slice(startIndex, endIndex)
-  const totalPages = Math.ceil(userResultData.length / rowsPerPage)
+  const totalPages = Math.ceil(sortedData.length / rowsPerPage)
 
   useEffect(() => {
     setSortedData(userResultData)
   }, [userResultData])
+
+  useEffect(() => {
+    if (searchKeyword) {
+      const filtered = userResultData.filter((result) =>
+        Object.values(result).some((value) =>
+          value.toString().toLowerCase().includes(searchKeyword.toLowerCase()),
+        ),
+      )
+      console.log(1)
+
+      setSortedData(filtered)
+      setCurrentPage(1)
+    } else {
+      setSortedData(userResultData)
+    }
+  }, [searchKeyword, userResultData])
 
   const sortByTime = () => {
     const sorted = [...sortedData].sort((a, b) => {
@@ -47,6 +65,15 @@ const ResultsPage = () => {
       <div className={styles['result-page__container']}>
         <div className={styles['result-page__headings']}>
           <h2>User Statistics</h2>
+          <TextInput
+            value={searchKeyword}
+            placeholder="Search"
+            funOnChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setSearchKeyword(e.target.value)
+            }
+            setValue={setSearchKeyword}
+            type="text"
+          />
         </div>
         <div className={styles['result-page__table-wrapper']}>
           <table className={styles['result-page__table']}>

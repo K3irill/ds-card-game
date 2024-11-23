@@ -9,7 +9,6 @@ const SettingsPage = () => {
           <h2>Game settings</h2>
           <h2>Common settings</h2>
         </div>
-
         <Settings />
       </div>
     </div>

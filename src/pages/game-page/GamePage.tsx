@@ -93,10 +93,3 @@ const GamePage = () => {
 }
 
 export default GamePage
-
-// const changeTimer = () => {
-//   setSettings((prev) => ({ ...prev, timer: 60 }))
-// }
-// useEffect(() => {
-//   console.log('Settings:', settings)
-// }, [settings])
