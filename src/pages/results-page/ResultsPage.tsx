@@ -1,25 +1,42 @@
 import React, { useContext, useState, useEffect } from 'react'
 import styles from './ResultPage.module.scss'
 import { AppContext } from '../../context/Context'
-
+import parseCustomDate from '../../utils/parseCustomDate'
+import { UserResultData } from '../../interfaces/gameSetting.interface'
 const ResultsPage = () => {
   const appContext = useContext(AppContext)
-
   if (!appContext) {
     throw new Error('AppContext must be used within an AppProvider')
   }
-
   const { userResultData } = appContext
-
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const [sortTeg, setSortTeg] = useState<'asc' | 'desc'>('asc')
+  const [sortedData, setSortedData] = useState<UserResultData[]>(userResultData)
 
   const rowsPerPage = 10
-
   const startIndex = (currentPage - 1) * rowsPerPage
   const endIndex = startIndex + rowsPerPage
-  const currentData = userResultData.slice(startIndex, endIndex)
-
+  const currentData = sortedData.slice(startIndex, endIndex)
   const totalPages = Math.ceil(userResultData.length / rowsPerPage)
+
+  useEffect(() => {
+    setSortedData(userResultData)
+  }, [userResultData])
+
+  const sortByTime = () => {
+    const sorted = [...sortedData].sort((a, b) => {
+      const dateA = parseCustomDate(a.date_time)
+      const dateB = parseCustomDate(b.date_time)
+
+      return sortTeg === 'asc'
+        ? dateA.getTime() - dateB.getTime()
+        : dateB.getTime() - dateA.getTime()
+    })
+
+    setSortedData(sorted)
+    setSortTeg((prev) => (prev === 'asc' ? 'desc' : 'asc'))
+    setCurrentPage(1)
+  }
 
   const handlePageChange = (n: number) => {
     setCurrentPage(n)
@@ -35,7 +52,17 @@ const ResultsPage = () => {
           <table className={styles['result-page__table']}>
             <thead>
               <tr>
-                <th>Date & Time</th>
+                <th
+                  className={styles['result-page__sort-btn']}
+                  onClick={sortByTime}
+                >
+                  Date & Time
+                  <img
+                    className={styles['result-page__sort-img']}
+                    src="/icons/sort.svg"
+                    alt=""
+                  />
+                </th>
                 <th>Playing Time</th>
                 <th>Mistakes Count</th>
                 <th>Difficulty</th>
@@ -57,7 +84,9 @@ const ResultsPage = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={6}>No data available</td>
+                  <td style={{ textAlign: 'center' }} colSpan={6}>
+                    No data available
+                  </td>
                 </tr>
               )}
             </tbody>
@@ -68,7 +97,9 @@ const ResultsPage = () => {
                 <button
                   key={index}
                   className={`${styles['result-page__pagination-btn']} ${
-                    currentPage === index + 1 ? styles['active'] : ''
+                    currentPage === index + 1
+                      ? styles['result-page__pagination-btn--active']
+                      : ''
                   }`}
                   onClick={() => handlePageChange(index + 1)}
                 >

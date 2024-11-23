@@ -1,3 +1,4 @@
+@use "../../assets/styles/variables" as *;
 .result-page {
   display: flex;
   justify-content: center;
@@ -51,8 +52,19 @@
   &__pagination-btn {
     background-color: transparent;
     font-size: 22px;
+    &--active {
+      color: $pink;
+    }
   }
-}
-.active {
-  color: pink;
+  &__sort-img {
+    width: 20px;
+  }
+  &__sort-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
