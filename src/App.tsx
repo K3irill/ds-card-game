@@ -14,7 +14,7 @@ const App = () => {
   const [settings, setSettings] = useState({
     timer: 30,
     difficulty: 'easy',
-    cardsCount: 6,
+    cardsCount: 12,
     downloadImages: 'api',
     themeImages: 'techno',
     maxMistakes: 10,
