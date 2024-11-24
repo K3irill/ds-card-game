@@ -10,6 +10,9 @@
   @media (width <= 1279px) {
     padding: 10px 20px;
   }
+  @media (width <= 830px) {
+    padding: 10px 5px;
+  }
 }
 
 main {
@@ -26,9 +29,6 @@ main {
 
 .bg-board {
   background: linear-gradient(to bottom right, #001f54, #00ffab, #800080);
-
-  transition: all 1s;
-  opacity: 100%;
 }
 
 .bg-results {

@@ -75,14 +75,7 @@ const GamePage = () => {
           {isStarted ? (
             <GameBoard />
           ) : (
-            <h2
-              style={{
-                textAlign: 'center',
-                fontSize: '30px',
-                marginTop: '240px',
-                textShadow: '0px 0px 5px black',
-              }}
-            >
+            <h2 className={styles['game-page__greeting']}>
               Нажмите START чтобы начать!
             </h2>
           )}

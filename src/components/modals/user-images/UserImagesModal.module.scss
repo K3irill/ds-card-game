@@ -3,7 +3,8 @@
   background-color: rgba(174, 174, 174, 0.788);
   padding: 15px;
   height: 350px;
-  width: 530px;
+  max-width: 530px;
+  min-width: 300px;
   overflow-y: auto;
   z-index: 100;
   top: 50%;

@@ -7,7 +7,7 @@
   }
   &__game,
   &__user {
-    width: 500px;
+    max-width: 500px;
     display: flex;
     padding: 20px;
     justify-content: center;
@@ -64,6 +64,10 @@
   &__difficulty-btns {
     display: flex;
     gap: 20px;
+    @media (width <= 870px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
   &__game-difficulty-wrapper {
     button {

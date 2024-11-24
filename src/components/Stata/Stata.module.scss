@@ -4,12 +4,36 @@
   width: 300px;
   padding: 10px 20px;
   border-radius: 5px;
+  @media (width <= 830px) {
+    width: 180px;
+    padding: 5px 10px;
+  }
+  @media (width <= 580px) {
+    width: 130px;
+    padding: 5px;
+  }
   &__title {
     text-align: center;
     font-size: 24px;
     margin-bottom: 10px;
+    @media (width <= 830px) {
+      font-size: 14px;
+    }
+    @media (width <= 580px) {
+      font-size: 12px;
+    }
   }
   &__list {
+    @media (width <= 830px) {
+      * {
+        font-size: 12px;
+      }
+    }
+    @media (width <= 580px) {
+      * {
+        font-size: 10px;
+      }
+    }
     li {
       display: flex;
       p {

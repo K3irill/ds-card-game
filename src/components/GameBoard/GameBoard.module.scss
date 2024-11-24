@@ -25,6 +25,12 @@
       right: -70px;
     }
   }
+  @media (width <= 830px) {
+    img {
+      width: 200px;
+      height: 40px;
+    }
+  }
 }
 
 @keyframes moroz-translate {

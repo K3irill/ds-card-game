@@ -26,13 +26,7 @@ const Card = ({ cardObject, handleCardClick }: CardProps) => {
           <div className={styles.card__front_background}></div>
         </div>
         <div className={styles.card__back}>
-          <div className={styles.card__back_image}>
-            <img
-              className={styles.card__image}
-              src={card.img}
-              alt="Card Image"
-            />
-          </div>
+          <img className={styles.card__image} src={card.img} alt="Card Image" />
         </div>
       </div>
     </div>
