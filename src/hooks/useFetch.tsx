@@ -5,9 +5,7 @@ type ImageData = string
 const useFetch = (count: number, category = 'nature') => {
   const [apiImages, setApiImages] = useState<ImageData[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [loadingText, setLoadingText] = useState<string | null>(
-    'Загружаем изображения. пурум-пум-пум',
-  )
+  const [loadingText, setLoadingText] = useState<string | null>('Loading...')
   const [error, setError] = useState<string | null>(null)
   const [reloadKey, setReloadKey] = useState(0)
 
@@ -15,7 +13,7 @@ const useFetch = (count: number, category = 'nature') => {
     const fetchImages = async (): Promise<ImageData[]> => {
       try {
         setIsLoading(true)
-        setLoadingText('Загружаем изображения. пурум-пум-пум')
+        setLoadingText('Loading...')
         setError(null)
 
         const imagePromises = Array.from({ length: count }).map(async () => {
