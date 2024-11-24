@@ -39,6 +39,10 @@ const GameSettings = () => {
 
   const handleTimeOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setGameTimeValue(Number(e.target.value))
+    setSettings((prev) => ({
+      ...prev,
+      difficulty: 'custom',
+    }))
   }
 
   const handleCardsCountOnChange = (
@@ -93,7 +97,7 @@ const GameSettings = () => {
   }
   const handleHardBtnOnChange = () => {
     setGameTimeValue(30)
-    setCardsCount(20)
+    setCardsCount(16)
     setMistakesCount(5)
     setImageTheme('abstract')
     setSettings((prev) => ({
@@ -125,6 +129,7 @@ const GameSettings = () => {
 
       const image = URL.createObjectURL(file)
       acc.push(image)
+      setUserImageError(null)
       return acc
     }, [])
 
@@ -152,8 +157,8 @@ const GameSettings = () => {
     setIsApplied(true)
   }
   const handleImageRadio = (value: string) => {
-    if (usersImageArr.length < 20) {
-      setImageRadioError('You need download minimum 20 images!')
+    if (usersImageArr.length < 16) {
+      setImageRadioError('You need download minimum 16 images!')
       return
     } else {
       setImageRadioError(null)
@@ -203,7 +208,7 @@ const GameSettings = () => {
               <option value="9">9</option>
               <option value="12">12</option>
               <option value="16">16</option>
-              <option value="20">20</option>
+              {/* <option value="20">20</option> */}
             </select>
           </div>
           <div
@@ -263,6 +268,16 @@ const GameSettings = () => {
                 onClickFunc={handleHardBtnOnChange}
               />
             </div>
+            <p>
+              Current difficulty:{'  '}
+              <span
+                className={`${
+                  styles['settings-menu__difficulty--' + settings.difficulty]
+                }`}
+              >
+                {settings.difficulty}
+              </span>
+            </p>
           </div>
           <div
             className={`${styles['settings-menu__game-images-wrapper']} ${styles['settings-menu__fields']}`}
@@ -291,6 +306,11 @@ const GameSettings = () => {
               >
                 <img src="/icons/eye.svg" alt="watch" />
               </button>
+              {userImageError && (
+                <p className={styles['settings-menu__radio-error']}>
+                  {userImageError}
+                </p>
+              )}
             </div>
             <div className={styles['settings-menu__radios']}>
               <div className={styles['settings-menu__radio-item']}>

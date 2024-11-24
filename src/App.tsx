@@ -36,9 +36,9 @@ const App = () => {
     gamePassage: 0,
   })
   const [user, setUser] = useState({
-    name: 'Vaas Montenegro',
-    tag: '@VaasMontenegro',
-    img: 'https://i.pinimg.com/736x/dc/38/5c/dc385c948cd14acfc6445dfb4a6593f5.jpg',
+    name: 'Grinch',
+    tag: '@grinch0001',
+    img: 'https://img.staticdj.com/29d966a2704515bd56b83e4f17a4ce01.jpeg',
     id: '0001',
   })
   const [usersImageArr, setUsersImageArr] = useState<string[]>([])

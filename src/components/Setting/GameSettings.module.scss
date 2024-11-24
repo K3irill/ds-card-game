@@ -97,6 +97,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     img {
       margin-left: 20px;
       width: 42px;
@@ -130,6 +131,21 @@
     color: $red-link;
     text-wrap: nowrap;
     left: 0;
-    bottom: -15px;
+    bottom: -20px;
+  }
+
+  &__difficulty {
+    &--easy {
+      color: $bright-green;
+    }
+    &--medium {
+      color: $trans-orange;
+    }
+    &--hard {
+      color: $red-link;
+    }
+    &--custom {
+      color: $pink;
+    }
   }
 }
