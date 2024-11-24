@@ -32,7 +32,6 @@ const ResultsPage = () => {
           value.toString().toLowerCase().includes(searchKeyword.toLowerCase()),
         ),
       )
-      console.log(1)
 
       setSortedData(filtered)
       setCurrentPage(1)

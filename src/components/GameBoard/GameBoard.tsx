@@ -1,43 +1,26 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import Card from '../Card/Card'
 import styles from './GameBoard.module.scss'
-import { CardItem } from '../../interfaces/card.interface'
-import useFetch from '../../hooks/useFetch'
-import { AppContext } from '../../context/Context'
-import {
-  incrementGamesCount,
-  incrementGuessCount,
-  incrementMistakesCount,
-  updatePassage,
-} from '../../context/contexHandlers'
 import GameResultModal from '../modals/game-result-modal/GameResultModal'
 import useGame from '../../hooks/useGame'
+import { AppContext } from '../../context/Context'
 
 const GameBoard = () => {
   const appContext = useContext(AppContext)
   if (!appContext) {
     throw new Error('AppContext must be used within an AppProvider')
   }
-  const {
-    settings,
-    setSettings,
-    commonStatics,
-    setCommonStatics,
-    setCurrentStatistics,
-    currentStatistics,
-  } = appContext
+  const { currentStatistics, cardsBy } = appContext
 
   const {
     cards,
     gameOver,
     gameResult,
     isLoading,
-    setFlippedCards,
     handleCardClick,
     newGameWithNewImages,
     newGameWithCurrentImages,
     loadingText,
-    setIsStarted,
     error,
   } = useGame()
 
@@ -55,22 +38,26 @@ const GameBoard = () => {
           }
         />
       )}
-      {error && <p>{error}</p>}
-      {isLoading ? (
+
+      {cardsBy === 'api' && isLoading ? (
         <div className={styles['game-board__loading-container']}>
           <div className={styles['game-board__loading-img']}>
-            <span> Loading...</span>
-            <img src="/img/moroz.gif" alt="fsfsa" />
+            <span>{loadingText || 'Loading...'}</span>
+            <img src="/img/moroz.gif" alt="Loading animation" />
           </div>
         </div>
       ) : (
-        cards.map((card) => (
-          <Card
-            key={card.id}
-            cardObject={card}
-            handleCardClick={handleCardClick}
-          />
-        ))
+        <>
+          {error && <p className={styles['game-board__error']}>{error}</p>}
+
+          {cards.map((card) => (
+            <Card
+              key={card.id}
+              cardObject={card}
+              handleCardClick={handleCardClick}
+            />
+          ))}
+        </>
       )}
     </div>
   )

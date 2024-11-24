@@ -46,12 +46,12 @@ const useGame = () => {
 
   const {
     apiImages,
-    isLoading,
+    isLoading: apiLoading,
     setIsLoading,
     reloadImages,
     loadingText,
-    error,
-  } = useFetch(settings.cardsCount * 2, settings.category)
+    error: apiError,
+  } = useFetch(Math.ceil(settings.cardsCount / 2), settings.category)
 
   const [cards, setCards] = useState<CardItem[]>([])
   const [flippedCards, setFlippedCards] = useState<CardItem[]>([])
@@ -62,22 +62,17 @@ const useGame = () => {
 
   //---------------------------------------------
 
-  useEffect(() => {
-    if (cardsBy === 'api') {
-      setImages(apiImages)
-      console.log('API Images set:', apiImages)
-    }
-    if (cardsBy === 'custom') {
-      setImages(usersImageArr)
-      console.log('Custom Images set:', usersImageArr)
-    }
-  }, [cardsBy, apiImages, usersImageArr])
+  const isUsingAPI = cardsBy === 'api'
+  const isLoading = isUsingAPI ? apiLoading : false
+  const error = isUsingAPI ? apiError : null
 
   useEffect(() => {
-    if (cardsBy === 'api') {
+    if (isUsingAPI) {
       setImages(apiImages)
+    } else {
+      setImages(usersImageArr)
     }
-  }, [apiImages, cardsBy])
+  }, [cardsBy, apiImages, usersImageArr])
 
   const createCard = (img: string, id: number, coupleId: number): CardItem => {
     return {
@@ -101,7 +96,6 @@ const useGame = () => {
   }, [currentStatistics])
 
   const startGame = () => {
-    console.log(apiImages)
     if (images.length === 0) return
 
     const renderImages = () => {

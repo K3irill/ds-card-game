@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './GameResultModal.module.scss'
+import { AppContext } from '../../../context/Context'
 interface GameResultModalProps {
   textResult: string
   count: number
@@ -12,6 +13,11 @@ const GameResultModal = ({
   nextBtn,
   currentBtn,
 }: GameResultModalProps) => {
+  const appContext = useContext(AppContext)
+  if (!appContext) {
+    throw new Error('AppContext must be used within an AppProvider')
+  }
+  const { cardsBy } = appContext
   return (
     <div
       className={`${styles['game-result-modal']} ${
@@ -31,6 +37,7 @@ const GameResultModal = ({
           current images
         </button>
         <button
+          disabled={cardsBy === 'custom'}
           onClick={nextBtn}
           className={styles['game-result-modal__restart-btn']}
         >

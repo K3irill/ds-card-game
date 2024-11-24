@@ -55,7 +55,6 @@ const UserSettings = () => {
     const file = files[0]
     const regex = /image\/(svg\+xml|png|jpeg|jpg)/
     if (!regex.test(file.type)) {
-      console.log('Invalid file type!')
       setAvatarError('Invalid file type!')
       return
     }

@@ -18,7 +18,8 @@ const GamePage = () => {
   if (!appContext) {
     throw new Error('AppContext must be used within an AppProvider')
   }
-  const { settings, commonStatics, currentStatistics, resetStats } = appContext
+  const { settings, commonStatics, currentStatistics, resetStats, cardsBy } =
+    appContext
 
   const gameContext = useContext(GameContext)
   if (!gameContext) {
@@ -27,6 +28,7 @@ const GamePage = () => {
   const { isStarted, setIsStarted, setIsResetGame, setResetKey, resetTimer } =
     gameContext
   //______________________________________________________________
+  useEffect(() => {}, [settings])
   const [startBtnText, setStartBtnText] = useState<string>('START')
   const handleStartGame = () => {
     setIsStarted((prev) => {
@@ -60,6 +62,7 @@ const GamePage = () => {
                   {startBtnText}
                 </button>
                 <button
+                  disabled={cardsBy === 'custom'}
                   className={styles['game-page__btn']}
                   onClick={handleRestartGame}
                 >

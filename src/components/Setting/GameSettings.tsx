@@ -48,12 +48,17 @@ const GameSettings = () => {
   const handleCardsCountOnChange = (
     e: React.ChangeEvent<HTMLSelectElement>,
   ) => {
-    setCardsCount(Number(e.target.value))
+    const newCount = Number(e.target.value)
+    setCardsCount(newCount)
     setSettings((prev) => ({
       ...prev,
-      difficulty: 'custom',
+      cardsCount: newCount,
     }))
   }
+  useEffect(() => {}, [settings])
+  useEffect(() => {
+    setCardsCount(settings.cardsCount)
+  }, [settings.cardsCount])
 
   const handleMaxMistakesOnChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -105,6 +110,7 @@ const GameSettings = () => {
       difficulty: 'hard',
     }))
   }
+  useEffect(() => {}, [settings])
   const handleImagesChange = () => {
     if (imagesInputRef.current) {
       imagesInputRef.current.click()
@@ -122,7 +128,6 @@ const GameSettings = () => {
 
     const validImages = Array.from(files).reduce<string[]>((acc, file) => {
       if (!regex.test(file.type)) {
-        console.log('Invalid file type!')
         setUserImageError('Invalid file type!')
         return acc
       }
@@ -134,7 +139,6 @@ const GameSettings = () => {
     }, [])
 
     setUsersImageArr((prev) => [...prev, ...validImages])
-    console.log(usersImageArr)
   }
 
   const handleSubmitGameForm = (e: React.FormEvent<HTMLFormElement>) => {
@@ -147,7 +151,7 @@ const GameSettings = () => {
     setSettings((prev) => ({
       ...prev,
       timer: gameTimeValue,
-      cardsCount: cardsCount / 2,
+      cardsCount: cardsCount,
       maxMistakes: mistakesCount,
       category: imageTheme,
     }))
