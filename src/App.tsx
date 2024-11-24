@@ -112,8 +112,7 @@ const App = () => {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<div>Hello</div>} />
-            <Route path="/board" element={<GamePage />} />
+            <Route path="/" element={<GamePage />} />
             <Route path="/results" element={<ResultsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>

@@ -4,7 +4,7 @@ import { CardItem } from '../../interfaces/card.interface'
 
 interface CardProps {
   cardObject: CardItem
-  handleCardClick: any // ПОТОМ ИСПРАВИТЬ!!!!
+  handleCardClick: (a: CardItem) => void
 }
 
 const Card = ({ cardObject, handleCardClick }: CardProps) => {

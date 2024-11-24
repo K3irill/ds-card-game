@@ -3,9 +3,9 @@ import styles from './TextInput.module.scss'
 
 interface TextInputProps {
   value: number | string
-  funOnChange: any
+  funOnChange: () => void
   placeholder: string
-  setValue: any
+  setValue: React.Dispatch<React.SetStateAction<number | string>>
   type: 'number' | 'text' | undefined
 }
 

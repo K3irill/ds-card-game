@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__logo}>
-        <Link to="/board">
+        <Link to="/">
           <img src="/icons/logo.svg" alt="logo" />
         </Link>
       </div>
@@ -57,10 +57,10 @@ const Header = () => {
           </li>
           <li className={styles['header__nav-item']}>
             <button
-              onClick={() => handleLinkClick('/board')}
-              aria-disabled={isActive('/board')}
+              onClick={() => handleLinkClick('/')}
+              aria-disabled={isActive('/')}
               className={` ${styles['header__nav-link']} ${
-                isActive('/board') ? styles['header__nav-link--active'] : ''
+                isActive('/') ? styles['header__nav-link--active'] : ''
               }`}
             >
               Board

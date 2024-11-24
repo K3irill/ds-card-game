@@ -3,10 +3,13 @@ import { AppContext, GameContext } from '../context/Context'
 import { CardItem } from '../interfaces/card.interface'
 import useFetch from '../hooks/useFetch'
 import {
-  incrementGamesCount,
-  incrementGuessCount,
-  incrementMistakesCount,
-  updatePassage,
+  incrementGamesCountCommon,
+  incrementGamesCountCurrent,
+  incrementGuessCountCommon,
+  incrementGuessCountCurrent,
+  incrementMistakesCountCommon,
+  incrementMistakesCountCurrent,
+  updatePassageCurrent,
 } from '../context/contexHandlers'
 
 const useGame = () => {
@@ -144,8 +147,8 @@ const useGame = () => {
       const [firstCard, secondCard] = flippedCards
 
       if (firstCard.coupleId === secondCard.coupleId) {
-        incrementGuessCount(setCommonStatics)
-        incrementGuessCount(setCurrentStatistics)
+        incrementGuessCountCommon(setCommonStatics)
+        incrementGuessCountCurrent(setCurrentStatistics)
 
         setCards((prevCards) => {
           const updatedCards = prevCards.map((card) =>
@@ -162,7 +165,10 @@ const useGame = () => {
             0,
           )
 
-          setTimeout(() => updatePassage(setCurrentStatistics, percentage), 0)
+          setTimeout(
+            () => updatePassageCurrent(setCurrentStatistics, percentage),
+            0,
+          )
 
           if (updatedCards.every((card) => card.isGuessed)) {
             handleGameOver('success')
@@ -174,8 +180,8 @@ const useGame = () => {
 
         setIsFlipping(false)
       } else {
-        incrementMistakesCount(setCommonStatics)
-        incrementMistakesCount(setCurrentStatistics)
+        incrementMistakesCountCommon(setCommonStatics)
+        incrementMistakesCountCurrent(setCurrentStatistics)
         setTimeout(() => {
           setCards((prevCards) =>
             prevCards.map((card) =>
@@ -199,8 +205,8 @@ const useGame = () => {
 
   const handleGameOver = (result: string) => {
     setTimeout(() => {
-      incrementGamesCount(setCommonStatics)
-      incrementGamesCount(setCurrentStatistics)
+      incrementGamesCountCommon(setCommonStatics)
+      incrementGamesCountCurrent(setCurrentStatistics)
       setGameOver(true)
       setGameResult(result)
       stopTimer()

@@ -5,7 +5,7 @@ interface SettingsButtonProps {
   text: string
   backg: string
   type: 'submit' | 'reset' | 'button' | undefined
-  onClickFunc?: any
+  onClickFunc?: () => void
 }
 
 const SettingsButton = ({

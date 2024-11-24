@@ -4,8 +4,8 @@ import { AppContext } from '../../../context/Context'
 interface GameResultModalProps {
   textResult: string
   count: number
-  nextBtn: any
-  currentBtn: any
+  nextBtn: () => void
+  currentBtn: () => void
 }
 const GameResultModal = ({
   textResult,

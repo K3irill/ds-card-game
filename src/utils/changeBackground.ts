@@ -7,7 +7,7 @@ const changeBackground = (location: Location) => {
   }
 
   switch (location.pathname) {
-    case '/board':
+    case '/':
       if (rootElement) rootElement.classList.add('bg-board')
       break
     case '/results':
