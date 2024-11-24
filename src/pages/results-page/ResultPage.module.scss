@@ -2,7 +2,8 @@
 .result-page {
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding: 80px 5px 0 5px;
+  margin: 0 auto;
 
   * {
     color: white;
@@ -26,6 +27,7 @@
         border: 1px dotted #ffffff;
       }
     }
+
     @media (width <= 870px) {
       font-size: 18px;
       padding: 0px 5px;
@@ -33,11 +35,11 @@
   }
 
   &__container {
-    width: 856px;
+    max-width: 100%;
+    overflow-x: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-x: auto;
   }
 
   &__table-wrapper {
@@ -46,8 +48,8 @@
   }
 
   &__table {
-    max-width: 800px;
-
+    width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
     text-align: left;
     border-radius: 12px;
@@ -58,6 +60,15 @@
       border: 1px solid #ccc;
       padding: 8px 12px;
       vertical-align: top;
+      @media (width >= 2600px) {
+        font-size: 36px;
+        padding: 30px;
+      }
+      @media (width <= 530px) {
+        font-size: 10px;
+        padding: 2px;
+        line-height: 13px;
+      }
     }
 
     th {
