@@ -55,7 +55,7 @@ const GameSettings = () => {
       cardsCount: newCount,
     }))
   }
-  useEffect(() => {}, [settings])
+
   useEffect(() => {
     setCardsCount(settings.cardsCount)
   }, [settings.cardsCount])
@@ -161,8 +161,8 @@ const GameSettings = () => {
     setIsApplied(true)
   }
   const handleImageRadio = (value: string) => {
-    if (usersImageArr.length < 16) {
-      setImageRadioError('You need download minimum 16 images!')
+    if (usersImageArr.length < 8) {
+      setImageRadioError('You need download minimum 8 images!')
       return
     } else {
       setImageRadioError(null)

@@ -41,7 +41,16 @@ const App = () => {
     img: 'https://img.staticdj.com/29d966a2704515bd56b83e4f17a4ce01.jpeg',
     id: '0001',
   })
-  const [usersImageArr, setUsersImageArr] = useState<string[]>([])
+  const [usersImageArr, setUsersImageArr] = useState<string[]>([
+    '/img/stock-cards/1.jpg',
+    '/img/stock-cards/2.jpg',
+    '/img/stock-cards/3.jpg',
+    '/img/stock-cards/4.jpg',
+    '/img/stock-cards/5.jpg',
+    '/img/stock-cards/6.jpg',
+    '/img/stock-cards/7.jpg',
+    '/img/stock-cards/8.jpg',
+  ])
   const [userResultData, setUserResultData] = useState<UserResultData[]>([])
   const [cardsBy, setCardsBy] = useState<'api' | 'custom'>('api')
   const [isStarted, setIsStarted] = useState<boolean>(false)
