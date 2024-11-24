@@ -47,7 +47,7 @@ const UserImagesModal = ({
               marginTop: '100px',
             }}
           >
-            there's no images
+            empty-_-
           </p>
         )}
       </div>
