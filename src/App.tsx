@@ -22,14 +22,14 @@ const App = () => {
   })
 
   const [commonStatics, setCommonStatics] = useState({
-    title: 'Common static',
+    title: 'Common statistics',
     gamesCount: 0,
     guessCount: 0,
     mistakesCount: 0,
   })
 
   const [currentStatistics, setCurrentStatistics] = useState({
-    title: 'Current static',
+    title: 'Current statistics',
     gamesCount: 0,
     guessCount: 0,
     mistakesCount: 0,
