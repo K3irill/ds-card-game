@@ -161,8 +161,8 @@ const GameSettings = () => {
     setIsApplied(true)
   }
   const handleImageRadio = (value: string) => {
-    if (usersImageArr.length < 8) {
-      setImageRadioError('You need download minimum 8 images!')
+    if (usersImageArr.length < 10) {
+      setImageRadioError('You need download minimum 10 images!')
       return
     } else {
       setImageRadioError(null)
@@ -175,7 +175,11 @@ const GameSettings = () => {
       setCardsBy('custom')
     }
   }
-
+  useEffect(() => {
+    if (setUsersImageArr.length < 10) {
+      setCardsBy('api')
+    }
+  }, [usersImageArr])
   return (
     <>
       <div className={styles['settings-menu__game']}>

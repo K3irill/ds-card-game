@@ -59,6 +59,28 @@ const ResultsPage = () => {
     setCurrentPage(n)
   }
 
+  const sortByField = (key: keyof UserResultData) => {
+    const sorted = [...sortedData].sort((a, b) => {
+      const valueA = a[key]
+      const valueB = b[key]
+
+      if (typeof valueA === 'number' && typeof valueB === 'number') {
+        return sortTeg === 'asc' ? valueA - valueB : valueB - valueA
+      }
+
+      if (typeof valueA === 'string' && typeof valueB === 'string') {
+        return sortTeg === 'asc'
+          ? valueA.localeCompare(valueB)
+          : valueB.localeCompare(valueA)
+      }
+      return 0
+    })
+
+    setSortedData(sorted)
+    setSortTeg((prev) => (prev === 'asc' ? 'desc' : 'asc'))
+    setCurrentPage(1)
+  }
+
   return (
     <div className={styles['result-page']}>
       <div className={styles['result-page__container']}>
@@ -89,11 +111,61 @@ const ResultsPage = () => {
                     alt=""
                   />
                 </th>
-                <th>Playing Time</th>
-                <th>Mistakes Count</th>
-                <th>Difficulty</th>
-                <th>Guess Count</th>
-                <th>User</th>
+                <th
+                  className={styles['result-page__sort-btn']}
+                  onClick={() => sortByField('playing_time')}
+                >
+                  Playing Time
+                  <img
+                    className={styles['result-page__sort-img']}
+                    src="/icons/sort.svg"
+                    alt=""
+                  />
+                </th>
+                <th
+                  className={styles['result-page__sort-btn']}
+                  onClick={() => sortByField('mistakes')}
+                >
+                  Mistakes Count
+                  <img
+                    className={styles['result-page__sort-img']}
+                    src="/icons/sort.svg"
+                    alt=""
+                  />
+                </th>
+                <th
+                  className={styles['result-page__sort-btn']}
+                  onClick={() => sortByField('difficulty')}
+                >
+                  Difficulty
+                  <img
+                    className={styles['result-page__sort-img']}
+                    src="/icons/sort.svg"
+                    alt=""
+                  />
+                </th>
+                <th
+                  className={styles['result-page__sort-btn']}
+                  onClick={() => sortByField('guesses')}
+                >
+                  Guess Count
+                  <img
+                    className={styles['result-page__sort-img']}
+                    src="/icons/sort.svg"
+                    alt=""
+                  />
+                </th>
+                <th
+                  className={styles['result-page__sort-btn']}
+                  onClick={() => sortByField('user')}
+                >
+                  User
+                  <img
+                    className={styles['result-page__sort-img']}
+                    src="/icons/sort.svg"
+                    alt=""
+                  />
+                </th>
               </tr>
             </thead>
             <tbody>

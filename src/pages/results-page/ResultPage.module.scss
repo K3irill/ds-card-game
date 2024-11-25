@@ -92,9 +92,11 @@
     width: 20px;
   }
   &__sort-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
+    img {
+      position: absolute;
+      right: 5px;
+    }
     &:hover {
       opacity: 0.6;
     }
