@@ -50,6 +50,8 @@ const App = () => {
     '/img/stock-cards/6.jpg',
     '/img/stock-cards/7.jpg',
     '/img/stock-cards/8.jpg',
+    '/img/stock-cards/9.jpg',
+    '/img/stock-cards/10.jpg',
   ])
   const [userResultData, setUserResultData] = useState<UserResultData[]>([])
   const [cardsBy, setCardsBy] = useState<'api' | 'custom'>('api')
