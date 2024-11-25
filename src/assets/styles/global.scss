@@ -22,6 +22,9 @@ main {
 .author {
   text-align: center;
   font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   span {
     color: $pink;
   }
@@ -38,4 +41,17 @@ main {
 
 .bg-settings {
   background: linear-gradient(90deg, #1e90ff, #c3ddf5);
+}
+.music-btn {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
 }

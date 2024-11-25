@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Header from './components/header/Header'
 import ResultsPage from './pages/results-page/ResultsPage'
@@ -7,11 +7,18 @@ import changeBackground from './utils/changeBackground'
 import { AppContext, GameContext } from './context/Context.tsx'
 import GamePage from './pages/game-page/GamePage.tsx'
 import useTimer from './hooks/useTimer.tsx'
-import { UserResultData } from './interfaces/gameSetting.interface.tsx'
+import {
+  CommonStatistics,
+  CurrentStatistics,
+  GameSettings,
+  user,
+  UserResultData,
+} from './interfaces/gameSetting.interface.tsx'
+import useAudio from './hooks/useAudio.tsx'
 
 const App = () => {
   const location = useLocation()
-  const [settings, setSettings] = useState({
+  const [settings, setSettings] = useState<GameSettings>({
     timer: 30,
     difficulty: 'easy',
     cardsCount: 12,
@@ -21,21 +28,23 @@ const App = () => {
     category: 'nature',
   })
 
-  const [commonStatics, setCommonStatics] = useState({
+  const [commonStatics, setCommonStatics] = useState<CommonStatistics>({
     title: 'Common statistics',
     gamesCount: 0,
     guessCount: 0,
     mistakesCount: 0,
   })
 
-  const [currentStatistics, setCurrentStatistics] = useState({
-    title: 'Current statistics',
-    gamesCount: 0,
-    guessCount: 0,
-    mistakesCount: 0,
-    gamePassage: 0,
-  })
-  const [user, setUser] = useState({
+  const [currentStatistics, setCurrentStatistics] = useState<CurrentStatistics>(
+    {
+      title: 'Current statistics',
+      gamesCount: 0,
+      guessCount: 0,
+      mistakesCount: 0,
+      gamePassage: 0,
+    },
+  )
+  const [user, setUser] = useState<user>({
     name: 'Grinch',
     tag: '@grinch0001',
     img: 'https://img.staticdj.com/29d966a2704515bd56b83e4f17a4ce01.jpeg',
@@ -53,6 +62,15 @@ const App = () => {
     '/img/stock-cards/9.jpg',
     '/img/stock-cards/10.jpg',
   ])
+  const {
+    currentTrack,
+    musicFiles,
+    toggleMusic,
+    nextTrack,
+    handleTrackEnd,
+    audioRef,
+    isPlaying,
+  } = useAudio()
   const [userResultData, setUserResultData] = useState<UserResultData[]>([])
   const [cardsBy, setCardsBy] = useState<'api' | 'custom'>('api')
   const [isStarted, setIsStarted] = useState<boolean>(false)
@@ -86,6 +104,7 @@ const App = () => {
       gamePassage: 0,
     }))
   }
+
   return (
     <AppContext.Provider
       value={{
@@ -131,7 +150,18 @@ const App = () => {
         <footer>
           <p className="author">
             made by K<span>3</span>irill
+            <button className="music-btn" onClick={toggleMusic}>
+              <img
+                src={!isPlaying ? '/icons/loud-off.svg' : '/icons/loud.svg'}
+                alt=""
+              />
+            </button>
           </p>
+          <audio
+            onEnded={handleTrackEnd}
+            ref={audioRef}
+            src={musicFiles[currentTrack]}
+          />
         </footer>
       </GameContext.Provider>
     </AppContext.Provider>
