@@ -1,0 +1,104 @@
+@use "../../assets/styles/variables" as *;
+.result-page {
+  display: flex;
+  justify-content: center;
+  padding: 80px 5px 0 5px;
+  margin: 0 auto;
+
+  * {
+    color: white;
+  }
+
+  &__headings {
+    font-size: 32px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 0px 30px;
+    margin-bottom: 20px;
+    h2 {
+      margin-right: 30px;
+    }
+    input {
+      background: transparent;
+      border: 1px solid #ffffff;
+      &:focus {
+        border: 1px dotted #ffffff;
+      }
+    }
+
+    @media (width <= 870px) {
+      font-size: 18px;
+      padding: 0px 5px;
+    }
+  }
+
+  &__container {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__table-wrapper {
+    max-height: 800px;
+    overflow-y: auto;
+  }
+
+  &__table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: left;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      vertical-align: top;
+      @media (width >= 2600px) {
+        font-size: 36px;
+        padding: 30px;
+      }
+      @media (width <= 530px) {
+        font-size: 10px;
+        padding: 2px;
+        line-height: 13px;
+      }
+    }
+
+    th {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  &__pagination-btn {
+    background-color: transparent;
+    font-size: 22px;
+    &--active {
+      color: $pink;
+    }
+  }
+  &__sort-img {
+    width: 20px;
+  }
+  &__sort-btn {
+    position: relative;
+    img {
+      position: absolute;
+      right: 5px;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

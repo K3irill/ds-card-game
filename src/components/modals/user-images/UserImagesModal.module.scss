@@ -1,0 +1,53 @@
+.userModal {
+  position: absolute;
+  background-color: rgba(40, 167, 184, 0.788);
+  padding: 15px;
+  height: 350px;
+  max-width: 530px;
+  min-width: 300px;
+  overflow-y: auto;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  &__images-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  &__image {
+    background-color: #ffffff86;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  &__delete-btn {
+    z-index: 101;
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    color: white;
+    background-color: transparent;
+    text-shadow: 0px 0px 2px rgb(0, 0, 0);
+    &:hover {
+      filter: invert(10);
+    }
+  }
+  &__close-btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 18px;
+    background-color: transparent;
+    &:hover {
+      filter: invert(10);
+    }
+  }
+}

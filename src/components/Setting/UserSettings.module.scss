@@ -1,0 +1,64 @@
+@use "../../assets/styles/variables" as *;
+.settings-menu {
+  &__user {
+    max-width: 500px;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  &__user {
+    flex-direction: column;
+    justify-content: start;
+    @media (width <= 870px) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+  &__user-name {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    input {
+      width: 156px;
+    }
+    & > button {
+      width: 180px;
+      text-wrap: nowrap;
+      padding: 2px;
+    }
+
+    @media (width <= 870px) {
+      flex-direction: column;
+      align-items: center;
+
+      div {
+        width: 180px;
+      }
+      input {
+        width: 180px;
+      }
+    }
+  }
+  &__user-error {
+    position: absolute;
+    bottom: -20px;
+    color: $red-link;
+  }
+
+  &__user-settings {
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+  }
+  &__user-avatar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  &__user-avatar-input {
+    position: absolute;
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,29 @@
+@use "../../assets/styles/variables" as *;
+.settings-page {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding-bottom: 40px;
+  &__container {
+    padding-top: 50px;
+    width: 856px;
+  }
+  &__headings {
+    display: flex;
+    justify-content: space-around;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    @media (width <= 870px) {
+      h2 {
+        display: none;
+      }
+      &::before {
+        content: "Settings";
+        font-size: 22px;
+        font-family: $font-primary;
+        color: $white-primary;
+      }
+    }
+  }
+}

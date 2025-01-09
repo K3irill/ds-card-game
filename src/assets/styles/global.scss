@@ -1,0 +1,57 @@
+@use "./mixins" as *;
+@use "./reset" as *;
+@use "./variables" as *;
+
+#root {
+  padding: 10px 100px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  @media (width <= 1279px) {
+    padding: 10px 20px;
+  }
+  @media (width <= 830px) {
+    padding: 10px 5px;
+  }
+}
+
+main {
+  flex: 1 1 auto;
+  height: 100%;
+}
+.author {
+  text-align: center;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    color: $pink;
+  }
+}
+
+.bg-board {
+  background: linear-gradient(to bottom right, #001f54, #00ffab, #800080);
+}
+
+.bg-results {
+  // background: linear-gradient(45deg, #7b68ee, #32cd32, #ffd700);
+  background: linear-gradient(45deg, #00ced1, #191970);
+}
+
+.bg-settings {
+  background: linear-gradient(90deg, #1e90ff, #c3ddf5);
+}
+.music-btn {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}
